@@ -28,9 +28,9 @@ def read_word_embeds(file='mr_workspace/word.emb'):
         assert(i-1==voc_size)
     return voc, ebd
 
-def readData(train_label_file='data/mr/label_train.txt',train_text_file='data/mr/text_train.txt',
+def readData(train_label_file='data/mr/label_train.5.txt',train_text_file='data/mr/text_train.txt',
              test_label_file='data/mr/label_test.txt',test_text_file='data/mr/text_test.txt',
-             sent_ebd_file='mr_workspace/text.emb',all_text_file='data/mr/text_all.txt'):
+             sent_ebd_file='mr_workspace.5/text.emb',all_text_file='data/mr/text_all.txt'):
     allText=[]
     with open(all_text_file) as reader1, open(sent_ebd_file) as reader2:
         sent_num,sent_dim=[int(n) for n in reader2.readline().strip().split()]
@@ -40,17 +40,25 @@ def readData(train_label_file='data/mr/label_train.txt',train_text_file='data/mr
             allText.append((line1.strip().split(),np.array([float(v) for v in ebd],dtype=np.float64)))
 
     trainCorpus=[]
+
     with open(train_text_file) as reader1, open(train_label_file) as reader2:
         for line1,line2,text in zip(reader1,reader2,allText):
             assert(line1.strip().split()==text[0])
             sent=Sent(text[0],line2.strip(),text[1])
             trainCorpus.append(sent)
+
+    totolTrainCount=0
+    with open(train_text_file) as reader:
+        for line in reader:
+            totolTrainCount+=1
+
     testCorpus = []
     with open(test_text_file) as reader1, open(test_label_file) as reader2:
-        for line1, line2, text in zip(reader1, reader2, allText[len(trainCorpus):]):
+        for line1, line2, text in zip(reader1, reader2, allText[totolTrainCount:]):
             assert (line1.strip().split() == text[0])
             sent = Sent(text[0], line2.strip(), text[1])
             testCorpus.append(sent)
+
 
     return trainCorpus,testCorpus
 
