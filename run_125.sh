@@ -1,9 +1,9 @@
 #!/bin/sh
 
-text_file=data/mr/text_train.txt # the text file for training
-label_file=data/mr/label_train.125.txt # the label file for training
-infer_file=data/mr/text_all.txt # the text file to infer
-output_path=mr_workspace.125/
+text_file=data/dblp/text_train.txt # the text file for training
+label_file=data/dblp/label_train.125.txt # the label file for training
+infer_file=data/dblp/text_all.txt # the text file to infer
+output_path=dblp_workspace.125/
 
 window=5 # the window size for the construction of the word-word network
 min_count=0 # discard words that appear less than <min_count>
@@ -16,7 +16,7 @@ cat ${output_path}ww.net ${output_path}dw.net ${output_path}lw.net > ${output_pa
 cat ${output_path}words.node ${output_path}docs.node ${output_path}labels.node > ${output_path}text.node
 
 # learn predictive word representations
-./pte/pte -nodes ${output_path}text.node -words ${output_path}words.node -hin ${output_path}text.hin -output ${output_path}word.emb -binary 1 -size 100 -negative 5 -samples 300 -threads 20
+./pte/pte -nodes ${output_path}text.node -words ${output_path}words.node -hin ${output_path}text.hin -output ${output_path}word.emb -binary 0 -size 100 -negative 5 -samples 300 -threads 20
 
 # infer the embeddings of the texts provided in the <infer_file>
 ./text2vec/infer -infer ${infer_file} -vector ${output_path}word.emb -output ${output_path}text.emb -debug 2 -binary 0
