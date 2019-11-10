@@ -5,10 +5,10 @@
 import numpy as np
 
 class Sent(object):
-    def __init__(self,sent,lable,ebd):
-        self.label=''
+    def __init__(self,sent,label,ebd):
+        self.label=label
         self.emb=ebd
-        self.sent=[]
+        self.sent=sent
 
 
 def read_word_embeds(file='mr_workspace/word.emb'):
