@@ -22,39 +22,38 @@ data = d3.dsv(",", "output/logisticreg-mr.csv", function(d) {
       .attr("y", - 60)
       .attr("dy", ".75em")
       .attr("transform", "rotate(-90)")
-      .text("Num of Earthquakes");
+      .text("F");
 
   svg1.append("text")
       .attr("class", "x label")
       .attr("text-anchor", "middle")
       .attr("x", width / 2)
       .attr("y", height + 40)
-      .text("Year");
+      .text("x");
 
   svg1.append("text")
       .attr("x", (width / 2))
       .attr("y", 0 - (margin.top / 2))
       .attr("text-anchor", "middle")
       .style("font-size", "16px")
-      .text("Worldwide Earthquake stats 2000-2015");
+      .text("mr dataset");
 
-  var timeScale = d3.scaleTime()
-      .domain([data[0].year, data[data.length - 1].year]) // input
+  var xScale = d3.scaleLinear()
+      .domain([0, 1.1]) // input
       .range([0, width]); // output
 
   var yScale = d3.scaleLinear()
-      .domain([0, 2300]) // input
+      .domain([0.64, 0.72]) // input
       .range([height, 0]); // output
 
   var line_five = d3.line()
-      .x(function(d, i) {return timeScale(d.year); }) // set the x values for the line generator
-      .y(function(d) {return yScale(d.five); }) // set the y values for the line generator
-      .curve(d3.curveMonotoneX) // apply smoothing to the line
+      .x(function(d, i) {return xScale(d.x); }) // set the x values for the line generator
+      .y(function(d) {return yScale(d.y); }); // set the y values for the line generator
 
   svg1.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(timeScale).tickFormat(d3.timeFormat("%Y"))); // Create an axis component with d3.axisBottom
+      .call(d3.axisBottom(xScale)); // Create an axis component with d3.axisBottom
 
   svg1.append("g")
       .attr("class", "y axis")
