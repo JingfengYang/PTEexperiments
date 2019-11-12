@@ -2,6 +2,14 @@ var margin = {top: 100, right: 100, bottom: 100, left: 100}
   , width = 770- margin.left - margin.right
   , height = 640 - margin.top - margin.bottom;
 
+  var xScale = d3.scaleLinear()
+      .domain([0, 1.1]) // input
+      .range([0, width]); // output
+
+  var yScale = d3.scaleLinear()
+      .domain([0.63, 0.74]) // input
+      .range([height, 0]); // output
+
 data = d3.dsv(",", "output/logisticreg-mr.csv", function(d) {
             return {
                 x: +d["x"],
