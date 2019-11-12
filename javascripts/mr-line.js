@@ -67,6 +67,9 @@ data = d3.dsv(",", "output/logisticreg-mr.csv", function(d) {
       .attr("stroke-width", 2)
       .attr("d", line_five) // 11. Calls the line generator
 
-  svg1.append("rect").attr("x", width + 20).attr("y", 0).attr("height", 12).attr("width", 24).style("fill", "#FFC300")
-  svg1.append("text").attr("x", width + 50).attr("y", 0).text("5_5.9").attr("y", 10).style("font-size", 12).style("font-weight", "bold")
+  tip = d3.tip().attr('class', 'd3-tip').html(function(d) {temp = 0; temp2 = 0; data.forEach(function(da) {if (da.x == d.x && da.y == d.y) {temp = da.x; temp2 = da.y;};}); return "<div>x: " + temp + "</div><div>y: " + temp2 + "</div>"; });
+    svg1.call(tip);
+
+  svg1.selectAll().data(data).enter().append("circle").attr("id", function(d, i) { return d.x + '-' + d.y}).attr("class", "dot").attr("cx", function(d, i) { return xScale(d.x); }).attr("cy", function(d, i) { return yScale(d.y) }).style("fill", "#FFC300").attr("r", 5).on("mouseover", tip.show).on("mouseout", tip.hide);
+
 });
