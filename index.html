@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="UTF-8">
+		<title>Machine Learning Project</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+        <script type="text/javascript", src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
+		<script type="text/javascript", src="https://d3js.org/d3.v5.min.js"></script>
+		<script type="text/javascript", src="https://d3js.org/d3-dsv.v1.min.js"></script>
+		<script type="text/javascript", src="https://d3js.org/d3-fetch.v1.min.js"></script>
+		<script type="text/javascript", src="https://d3js.org/d3-color.v1.min.js"></script>
+		<script type="text/javascript", src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+		<script type="text/javascript", src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+		<script type="text/javascript", src="https://unpkg.com/topojson@3"></script>
+		<script type="text/javascript", src="javascripts/d3-tip.min.js"></script>
+
+	</head>
+	<body>
+		<section class="page-header">
+			<h1 class="project-name">Machine Learning Project</h1>
+			<h2 class="project-tagline"></h2>
+			<a href="https://github.gatech.edu/xli858/ml-t12" class="btn">View on GitHub</a>
+		</section>
+
+		<section class="main-content">
+			<h3>
+				<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction
+			</h3>
+			<p>
+				There are numerous machine learning methods to process and extract the information from texts: clustering, supervised classification, skip-gram, etc. The difficulty of text classification is sparity, polysemy and synonymy between words-words, words-documents, and the situations they applied to. We want to investigate a method for text classification using various datasets. We choose predictive text embedding (PTE), a semi-supervised representation learning method for text data, to deal with this due to its efficiency in incorporating arbitrary unsupervised and supervised information when constructing embeddings, compared with supervised models, like CNN and unsupervised models, like Skip-gram.
+			</p>
+			<h3>
+				<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods
+			</h3>
+			<p>
+				In semi-supervised sentence classification, to leverage both annotated data and unannotated text data, we first build a heterogeneous graph whose edge consists of word-sentence, word-word, and word-label. Then we learn the representations of each vertex in the graph. Finally, we could use them as input of the text classification task. This framework is proposed by <a href="https://arxiv.org/abs/1508.00200">Tang et al.</a>. There are several methods we would like to try in the second step. The first is to use <a href="https://arxiv.org/abs/1508.00200">PTE</a> training process. The second is to use <a href="https://arxiv.org/abs/1609.02907">Graph Convolutional Networks ( GCN )</a>. <a href="https://arxiv.org/abs/1809.05679">Yao et al.</a> has tried GCN in the text classification task, but they did not include existing labels as vertices in the graph. We argue that label vertices are crucial, because it can introduce supervised information when training word embeddings. Because of the heterogeneity, we would like to try techniques in Heterogeneous Graph Neural Network. We plan to use three datasets to test our model: <a href="http://www.cs.cornell.edu/people/pabo/movie-review-data/">one movie review dataset</a> and two sentiment classification datasets: <a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">Multi-Domain Sentiment Dataset (version 2.0)</a>, <a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/">Twitter Sentiment Analysis Training Corpus (Dataset)</a>.
+			</p>
+			<h3>
+				<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Results
+			</h3>
+			<p id="word-label">
+				We will be able to determine the approach with the best performance using the three datasets and the contribution of labeled and unlabeled data in semi-supervised learning to the final result, as well as the efficiency and the parameter used. Finally, we also present document visualizations to vividly illustrate our result.
+			</p>
+			<h3>
+				<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Some Bipartite Graph
+			</h3>
+			<p id="bipartite">
+				It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.
+			</p>
+			<h3>
+				<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MR Data Line Chart
+			</h3>
+			<p id="mr-line">
+				It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.
+			</p>
+			<h3>
+				<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Discussion
+			</h3>
+			<p>
+				PTE relates the unlabeled training data directly to the specific task, outperforming methods that train word/semantic embedding separately. Thus, we expect that utilizing recent advancements in graph-based neural network structure and traning method like proposed in <a href="https://arxiv.org/abs/1609.02907">Semi-Supervised Classification with Graph Convolutional Networks</a> can further enhance PTE method. We also expect that techniques in Heterogeneous Graph Neural Network like attention mechanism will improve our performance in this project because of our heterogeneous construction of graph and the nature of text analysis task.
+			</p>
+			<h3>
+				<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References
+			</h3>
+			<p>
+				<ol>
+					<li>
+						Thomas N Kipf and Max Welling.  Semi-supervised classification with graph convolutional networks.arXiv preprintarXiv:1609.02907, 2016.
+					</li>
+					<li>
+						Jian  Tang,  Meng  Qu,  and  Qiaozhu  Mei.   Pte:  Predictive  text  embedding  through  large-scale  heterogeneous  textnetworks.  InProceedings  of  the  21th  ACM  SIGKDD  International  Conference  on  Knowledge  Discovery  and  DataMining, KDD ’15, pages 1165–1174, New York, NY, USA, 2015. ACM.
+					</li>
+					<li>
+						Liang Yao, Chengsheng Mao, and Yuan Luo. Graph convolutional networks for text classification. InProceedings ofthe AAAI Conference on Artificial Intelligence, volume 33, pages 7370–7377, 2019.
+					</li>
+				</ol>
+			</p>
+
+			<footer class="site-footer">
+				<span class="site-footer-owner"><a href="https://github.gatech.edu/xli858/ml-t12">Machine Learning Project</a> is maintained by Bing He, Huili Huang, Xingchi Li, Zuoxin Tang, Jingfeng Yang</a>.</span>
+
+				<span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+			</footer>
+
+		</section>
+
+	</body>
+
+	<script type="text/javascript" src="javascripts/word-label.js"></script>
+	<script type="text/javascript" src="javascripts/mr-line.js"></script>
+
+	<!-- <script type="text/javascript">
+		var width = 960,
+	height = 500;
+
+var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+// create force layout
+var force = d3.forceSimulation().charge(-120).linkDistance(30).size([width, height]).distance(200);
+var svg = d3.select("#bipartite").append("svg").attr("width", width).attr("height", height).append('svg:g').call(d3.behavior.zoom().on("zoom", redraw));
+
+function redraw() {
+	svg.attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")");
+	node.attr("transform", function(d) {
+		return "translate(" + d.x + "," + d.y + ")";
+	});
+}
+
+d3.json("bip.json", function(error, graph) {
+
+	console.log("graph.nodes", graph.nodes)
+	console.log("graph.links", graph.links)
+
+	// start force layout
+	force.nodes(graph.nodes).links(graph.links).start();
+
+	var link = svg.selectAll(".link").data(graph.links).enter().append("line").attr("class", "link")
+	.style("stroke-width", function(d) {
+		return Math.sqrt(d.value);
+	});
+
+	var node=svg.selectAll('g.node').data(graph.nodes).enter().append('svg:g').attr('class','node').call(force.drag)
+	var circles=node.append('circle').attr("r", 5).style("fill", function(d) {
+		return color(d.group);
+	});
+	var texts=node.append('svg:text')
+	.attr("dx", 12)
+      .attr("dy", ".35em")
+	.text(function(d){return d.name});
+	node.append("title").text(function(d) {
+		return d.name;
+	});
+
+
+	force.on("tick", function() {
+		link.attr("x1", function(d) {
+			return d.source.x;
+		}).attr("y1", function(d) {
+			return d.source.y;
+		}).attr("x2", function(d) {
+			return d.target.x;
+		}).attr("y2", function(d) {
+			return d.target.y;
+		});
+
+		node.attr("transform", function(d) {
+			var x=d.x,
+				y=d.y;
+			if (x>300 && d.group=='tuple'){
+				x=300
+				d.x=x
+			}
+			if (x<500 && d.group=='pattern'){
+				x=500
+				d.x=x
+			}
+
+			return "translate(" + x + "," + y + ")";
+		});
+
+
+	});
+});
+
+	</script> -->
+
+</html>

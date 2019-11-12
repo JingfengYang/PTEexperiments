@@ -254,55 +254,65 @@ if __name__ == "__main__":
     plt.plot(x, F)
     plt.show()
 
+    f = open("output/logisticreg-mr.csv", "w")
+    f.write("x,y\n")
+    for i in range(len(x)):
+        f.write(str(x[i]) + ',' + str(F[i]) + '\n')
+    f.close()
+
     # This is the logistic regression of dblp dataset. The F score is really low.
-    '''
-
-    F1 = []
-    print("___________DBLP_______________")
-
-    y_pred_all, y_test_all = LR(train_label_file='data/dblp/label_train.txt',
-                                train_text_file='data/dblp/text_train.txt',
-                                test_label_file='data/dblp/label_test.txt', test_text_file='data/dblp/text_test.txt'
-                                , word_ebd_file='dblp_workspace/word.emb', all_text_file='data/dblp/text_all.txt')
-    F=Fscore1(y_pred_all, y_test_all)
-    print("F score of all_label:",F)
-    F1.append(F)
-
-    y_pred_50, y_test_50 = LR(train_label_file = 'data/dblp/label_train.5.txt',train_text_file = 'data/dblp/text_train.txt',
-                                test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
-                                ,word_ebd_file = 'dblp_workspace.5/word.emb',all_text_file = 'data/dblp/text_all.txt')
-
-    F = Fscore1(y_pred_50, y_test_50)
-    print("F score of 50%_label:", F)
-    F1.append(Fscore1(y_pred_50, y_test_50))
 
 
+    # F1 = []
+    # print("___________DBLP_______________")
 
-    y_pred_25, y_test_25 = LR(train_label_file = 'data/dblp/label_train.25.txt',train_text_file = 'data/dblp/text_train.txt',
-                                test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
-                                ,word_ebd_file = 'dblp_workspace.25/word.emb',all_text_file = 'data/dblp/text_all.txt')
-    F = Fscore1(y_pred_25, y_test_25)
-    print("F score of 25%_label:", F)
-    F1.append(Fscore1(y_pred_25, y_test_25))
+    # y_pred_all, y_test_all = LR(train_label_file='data/dblp/label_train.txt',
+    #                             train_text_file='data/dblp/text_train.txt',
+    #                             test_label_file='data/dblp/label_test.txt', test_text_file='data/dblp/text_test.txt'
+    #                             , word_ebd_file='dblp_workspace/word.emb', all_text_file='data/dblp/text_all.txt')
+    # F=Fscore1(y_pred_all, y_test_all)
+    # print("F score of all_label:",F)
+    # F1.append(F)
 
-    y_pred_125, y_test_125 = LR(train_label_file = 'data/dblp/label_train.125.txt',train_text_file = 'data/dblp/text_train.txt',
-                                test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
-                                ,word_ebd_file = 'dblp_workspace.125/word.emb',all_text_file = 'data/dblp/text_all.txt')
-    F = Fscore1(y_pred_125, y_test_125)
-    print("F score of 125%_label:", F)
-    F1.append(Fscore1(y_pred_125, y_test_125))
+    # y_pred_50, y_test_50 = LR(train_label_file = 'data/dblp/label_train.5.txt',train_text_file = 'data/dblp/text_train.txt',
+    #                             test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
+    #                             ,word_ebd_file = 'dblp_workspace.5/word.emb',all_text_file = 'data/dblp/text_all.txt')
 
-    F1 = np.array(F1)
-    plt.figure()
-    F1 = F1[::-1]
-    plt.title("dblp dataset")
-    x = np.array([0.125, 0.25, 0.5, 1])
-    plt.plot(x, F1)
-    plt.show()
-    '''
+    # F = Fscore1(y_pred_50, y_test_50)
+    # print("F score of 50%_label:", F)
+    # F1.append(Fscore1(y_pred_50, y_test_50))
 
 
 
+    # y_pred_25, y_test_25 = LR(train_label_file = 'data/dblp/label_train.25.txt',train_text_file = 'data/dblp/text_train.txt',
+    #                             test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
+    #                             ,word_ebd_file = 'dblp_workspace.25/word.emb',all_text_file = 'data/dblp/text_all.txt')
+    # F = Fscore1(y_pred_25, y_test_25)
+    # print("F score of 25%_label:", F)
+    # F1.append(Fscore1(y_pred_25, y_test_25))
+
+    # y_pred_125, y_test_125 = LR(train_label_file = 'data/dblp/label_train.125.txt',train_text_file = 'data/dblp/text_train.txt',
+    #                             test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
+    #                             ,word_ebd_file = 'dblp_workspace.125/word.emb',all_text_file = 'data/dblp/text_all.txt')
+    # F = Fscore1(y_pred_125, y_test_125)
+    # print("F score of 125%_label:", F)
+    # F1.append(Fscore1(y_pred_125, y_test_125))
+
+    # F1 = np.array(F1)
+    # plt.figure()
+    # F1 = F1[::-1]
+    # plt.title("dblp dataset")
+    # x = np.array([0.125, 0.25, 0.5, 1])
+    # plt.plot(x, F1)
+    # plt.show()
+
+
+
+    # f = open("output/logisticreg-dblp.csv", "w")
+    # f.write("x,y\n")
+    # for i in range(len(x)):
+    #     f.write(str(x[i]) + ',' + str(F1[i]) + '\n')
+    # f.close()
 
 
 
