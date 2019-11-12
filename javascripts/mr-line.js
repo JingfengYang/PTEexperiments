@@ -76,10 +76,7 @@ data = d3.dsv(",", "output/logisticreg-mr.csv", function(d) {
   svg1.append("rect").attr("x", width + 20).attr("y", 0).attr("height", 12).attr("width", 24).style("fill", "#FFC300")
   svg1.append("text").attr("x", width + 50).attr("y", 10).text("mr").style("font-size", 12).style("font-weight", "bold")
 
-});
-
-
-data = d3.dsv(",", "output/logisticreg-dblp.csv", function(d) {
+  data = d3.dsv(",", "output/logisticreg-dblp.csv", function(d) {
             return {
                 x: +d["x"],
                 y: +d["y"]
@@ -107,4 +104,6 @@ data = d3.dsv(",", "output/logisticreg-dblp.csv", function(d) {
 
   svg2.append("rect").attr("x", width + 120).attr("y", 120).attr("height", 12).attr("width", 24).style("fill", "steelblue")
   svg2.append("text").attr("x", width + 150).attr("y", 130).text("dblp").style("font-size", 12).style("font-weight", "bold")
+});
+
 });
