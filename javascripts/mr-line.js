@@ -18,6 +18,7 @@ data = d3.dsv(",", "output/logisticreg-mr.csv", function(d) {
         }).then(function(data) {
 
   var svg1 = d3.select("#mr-line").append("svg")
+      .attr("id", "mr-line-dblp")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
