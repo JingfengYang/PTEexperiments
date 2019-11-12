@@ -254,6 +254,12 @@ if __name__ == "__main__":
     plt.plot(x, F)
     plt.show()
 
+    f = open("output/logisticreg-mr.csv", "w")
+    f.write("x,y\n")
+    for i in range(len(x)):
+        f.write(str(x[i]) + ',' + str(F[i]) + '\n')
+    f.close()
+
     # This is the logistic regression of dblp dataset. The F score is really low.
     '''
 
