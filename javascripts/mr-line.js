@@ -1,6 +1,6 @@
 var margin = {top: 100, right: 100, bottom: 100, left: 100}
-  , width = window.innerWidth * 3 / 4 - margin.left - margin.right
-  , height = window.innerHeight * 3 / 4 - margin.top - margin.bottom;
+  , width = 770- margin.left - margin.right
+  , height = 640 - margin.top - margin.bottom;
 
 data = d3.dsv(",", "output/logisticreg-mr.csv", function(d) {
             return {
