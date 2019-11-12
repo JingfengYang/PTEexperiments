@@ -38,6 +38,7 @@ logreg=LogisticRegression()
 logreg.fit(train_x,train_y)
 y_pred=logreg.predict(test_x)
 
+print('#######',y_pred)
 #F-Measure
 C_sum_0=0  #obtaied cluster
 C_sum_1=0
@@ -79,10 +80,10 @@ print("n01=",n01)
 print("n10=",n10)
 print("n11=",n11)
 
-prec0=max(n00,n01)/C_sum_0
-prec1=max(n10,n11)/C_sum_1
-recall0=max(n00,n01)/T_sum_0
-recall1=max(n00,n01)/T_sum_1
+prec0=n00/C_sum_0
+prec1=n11/C_sum_1
+recall0=n00/T_sum_0
+recall1=n11/T_sum_1
 F0=(2*prec0*recall0)/(prec0+recall0)
 F1=(2*prec1*recall1)/(prec1+recall1)
 F=(F0+F1)/2

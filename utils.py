@@ -11,7 +11,7 @@ class Sent(object):
         self.sent=sent
 
 
-def read_word_embeds(file='mr_workspace/word.emb'):
+def read_word_embeds(file='dblp_workspace/word.emb'):
     voc=[]
     with open(file,'r') as reader:
         i=0
@@ -28,16 +28,24 @@ def read_word_embeds(file='mr_workspace/word.emb'):
         assert(i-1==voc_size)
     return voc, ebd
 
-def readData(train_label_file='data/mr/label_train.5.txt',train_text_file='data/mr/text_train.txt',
-             test_label_file='data/mr/label_test.txt',test_text_file='data/mr/text_test.txt',
-             sent_ebd_file='mr_workspace.5/text.emb',all_text_file='data/mr/text_all.txt'):
+def readData(train_label_file='data/dblp/label_train.5.txt',train_text_file='data/dblp/text_train.txt',
+             test_label_file='data/dblp/label_test.txt',test_text_file='data/dblp/text_test.txt',
+             word_ebd_file='dblp_workspace.5/word.emb',all_text_file='data/dblp/text_all.txt'):
+    voc,word_ebd=read_word_embeds(file=word_ebd_file)
+    dic={}
+    for i,voc in enumerate(voc):
+        dic[voc]=i
     allText=[]
-    with open(all_text_file) as reader1, open(sent_ebd_file) as reader2:
-        sent_num,sent_dim=[int(n) for n in reader2.readline().strip().split()]
-        for line1,line2 in zip(reader1,reader2):
-            ebd=line2.strip().split()[1:]
-            assert(len(ebd)==sent_dim)
-            allText.append((line1.strip().split(),np.array([float(v) for v in ebd],dtype=np.float64)))
+    with open(all_text_file) as reader1:
+        for line1 in reader1:
+            sent=line1.strip().split()
+            sent_ebd=[]
+            for word in sent:
+                if word in dic:
+                    sent_ebd.append(word_ebd[dic[word]])
+            if len(sent_ebd)==0:
+                sent_ebd=[np.zeros_like(word_ebd[0],dtype=np.float64)]
+            allText.append((sent,np.average(np.array(sent_ebd,dtype=np.float64),axis=0)))
 
     trainCorpus=[]
 
