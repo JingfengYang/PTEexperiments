@@ -1,0 +1,32 @@
+python3 main.py dblp --gpu
+Num of labeled data:  61479
+F1 score: micro-0.76470	macro-0.72937
+
+python3 main.py dblp --percent 5 --gpu
+Num of labeled data:  30739
+F1 score: micro-0.74165	macro-0.69705
+
+python3 main.py dblp --percent 25 --gpu
+Num of labeled data:  15369
+F1 score: micro-0.69325	macro-0.59451
+
+python3 main.py dblp --percent 125 --gpu
+Num of labeled data:  7684
+F1 score: micro-0.64715	macro-0.47543
+
+python3 main.py mr --gpu
+Num of labeled data:  7108
+F1 score: micro-0.70259	macro-0.70201
+
+python3 main.py mr --percent 5 --gpu
+Num of labeled data:  3554
+F1 score: micro-0.68655	macro-0.68654
+
+python3 main.py mr --percent 25 --gpu
+Num of labeled data:  1777
+F1 score: micro-0.66263	macro-0.65875
+
+python3 main.py mr --percent 125 --gpu
+Num of labeled data:  888
+F1 score: micro-0.63647	macro-0.63629
+
