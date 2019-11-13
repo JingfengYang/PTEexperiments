@@ -30,9 +30,9 @@ def read_word_embeds(file='dblp_workspace/word.emb'):
         assert(i-1==voc_size)
     return voc, ebd
 
-def readData(train_label_file='data/dblp/label_train.5.txt',train_text_file='data/dblp/text_train.txt',
+def readData(train_label_file='data/dblp/label_train.txt',train_text_file='data/dblp/text_train.txt',
              test_label_file='data/dblp/label_test.txt',test_text_file='data/dblp/text_test.txt',
-             word_ebd_file='dblp_workspace.5/word.emb',all_text_file='data/dblp/text_all.txt'):
+             word_ebd_file='dblp_workspace/word.emb',all_text_file='data/dblp/text_all.txt'):
     voc,word_ebd=read_word_embeds(file=word_ebd_file)
     dic={}
     for i,voc in enumerate(voc):
