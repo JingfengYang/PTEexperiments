@@ -13,7 +13,7 @@ class Sent(object):
         self.sent=sent
 
 
-def read_word_embeds(file='dblp_workspace/word.emb'):
+def read_word_embeds(file='mr_workspace/word.emb'):
     voc=[]
     with open(file,'r') as reader:
         i=0
@@ -30,9 +30,9 @@ def read_word_embeds(file='dblp_workspace/word.emb'):
         assert(i-1==voc_size)
     return voc, ebd
 
-def readData(train_label_file='data/dblp/label_train.txt',train_text_file='data/dblp/text_train.txt',
-             test_label_file='data/dblp/label_test.txt',test_text_file='data/dblp/text_test.txt',
-             word_ebd_file='dblp_workspace/word.emb',all_text_file='data/dblp/text_all.txt'):
+def readData(train_label_file='data/mr/label_train.txt',train_text_file='data/mr/text_train.txt',
+             test_label_file='data/mr/label_test.txt',test_text_file='data/mr/text_test.txt',
+             word_ebd_file='mr_workspace/word.emb',all_text_file='data/mr/text_all.txt'):
     voc,word_ebd=read_word_embeds(file=word_ebd_file)
     dic={}
     for i,voc in enumerate(voc):
@@ -88,7 +88,7 @@ def readData(train_label_file='data/dblp/label_train.txt',train_text_file='data/
 
     data[:, :2] = TSNE(n_components = 2).fit_transform(points)
 
-    np.savetxt('output/embed-vis-dblp-train.csv', data, delimiter=',', fmt='%10.5f')
+    np.savetxt('output/embed-vis-mr-train.csv', data, delimiter=',', fmt='%10.5f')
 
 
 
@@ -105,7 +105,7 @@ def readData(train_label_file='data/dblp/label_train.txt',train_text_file='data/
     print("doing TSNE")
 
     data_test[:, :2] = TSNE(n_components = 2).fit_transform(points_test)
-    np.savetxt('output/embed-vis-dblp-test.csv', data, delimiter=',', fmt='%10.5f')
+    np.savetxt('output/embed-vis-mr-test.csv', data, delimiter=',', fmt='%10.5f')
     return trainCorpus,testCorpus
 
 
