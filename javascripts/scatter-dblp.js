@@ -89,4 +89,23 @@ var color = ["#a8ddb5","#7bccc4","#4eb3d3","#2b8cbe","#0868ac","#084081"];
   svg1.append("g")
       .attr("class", "y axis")
       .call(d3.axisLeft(yScale)); // Create an axis component with d3.axisLeft
+
+
+  svg1.selectAll().data(data).enter().append("circle").attr("id", function(d, i) { return d.x + '-' + d.y}).attr("class", "dot").attr("cx", function(d, i) { return xScale(d.x); }).attr("cy", function(d, i) { return yScale(d.y) }).attr("stroke", function(d, i) { return cScale(d.label) }).style("fill", "white").attr("r", 1);
+
+  svg1.append("rect").attr("x", width + 20).attr("y", 0).attr("height", 12).attr("width", 24).style("fill", "#a8ddb5")
+  svg1.append("text").attr("x", width + 50).attr("y", 10).text("label 1").style("font-size", 12).style("font-weight", "bold")
+  svg1.append("rect").attr("x", width + 20).attr("y", 20).attr("height", 12).attr("width", 24).style("fill", "#7bccc4")
+  svg1.append("text").attr("x", width + 50).attr("y", 30).text("label 2").style("font-size", 12).style("font-weight", "bold")
+
+  svg1.append("rect").attr("x", width + 20).attr("y", 40).attr("height", 12).attr("width", 24).style("fill", "#4eb3d3")
+  svg1.append("text").attr("x", width + 50).attr("y", 50).text("label 3").style("font-size", 12).style("font-weight", "bold")
+  svg1.append("rect").attr("x", width + 20).attr("y", 60).attr("height", 12).attr("width", 24).style("fill", "#2b8cbe")
+  svg1.append("text").attr("x", width + 50).attr("y", 70).text("label 4").style("font-size", 12).style("font-weight", "bold")
+
+  svg1.append("rect").attr("x", width + 20).attr("y", 80).attr("height", 12).attr("width", 24).style("fill", "#0868ac")
+  svg1.append("text").attr("x", width + 50).attr("y", 90).text("label 5").style("font-size", 12).style("font-weight", "bold")
+  svg1.append("rect").attr("x", width + 20).attr("y", 100).attr("height", 12).attr("width", 24).style("fill", "#084081")
+  svg1.append("text").attr("x", width + 50).attr("y", 110).text("label 6").style("font-size", 12).style("font-weight", "bold")
+
 });
