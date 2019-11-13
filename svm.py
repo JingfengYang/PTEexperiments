@@ -9,9 +9,10 @@ from sklearn.metrics import precision_recall_fscore_support
 from sklearn.metrics import accuracy_score
 #
 def two_class_metric(yTest,yPredict):
-    precision,recall,f1Macro,_=precision_recall_fscore_support(yTest, yPredict,average='binary')
-    precision,recall,f1Micro,_=precision_recall_fscore_support(yTest, yPredict,average='binary')
-    precision,recall,f1Weighted,_=precision_recall_fscore_support(yTest, yPredict,average='binary')
+    # print(yTest, yPredict)
+    precision,recall,f1Macro,_=precision_recall_fscore_support(yTest, yPredict,average='binary', pos_label="1")
+    precision,recall,f1Micro,_=precision_recall_fscore_support(yTest, yPredict,average='binary', pos_label="1")
+    precision,recall,f1Weighted,_=precision_recall_fscore_support(yTest, yPredict,average='binary', pos_label="1")
     accScore=accuracy_score(yTest, yPredict)
     allList=[precision,recall,f1Macro,f1Micro,f1Weighted,accScore]
     return precision,recall,f1Macro,f1Micro,f1Weighted,accScore,allList
