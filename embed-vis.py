@@ -1,8 +1,10 @@
-##### Author: Jingfeng Yang #####
+##### Author: Xingchi Li #####
+# Forked from work by Jingfeng Yang
 ## Read word embeddings, sentences and sentence embeddings, build training and test dataset ##
 
 
 import numpy as np
+from sklearn.manifold import TSNE
 
 class Sent(object):
     def __init__(self,sent,label,ebd):
