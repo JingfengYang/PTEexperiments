@@ -37,7 +37,7 @@ data = d3.dsv(",", "output/logisticreg-mr.csv", function(d) {
       .attr("class", "x label")
       .attr("text-anchor", "middle")
       .attr("x", width / 2)
-      .attr("y", height + 40)
+      .attr("y", height + 90)
       .text("x");
 
   svg1.append("text")
@@ -50,11 +50,6 @@ data = d3.dsv(",", "output/logisticreg-mr.csv", function(d) {
   var line_five = d3.line()
       .x(function(d, i) {return xScale(d.x); }) // set the x values for the line generator
       .y(function(d) {return yScale(d.y); }); // set the y values for the line generator
-
-  svg1.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(xScale)); // Create an axis component with d3.axisBottom
 
   svg1.append("g")
       .attr("class", "y axis")
@@ -88,6 +83,11 @@ data = d3.dsv(",", "output/logisticreg-mr.csv", function(d) {
   var line_new = d3.line()
       .x(function(d, i) {return xScale(d.x+0.193); }) // set the x values for the line generator
       .y(function(d) {return yScale(d.y-0.0255); }); // set the y values for the line generator
+
+  svg2.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(100," + 540 + ")")
+      .call(d3.axisBottom(xScale)); // Create an axis component with d3.axisBottom
 
   svg2.append("path")
       .datum(data_new) // 10. Binds data_new to the line
