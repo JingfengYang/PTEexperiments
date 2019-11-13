@@ -69,9 +69,43 @@ def readData(train_label_file='data/dblp/label_train.txt',train_text_file='data/
             sent = Sent(text[0], line2.strip(), text[1])
             testCorpus.append(sent)
 
-    print(trainCorpus[0].emb)
-    print(trainCorpus[0].label)
 
+
+
+
+
+
+    n = len(trainCorpus)
+    points = []
+    data = np.zeros((n, 3))
+    print(n)
+
+    for i in range(n):
+        data[i, 2] = trainCorpus[i].label
+        points.append(trainCorpus[i].emb)
+
+    print("doing TSNE")
+
+    data[:, :2] = TSNE(n_components = 2).fit_transform(points)
+
+    np.savetxt('output/embed-vis-dblp-train.csv', data, delimiter=',', fmt='%10.5f')
+
+
+
+
+    n = len(testCorpus)
+    points_test = []
+    data_test = np.zeros((n, 3))
+    print(n)
+
+    for i in range(n):
+        data_test[i, 2] = testCorpus[i].label
+        points_test.append(testCorpus[i].emb)
+
+    print("doing TSNE")
+
+    data_test[:, :2] = TSNE(n_components = 2).fit_transform(points_test)
+    np.savetxt('output/embed-vis-dblp-test.csv', data, delimiter=',', fmt='%10.5f')
     return trainCorpus,testCorpus
 
 
