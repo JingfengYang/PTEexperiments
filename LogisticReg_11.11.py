@@ -4,6 +4,9 @@ from sklearn.linear_model import LogisticRegression
 import matplotlib.pyplot as plt
 import pickle
 import warnings
+
+from sklearn.metrics import f1_score
+
 #warnings.filterwarnings("ignore", category=FutureWarning)
 
 def LR(train_label_file, train_text_file, test_label_file, test_text_file, word_ebd_file, all_text_file):
@@ -216,35 +219,32 @@ def Fscore1(y_pred, test_y):
 if __name__ == "__main__":
     # This is the logistic regression of mr data set
 
-    F = []
+    Fmacro = Fscore(y_pred_all, y_test_all)
+    Fmicro=f1_score(y_pred_all,y_test_all,average='micro')
+    print("Fmacro score of all_label:", Fmacro)
+    print("Fmicro score of all_label:",Fmicro)
 
-    y_pred_all, y_test_all = LR(train_label_file='data/mr/label_train.txt', train_text_file='data/mr/text_train.txt',
-                                test_label_file='data/mr/label_test.txt', test_text_file='data/mr/text_test.txt',
-                                word_ebd_file='mr_workspace/word.emb', all_text_file='data/mr/text_all.txt')
-    Fz = Fscore(y_pred_all, y_test_all)
-    print("F score of all_label:", F)
+
     F.append(Fscore(y_pred_all, y_test_all))
 
     y_pred_50, y_test_50 = LR(train_label_file='data/mr/label_train.5.txt', train_text_file='data/mr/text_train.txt',
                               test_label_file='data/mr/label_test.txt', test_text_file='data/mr/text_test.txt',
                               word_ebd_file='mr_workspace.5/word.emb', all_text_file='data/mr/text_all.txt')
-    Fz = Fscore(y_pred_50, y_test_50)
-    print("F score of 50%_label:", F)
+
     F.append(Fscore(y_pred_50, y_test_50))
 
     y_pred_25, y_test_25 = LR(train_label_file='data/mr/label_train.25.txt', train_text_file='data/mr/text_train.txt',
                               test_label_file='data/mr/label_test.txt', test_text_file='data/mr/text_test.txt',
                               word_ebd_file='mr_workspace.25/word.emb', all_text_file='data/mr/text_all.txt')
-    Fz = Fscore(y_pred_25, y_test_25)
-    print("F score of 25%_label:", F)
+
     F.append(Fscore(y_pred_25, y_test_25))
 
     y_pred_125, y_test_125 = LR(train_label_file='data/mr/label_train.125.txt',
                                 train_text_file='data/mr/text_train.txt',
                                 test_label_file='data/mr/label_test.txt', test_text_file='data/mr/text_test.txt',
                                 word_ebd_file='mr_workspace.125/word.emb', all_text_file='data/mr/text_all.txt')
-    Fz = Fscore(y_pred_125, y_test_125)
-    print("F score of 125%_label:", F)
+
+
     F.append(Fscore(y_pred_125, y_test_125))
     F = np.array(F)
     plt.figure()
@@ -254,65 +254,64 @@ if __name__ == "__main__":
     plt.plot(x, F)
     plt.show()
 
-    f = open("output/logisticreg-mr.csv", "w")
-    f.write("x,y\n")
-    for i in range(len(x)):
-        f.write(str(x[i]) + ',' + str(F[i]) + '\n')
-    f.close()
-
     # This is the logistic regression of dblp dataset. The F score is really low.
+    '''
 
+    F1 = []
+    print("___________DBLP_______________")
 
-    # F1 = []
-    # print("___________DBLP_______________")
+    y_pred_all, y_test_all = LR(train_label_file='data/dblp/label_train.txt',
+                                train_text_file='data/dblp/text_train.txt',
+                                test_label_file='data/dblp/label_test.txt', test_text_file='data/dblp/text_test.txt'
+                                , word_ebd_file='dblp_workspace/word.emb', all_text_file='data/dblp/text_all.txt')
+    Fmacro = Fscore1(y_pred_all, y_test_all)
+    Fmicro=f1_score(y_pred_all,y_test_all,average='micro')
+    print("Fmacro score of all_label:", Fmacro)
+    print("Fmicro score of all_label:",Fmicro)
+    F1.append(Fmacro)
 
-    # y_pred_all, y_test_all = LR(train_label_file='data/dblp/label_train.txt',
-    #                             train_text_file='data/dblp/text_train.txt',
-    #                             test_label_file='data/dblp/label_test.txt', test_text_file='data/dblp/text_test.txt'
-    #                             , word_ebd_file='dblp_workspace/word.emb', all_text_file='data/dblp/text_all.txt')
-    # F=Fscore1(y_pred_all, y_test_all)
-    # print("F score of all_label:",F)
-    # F1.append(F)
+    y_pred_50, y_test_50 = LR(train_label_file = 'data/dblp/label_train.5.txt',train_text_file = 'data/dblp/text_train.txt',
+                                test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
+                                ,word_ebd_file = 'dblp_workspace.5/word.emb',all_text_file = 'data/dblp/text_all.txt')
 
-    # y_pred_50, y_test_50 = LR(train_label_file = 'data/dblp/label_train.5.txt',train_text_file = 'data/dblp/text_train.txt',
-    #                             test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
-    #                             ,word_ebd_file = 'dblp_workspace.5/word.emb',all_text_file = 'data/dblp/text_all.txt')
-
-    # F = Fscore1(y_pred_50, y_test_50)
-    # print("F score of 50%_label:", F)
-    # F1.append(Fscore1(y_pred_50, y_test_50))
-
-
-
-    # y_pred_25, y_test_25 = LR(train_label_file = 'data/dblp/label_train.25.txt',train_text_file = 'data/dblp/text_train.txt',
-    #                             test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
-    #                             ,word_ebd_file = 'dblp_workspace.25/word.emb',all_text_file = 'data/dblp/text_all.txt')
-    # F = Fscore1(y_pred_25, y_test_25)
-    # print("F score of 25%_label:", F)
-    # F1.append(Fscore1(y_pred_25, y_test_25))
-
-    # y_pred_125, y_test_125 = LR(train_label_file = 'data/dblp/label_train.125.txt',train_text_file = 'data/dblp/text_train.txt',
-    #                             test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
-    #                             ,word_ebd_file = 'dblp_workspace.125/word.emb',all_text_file = 'data/dblp/text_all.txt')
-    # F = Fscore1(y_pred_125, y_test_125)
-    # print("F score of 125%_label:", F)
-    # F1.append(Fscore1(y_pred_125, y_test_125))
-
-    # F1 = np.array(F1)
-    # plt.figure()
-    # F1 = F1[::-1]
-    # plt.title("dblp dataset")
-    # x = np.array([0.125, 0.25, 0.5, 1])
-    # plt.plot(x, F1)
-    # plt.show()
+    Fmacro = Fscore1(y_pred_50, y_test_50)
+    Fmicro = f1_score(y_pred_50, y_test_50, average='micro')
+    print("Fmacro score of 50%_label:", Fmacro)
+    print("Fmicro score of 50%_label:", Fmicro)
+    F1.append(Fscore1(y_pred_50, y_test_50))
 
 
 
-    # f = open("output/logisticreg-dblp.csv", "w")
-    # f.write("x,y\n")
-    # for i in range(len(x)):
-    #     f.write(str(x[i]) + ',' + str(F1[i]) + '\n')
-    # f.close()
+    y_pred_25, y_test_25 = LR(train_label_file = 'data/dblp/label_train.25.txt',train_text_file = 'data/dblp/text_train.txt',
+                                test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
+                                ,word_ebd_file = 'dblp_workspace.25/word.emb',all_text_file = 'data/dblp/text_all.txt')
+    Fmacro = Fscore1(y_pred_25, y_test_25)
+    Fmicro = f1_score(y_pred_25, y_test_25, average='micro')
+    print("Fmacro score of 25%_label:", Fmacro)
+    print("Fmicro score of 25%_label:", Fmicro)
+    F1.append(Fscore1(y_pred_25, y_test_25))
+
+    y_pred_125, y_test_125 = LR(train_label_file = 'data/dblp/label_train.125.txt',train_text_file = 'data/dblp/text_train.txt',
+                                test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
+                                ,word_ebd_file = 'dblp_workspace.125/word.emb',all_text_file = 'data/dblp/text_all.txt')
+    Fmacro = Fscore1(y_pred_125, y_test_125)
+    Fmicro = f1_score(y_pred_125, y_test_125, average='micro')
+    print("Fmacro score of 12.5%_label:", Fmacro)
+    print("Fmicro score of 12.5%_label:", Fmicro)
+    F1.append(Fscore1(y_pred_125, y_test_125))
+
+    F1 = np.array(F1)
+    plt.figure()
+    F1 = F1[::-1]
+    plt.title("dblp dataset")
+    x = np.array([0.125, 0.25, 0.5, 1])
+    plt.plot(x, F1)
+    plt.show()
+
+
+
+
+
 
 
 
