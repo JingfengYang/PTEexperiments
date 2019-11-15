@@ -109,12 +109,12 @@ var data = [
   }
 ];
 
-var width = 500;
-var height = 300;
+var width = window.innerWidth * 0.6;
+var height = window.innerHeight * 0.6;
 var margin = 50;
 var duration = 250;
 
-var lineOpacity = "0.25";
+var lineOpacity = "0.5";
 var lineOpacityHover = "0.85";
 var otherLinesOpacityHover = "0.1";
 var lineStroke = "1.5px";
@@ -171,7 +171,7 @@ lines.selectAll('.line-group')
         .attr("class", "title-text")
         .style("fill", color(i))        
         .text(d.name)
-        .attr("text-anchor", "middle")
+        .attr("text-anchor", "left")
         .attr("x", (width - margin)/2)
         .attr("y", 5);
     })
@@ -265,4 +265,3 @@ svg.append("g")
   .attr("y", 15)
   .attr("transform", "rotate(-90)")
   .attr("fill", "#000")
-  .text("Total values");
