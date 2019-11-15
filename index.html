@@ -37,32 +37,32 @@
             <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Motivation
         </h4>
         <p>
-            Text contains numerous effective and meaningful information for people. How to learn the meaning of words clearly is a critical prerequisite for many mathine learning tasks. Traditionally, people represent word independently to each other and represent
-            each document as “bag of words”. However, the sparsity, polysemy and synonymy of words and documents are commonly ignored during traning.
+            The text contains numerous effective and meaningful information for people. How to learn the meaning of words is a critical prerequisite for many machine learning tasks. Traditionally, people represent words independently to each other and represent each
+            document as a "bag of words". However, the sparsity, polysemy, and synonymy of words and documents are commonly ignored during training.
         </p>
         <p>
-            One way to deal with it is representing words and documents in low-dimensional spaces[1]. By unsupervised learning process, the similar words and documents are embeded closely to each other. For example, Mikilov et al. proposed Skip-gram using the embedding
-            of the target words to predict the embedding of indivisual context word in a local window [1]. Compared with other classical approach that utilize the distributional similarity of word contest, this text embeding approach is more efficient
-            and easier to depolya[2].
+            One way to deal with it is by representing words and documents in low-dimensional spaces[1]. By the unsupervised learning process, the similar words and documents are embedded closely to each other. For example, Mikilov et al. proposed Skip-gram using
+            the embedding of the target words to predict the embedding of individual context word in a local window. [1]. Compared with other classical approaches that utilize the distributional similarity of word contest, this text embedding approach
+            is more efficient and easier to deploy[2].
         </p>
         <p>
-            However, compared with deep learning approaches such as convolutional neural networks (CNNs), the precision of text embeding method would be lower. This is because method like CNNs leverage labeled information thus they can learn the representation of
-            the data better. In other word, unsupervised method would be generalizable for different task but have weaker predicvive power for a particular task[2]. However, compared with text embedding, CNNs trainning also has drawback. It requires numerous
-            parameters which is not only time consuming but also difficult to train an ideal model.
+            However, compared with deep learning approaches such as convolutional neural networks (CNNs), the precision of text embedding method would be lower. This is because a method like CNNs leverage labeled information thus they can learn the representation
+            of the data better. In other words, the unsupervised method would be generalizable for a different task but have weaker predictive power for a particular task[2]. However, compared with text embedding, CNNs training also has a drawback. It
+            requires numerous parameters which is not only time consuming but also difficult to train an ideal model.
         </p>
         <p>
-            To sum up, text embedding methods are more efficient while deep learning neural networks are more predictive. How about use both supervised and unsupervised labels at the same time ?
+            To sum up, text embedding methods are more efficient while deep learning neural networks are more predictive. How about using both supervised and unsupervised labels at the same time?
         </p>
         <h4>
             <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Project scope
         </h4>
         <p>
-            In this project, we deploy Predictive Text Embedding (PTE), a semi-supervised representation learning method for text data to fill the gap between supervised and unsupervised labels. By learning from limited labeled examples and large amount of unlabelde
-            examples, we obtain an effective low dimensional representation, which is the information between words and words, words and labels and words and document.
+            In this project, we deploy Predictive Text Embedding (PTE), a semi-supervised representation learning method for text data to fill the gap between supervised and unsupervised labels. By learning from limited labeled examples and a large number of unlabelled
+            examples, we obtain an effective low dimensional representation, which is the information between words and words, words and labels and words and documents.
         </p>
         <p>
-            We build two kind of training data: one has a network encodes different levels of co-occurrence information between words and words while other does not.Then, we conduct experiments with sentiment data sets MR, short document data sets DBLP and long document
-            data sets 20NG. Experimental results show that the data which has the word and word information outperform the data without this embedding information in various text classification tasks.
+            We build two kinds of training data: one has a network encodes different levels of co-occurrence information between words and words while other does not. Then, we conduct experiments with sentiment data sets MR, short document data sets DBLP and long
+            document data sets 20NG. Experimental results show that the data which has the word and word information outperform the data without this embedding information in various text classification tasks.
         </p>
         <h3>
             <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods
