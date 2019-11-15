@@ -114,6 +114,126 @@ data = [
   { "source": "entropy", "target": "log", "weight": 1 }
 ];
 
+labels = [
+  { "source": 2, "target": "tracking" },
+  { "source": 2, "target": "continuous" },
+  { "source": 1, "target": "learning" },
+  { "source": 1, "target": "interactive" },
+  { "source": 1, "target": "system" },
+  { "source": 3, "target": "programming" },
+  { "source": 3, "target": "language" },
+  { "source": 3, "target": "for" },
+  { "source": 3, "target": "modular" },
+  { "source": 3, "target": "router" },
+  { "source": 6, "target": "efficient" },
+  { "source": 6, "target": "algorithms" },
+  { "source": 3, "target": "data" },
+  { "source": 2, "target": "training" },
+  { "source": 2, "target": "analysis" },
+  { "source": 2, "target": "problems" },
+  { "source": 6, "target": "optimal" },
+  { "source": 6, "target": "hull" },
+  { "source": 6, "target": "simple" },
+  { "source": 6, "target": "log" },
+  { "source": 3, "target": "world" },
+  { "source": 1, "target": "business" },
+  { "source": 2, "target": "entropy" },
+  { "source": 2, "target": "word" },
+  { "source": 2, "target": "sense" },
+  { "source": 2, "target": "action" },
+  { "source": 2, "target": "imperfect" },
+  { "source": 4, "target": "international" },
+  { "source": 3, "target": "exploration" },
+  { "source": 2, "target": "indexing" },
+  { "source": 2, "target": "golog" },
+  { "source": 5, "target": "corba" },
+  { "source": 6, "target": "uniform" },
+  { "source": 2, "target": "estimating" },
+  { "source": 6, "target": "no" },
+  { "source": 6, "target": "one" },
+  { "source": 2, "target": "small" },
+  { "source": 6, "target": "lower" },
+  { "source": 2, "target": "car" },
+  { "source": 3, "target": "complicated" },
+  { "source": 3, "target": "java" },
+  { "source": 2, "target": "risk" },
+  { "source": 6, "target": "sublinear" },
+  { "source": 2, "target": "entropy" },
+  { "source": 5, "target": "study" },
+  { "source": 1, "target": "controlling" },
+  { "source": 2, "target": "weighted" },
+  { "source": 2, "target": "interaction" },
+  { "source": 4, "target": "file" },
+  { "source": 2, "target": "results" },
+  { "source": 5, "target": "points" },
+  { "source": 5, "target": "other" },
+  { "source": 5, "target": "disambiguation" },
+  { "source": 2, "target": "robot" },
+  { "source": 4, "target": "event" },
+  { "source": 4, "target": "networking" },
+  { "source": 1, "target": "query" },
+  { "source": 4, "target": "wide" },
+  { "source": 4, "target": "streaming" },
+  { "source": 2, "target": "three" },
+  { "source": 6, "target": "science" },
+  { "source": 1, "target": "road" },
+  { "source": 2, "target": "reuse" },
+  { "source": 6, "target": "universal" },
+  { "source": 4, "target": "link" },
+  { "source": 2, "target": "reconstruction" },
+  { "source": 2, "target": "condition" },
+  { "source": 2, "target": "temporal" },
+  { "source": 5, "target": "aspects" },
+  { "source": 2, "target": "association" },
+  { "source": 1, "target": "querying" },
+  { "source": 2, "target": "robotic" },
+  { "source": 2, "target": "examples" },
+  { "source": 3, "target": "self" },
+  { "source": 3, "target": "rings" },
+  { "source": 2, "target": "vision" },
+  { "source": 2, "target": "spoken" },
+  { "source": 1, "target": "concurrency" },
+  { "source": 5, "target": "where" },
+  { "source": 2, "target": "card" },
+  { "source": 2, "target": "lists" },
+  { "source": 2, "target": "topic" },
+  { "source": 6, "target": "recycling" },
+  { "source": 6, "target": "external" },
+  { "source": 1, "target": "mappings" },
+  { "source": 1, "target": "routes" },
+  { "source": 2, "target": "subnetworks" },
+  { "source": 2, "target": "utilizing" },
+  { "source": 2, "target": "texts" },
+  { "source": 2, "target": "surface" },
+  { "source": 2, "target": "urban" },
+  { "source": 2, "target": "handwriting" },
+  { "source": 1, "target": "faciltity" },
+  { "source": 5, "target": "specifying" },
+  { "source": 5, "target": "developing" },
+  { "source": 1, "target": "sketching" },
+  { "source": 1, "target": "unaggregated" },
+  { "source": 1, "target": "subpopulation" },
+  { "source": 3, "target": "closure" },
+  { "source": 1, "target": "subsequence" },
+  { "source": 1, "target": "searching" },
+  { "source": 1, "target": "warping" },
+  { "source": 1, "target": "quantitative" },
+  { "source": 6, "target": "restricted" },
+  { "source": 4, "target": "light" },
+  { "source": 3, "target": "dsp" },
+  { "source": 3, "target": "special" },
+  { "source": 2, "target": "express" },
+  { "source": 2, "target": "ontological" },
+  { "source": 3, "target": "lines" },
+  { "source": 3, "target": "controllers" },
+  { "source": 4, "target": "bursty" },
+  { "source": 2, "target": "sample" },
+  { "source": 2, "target": "manifold" },
+  { "source": 2, "target": "perspective" },
+  { "source": 2, "target": "during" }
+];
+
+
     var nodes = {};
 
     var maxWeight = 0;
@@ -126,6 +246,11 @@ data = [
         }
     });
 
+    labels.forEach(function(d) {
+        d.source = nodes[d.source] || (nodes[d.source] = {name: d.source});
+        d.target = nodes[d.target] || (nodes[d.target] = {name: d.target});
+    })
+
     var widthScale = d3.scaleLinear().domain(1, maxWeight).range([1, 5]);
     var width = window.innerWidth * 4 / 5,
         height = window.innerHeight * 4 / 4;
@@ -133,6 +258,7 @@ data = [
     var force = d3.forceSimulation()
                   .nodes(d3.values(nodes))
                   .force("link", d3.forceLink(data).distance(150))
+                  .force("link", d3.forceLink(labels).distance(150))
                   .force('center', d3.forceCenter(width / 2, height / 2))
                   .force("x", d3.forceX())
                   .force("y", d3.forceY())
@@ -144,12 +270,42 @@ data = [
                 .attr("width", width)
                 .attr("height", height);
 
+    var path2 = svg.append("g")
+                 .selectAll("path")
+                 .data(labels)
+                 .enter()
+                 .append("path")
+                 .attr("stroke", "#FFC300")
+                 .attr("stroke-width", 1)
+                 .attr("fill", "none");
+
+    var node2 = svg.selectAll(".node")
+     .data(force.nodes())
+     .enter().append("g")
+     .attr("class", "node")
+     .call(d3.drag()
+     .on("start", dragstarted)
+     .on("drag", dragged)
+     .on("end", dragended)
+    );
+
+    node2.append("circle")
+     .attr("r", 13)
+     .attr("fill", "white");
+
+    node2.append("text")
+     .style("text-anchor", "middle")
+     .text(function(item, index, array) {return item.name})
+     .attr("fill", "black")
+     .attr("font-size", 10)
+     .attr("font-family", "sans-serif");
+
     var path = svg.append("g")
                  .selectAll("path")
                  .data(data)
                  .enter()
                  .append("path")
-                 .attr("stroke", "black")
+                 .attr("stroke", "steelblue")
                  .attr("stroke-width", function(d) { return widthScale(d.weight)})
                  .attr("fill", "none");
 
@@ -170,7 +326,7 @@ data = [
     node.append("text")
      .style("text-anchor", "middle")
      .text(function(item, index, array) {return item.name})
-     .attr("fill", "black")  //TODO: Change the label color
+     .attr("fill", "black")
      .attr("font-size", 10)
      .attr("font-family", "sans-serif");
 
@@ -181,7 +337,16 @@ data = [
          return "M" + d.source.x + " " + d.source.y + " " + "L" + d.target.x + " " + d.target.y;
      });
 
+     path2.attr("d", function(d) {
+         var dx = d.target.x - d.source.x,
+             dy = d.target.y - d.source.y;
+         return "M" + d.source.x + " " + d.source.y + " " + "L" + d.target.x + " " + d.target.y;
+     });
+
      node.attr("transform", function(d) {
+     return "translate(" + d.x + "," + d.y + ")"; })
+
+     node2.attr("transform", function(d) {
      return "translate(" + d.x + "," + d.y + ")"; })
     };
 
