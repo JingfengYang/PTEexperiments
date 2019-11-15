@@ -1,29 +1,110 @@
 var data = [
   {
-    name: "USA",
+    name: "LR-embed-vis-mr-non-ww-Fmicro",
     values: [
-      {date: "0.125", price: "100"},
-      {date: "0.25", price: "110"},
-      {date: "0.5", price: "145"},
-      {date: "1.0", price: "241"},
+      { date: "0.12500", price: "0.64350" },
+   { date: "0.25000", price: "0.67530" },
+   { date: "0.50000", price: "0.69330" },
+   { date: "1.00000", price: "0.71047" },
     ]
   },
   {
-    name: "Canada",
+    name: "LR-embed-vis-mr-ww-Fmicro",
     values: [
-      {date: "0.125", price: "200"},
-      {date: "0.25", price: "120"},
-      {date: "0.5", price: "33"},
-      {date: "1.0", price: "21"},
+      { date: "0.12500", price: "0.64688" },
+   { date: "0.25000", price: "0.68261" },
+   { date: "0.50000", price: "0.69358" },
+   { date: "1.00000", price: "0.71047" },
     ]
   },
   {
-    name: "Maxico",
+    name: "LR_embed-vis-20ng-non-ww-Fmacro",
     values: [
-      {date: "0.125", price: "50"},
-      {date: "0.25", price: "10"},
-      {date: "0.5", price: "5"},
-      {date: "1.0", price: "71"},
+      { date: "0.12500", price: "0.68809" },
+   { date: "0.25000", price: "0.76244" },
+   { date: "0.50000", price: "0.79785" },
+   { date: "1.00000", price: "0.82977" },
+    ]
+  },
+  {
+    name: "LR_embed-vis-20ng-non-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.69689" },
+   { date: "0.25000", price: "0.77124" },
+   { date: "0.50000", price: "0.80629" },
+   { date: "1.00000", price: "0.83749" },
+    ]
+  },
+  {
+    name: "LR_embed-vis-20ng-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.70279" },
+   { date: "0.25000", price: "0.77019" },
+   { date: "0.50000", price: "0.80154" },
+   { date: "1.00000", price: "0.82977" },
+    ]
+  },
+  {
+    name: "LR_embed-vis-20ng-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.71216" },
+   { date: "0.25000", price: "0.77894" },
+   { date: "0.50000", price: "0.81028" },
+   { date: "1.00000", price: "0.83749" },
+    ]
+  },
+  {
+    name: "LR_embed-vis-dblp-non-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.63498" },
+   { date: "0.25000", price: "0.66626" },
+   { date: "0.50000", price: "0.70302" },
+   { date: "1.00000", price: "0.73304" },
+    ]
+  },
+  {
+    name: "LR_embed-vis-dblp-non-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.68375" },
+   { date: "0.25000", price: "0.71225" },
+   { date: "0.50000", price: "0.74195" },
+   { date: "1.00000", price: "0.76870" },
+    ]
+  },
+  {
+    name: "LR_embed-vis-dblp-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.63678" },
+   { date: "0.25000", price: "0.66697" },
+   { date: "0.50000", price: "0.70558" },
+   { date: "1.00000", price: "0.73304" },
+    ]
+  },
+  {
+    name: "LR_embed-vis-dblp-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.68650" },
+   { date: "0.25000", price: "0.66697" },
+   { date: "0.50000", price: "0.70558" },
+   { date: "1.00000", price: "0.73304" },
+    ]
+  },
+  {
+    name: "LR_embed-vis-mr-non-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.64269" },
+   { date: "0.25000", price: "0.67442" },
+   { date: "0.50000", price: "0.69298" },
+   { date: "1.00000", price: "0.71015" },
+    ]
+  },
+  {
+    name: "LR_embed-vis-mr-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.64668" },
+   { date: "0.25000", price: "0.68192" },
+   { date: "0.50000", price: "0.69349" },
+   { date: "1.00000", price: "0.71015" },
     ]
   }
 ];
@@ -60,7 +141,7 @@ var xScale = d3.scaleLinear()
   .range([0, width-margin]);
 
 var yScale = d3.scaleLinear()
-  .domain([0, d3.max(data[0].values, d => d.price)])
+  .domain([0.63, 0.85])
   .range([height-margin, 0]);
 
 var color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -91,7 +172,7 @@ lines.selectAll('.line-group')
         .style("fill", color(i))        
         .text(d.name)
         .attr("text-anchor", "middle")
-        .attr("x", (width)/2)
+        .attr("x", (width - margin)/2)
         .attr("y", 5);
     })
   .on("mouseout", function(d) {
