@@ -12,8 +12,8 @@ class TextCNN(nn.Module):
         dim = emb.shape[-1]
         dp = 0.5
         ch_in = 1
-        ch_out = 32
-        hidden_dim = 32
+        ch_out = 64
+        hidden_dim = 64
         self.conv1s = nn.ModuleList([nn.Conv2d(ch_in, ch_out, (kernel, dim)) for kernel in kernels])
         self.emb = nn.Embedding.from_pretrained(torch.Tensor(emb))
         self.emb.weight.requires_grad = False
