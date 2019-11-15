@@ -16,6 +16,24 @@ var data = [
    { date: "0.50000", price: "0.69349" },
    { date: "1.00000", price: "0.71015" },
     ]
+  },
+  {
+    name: "CNN_embed-vis-mr-non-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.62057" },
+   { date: "0.25000", price: "0.65463" },
+   { date: "0.50000", price: "0.67236" },
+   { date: "1.00000", price: "0.70626" },
+    ]
+  },
+  {
+    name: "CNN_embed-vis-mr-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.64005" },
+   { date: "0.25000", price: "0.66703" },
+   { date: "0.50000", price: "0.68147" },
+   { date: "1.00000", price: "0.70626" },
+    ]
   }
 ];
 
@@ -301,6 +319,24 @@ var data2 = [
    { date: "0.50000", price: "0.70558" },
    { date: "1.00000", price: "0.73304" },
     ]
+  },
+  {
+    name: "CNN_embed-vis-dblp-non-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.63242" },
+   { date: "0.25000", price: "0.67759" },
+   { date: "0.50000", price: "0.71380" },
+   { date: "1.00000", price: "0.73090" },
+    ]
+  },
+  {
+    name: "CNN_embed-vis-dblp-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.65863" },
+   { date: "0.25000", price: "0.69342" },
+   { date: "0.50000", price: "0.71807" },
+   { date: "1.00000", price: "0.73090" },
+    ]
   }
 ];
 
@@ -495,6 +531,24 @@ var data3 = [
    { date: "0.25000", price: "0.77019" },
    { date: "0.50000", price: "0.80154" },
    { date: "1.00000", price: "0.82977" },
+    ]
+  },
+  {
+    name: "CNN_embed-vis-20ng-non-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.64247" },
+   { date: "0.25000", price: "0.73920" },
+   { date: "0.50000", price: "0.78153" },
+   { date: "1.00000", price: "0.82220" },
+    ]
+  },
+  {
+    name: "CNN_embed-vis-20ng-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.67585" },
+   { date: "0.25000", price: "0.74057" },
+   { date: "0.50000", price: "0.79352" },
+   { date: "1.00000", price: "0.82220" },
     ]
   }
 ];
@@ -716,6 +770,24 @@ var data4 = [
    { date: "0.50000", price: "0.69358" },
    { date: "1.00000", price: "0.71047" },
     ]
+  },
+  {
+    name: "CNN-embed-vis-mr-non-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.62493" },
+   { date: "0.25000", price: "0.65476" },
+   { date: "0.50000", price: "0.67304" },
+   { date: "1.00000", price: "0.70653" },
+    ]
+  },
+  {
+    name: "CNN-embed-vis-mr-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.64041" },
+   { date: "0.25000", price: "0.66798" },
+   { date: "0.50000", price: "0.68149" },
+   { date: "1.00000", price: "0.70653" },
+    ]
   }
 ];
 
@@ -914,6 +986,24 @@ var data5 = [
    { date: "0.50000", price: "0.74505" },
    { date: "1.00000", price: "0.76870" },
     ]
+  },
+  {
+    name: "CNN_embed-vis-dblp-non-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.68245" },
+   { date: "0.25000", price: "0.71905" },
+   { date: "0.50000", price: "0.75015" },
+   { date: "1.00000", price: "0.76790" },
+    ]
+  },
+  {
+    name: "CNN_embed-vis-dblp-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.70420" },
+   { date: "0.25000", price: "0.73370" },
+   { date: "0.50000", price: "0.75465" },
+   { date: "1.00000", price: "0.76790" },
+    ]
   }
 ];
 
@@ -1109,6 +1199,24 @@ var data6 = [
    { date: "0.25000", price: "0.77894" },
    { date: "0.50000", price: "0.81028" },
    { date: "1.00000", price: "0.83749" },
+    ]
+  },
+  {
+    name: "CNN_embed-vis-20ng-non-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.64790" },
+   { date: "0.25000", price: "0.74522" },
+   { date: "0.50000", price: "0.78744" },
+   { date: "1.00000", price: "0.82714" },
+    ]
+  },
+  {
+    name: "CNN_embed-vis-20ng-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.68070" },
+   { date: "0.25000", price: "0.74562" },
+   { date: "0.50000", price: "0.79753" },
+   { date: "1.00000", price: "0.82714" },
     ]
   }
 ];
