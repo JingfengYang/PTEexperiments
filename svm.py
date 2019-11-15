@@ -84,15 +84,34 @@ if __name__ == "__main__":
     F1_Micro_list_dblp.append(f1Micro)
     F1_Macro_list_dblp.append(f1Macro)
 
+    precision,recall,f1Macro,f1Micro,f1Weighted,accScore = SVM(train_label_file = 'data/dblp/label_train.125.txt',
+                                                               train_text_file = 'data/dblp/text_train.txt',
+                                test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
+                                ,word_ebd_file = 'dblp_workspace.125.without_unlabel/word.emb',all_text_file = 'data/dblp/text_all.txt')
+    F1_Micro_list_dblp.append(f1Micro)
+    F1_Macro_list_dblp.append(f1Macro)
+
     precision,recall,f1Macro,f1Micro,f1Weighted,accScore = SVM(train_label_file = 'data/dblp/label_train.25.txt',train_text_file = 'data/dblp/text_train.txt',
                                 test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
                                 ,word_ebd_file = 'dblp_workspace.25/word.emb',all_text_file = 'data/dblp/text_all.txt')
     F1_Micro_list_dblp.append(f1Micro)
     F1_Macro_list_dblp.append(f1Macro)
 
+    precision,recall,f1Macro,f1Micro,f1Weighted,accScore = SVM(train_label_file = 'data/dblp/label_train.25.txt',train_text_file = 'data/dblp/text_train.txt',
+                                test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
+                                ,word_ebd_file = 'dblp_workspace.25.without_unlabel/word.emb',all_text_file = 'data/dblp/text_all.txt')
+    F1_Micro_list_dblp.append(f1Micro)
+    F1_Macro_list_dblp.append(f1Macro)
+
     precision,recall,f1Macro,f1Micro,f1Weighted,accScore = SVM(train_label_file = 'data/dblp/label_train.5.txt',train_text_file = 'data/dblp/text_train.txt',
                                 test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
                                 ,word_ebd_file = 'dblp_workspace.5/word.emb',all_text_file = 'data/dblp/text_all.txt')
+    F1_Micro_list_dblp.append(f1Micro)
+    F1_Macro_list_dblp.append(f1Macro)
+
+    precision,recall,f1Macro,f1Micro,f1Weighted,accScore = SVM(train_label_file = 'data/dblp/label_train.5.txt',train_text_file = 'data/dblp/text_train.txt',
+                                test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
+                                ,word_ebd_file = 'dblp_workspace.5.without_unlabel/word.emb',all_text_file = 'data/dblp/text_all.txt')
     F1_Micro_list_dblp.append(f1Micro)
     F1_Macro_list_dblp.append(f1Macro)
 
@@ -117,6 +136,13 @@ if __name__ == "__main__":
     F1_Micro_list_mr.append(f1Micro)
     F1_Macro_list_mr.append(f1Macro)
 
+    precision,recall,f1Macro,f1Micro,f1Weighted,accScore = SVM(train_label_file='data/mr/label_train.125.txt',
+                                                               train_text_file='data/mr/text_train.txt',
+                                test_label_file='data/mr/label_test.txt', test_text_file='data/mr/text_test.txt',
+                                word_ebd_file='mr_workspace.125.without_unlabel/word.emb', all_text_file='data/mr/text_all.txt')
+    F1_Micro_list_mr.append(f1Micro)
+    F1_Macro_list_mr.append(f1Macro)
+
 
     precision,recall,f1Macro,f1Micro,f1Weighted,accScore = SVM(train_label_file='data/mr/label_train.25.txt',
                                                                train_text_file='data/mr/text_train.txt',
@@ -125,10 +151,24 @@ if __name__ == "__main__":
     F1_Micro_list_mr.append(f1Micro)
     F1_Macro_list_mr.append(f1Macro)
 
+    precision,recall,f1Macro,f1Micro,f1Weighted,accScore = SVM(train_label_file='data/mr/label_train.25.txt',
+                                                               train_text_file='data/mr/text_train.txt',
+                              test_label_file='data/mr/label_test.txt', test_text_file='data/mr/text_test.txt',
+                              word_ebd_file='mr_workspace.25.without_unlabel/word.emb', all_text_file='data/mr/text_all.txt')
+    F1_Micro_list_mr.append(f1Micro)
+    F1_Macro_list_mr.append(f1Macro)
+
     precision,recall,f1Macro,f1Micro,f1Weighted,accScore = SVM(train_label_file='data/mr/label_train.5.txt',
                                                                train_text_file='data/mr/text_train.txt',
                               test_label_file='data/mr/label_test.txt', test_text_file='data/mr/text_test.txt',
                               word_ebd_file='mr_workspace.5/word.emb', all_text_file='data/mr/text_all.txt')
+    F1_Micro_list_mr.append(f1Micro)
+    F1_Macro_list_mr.append(f1Macro)
+
+    precision,recall,f1Macro,f1Micro,f1Weighted,accScore = SVM(train_label_file='data/mr/label_train.5.txt',
+                                                               train_text_file='data/mr/text_train.txt',
+                              test_label_file='data/mr/label_test.txt', test_text_file='data/mr/text_test.txt',
+                              word_ebd_file='mr_workspace.5.without_unlabel/word.emb', all_text_file='data/mr/text_all.txt')
     F1_Micro_list_mr.append(f1Micro)
     F1_Macro_list_mr.append(f1Macro)
 
@@ -140,6 +180,66 @@ if __name__ == "__main__":
     F1_Macro_list_mr.append(f1Macro)
 
     print('the mr result is', F1_Micro_list_mr, F1_Macro_list_mr)
+
+    ## 20 NG dataset
+    F1_Micro_list_ng = []
+    F1_Macro_list_ng = []
+
+
+    precision,recall,f1Macro,f1Micro,f1Weighted,accScore = SVM(train_label_file='data/20ng/label_train.125.txt',
+                              train_text_file='data/20ng/text_train.txt',
+                              test_label_file='data/20ng/label_test.txt', test_text_file='data/20ng/text_test.txt',
+                              word_ebd_file='20ng_workspace.125/word.emb', all_text_file='data/20ng/text_all.txt')
+    F1_Micro_list_ng.append(f1Micro)
+    F1_Macro_list_ng.append(f1Macro)
+
+    precision,recall,f1Macro,f1Micro,f1Weighted,accScore = SVM(train_label_file='data/20ng/label_train.125.txt',
+                              train_text_file='data/20ng/text_train.txt',
+                              test_label_file='data/20ng/label_test.txt', test_text_file='data/20ng/text_test.txt',
+                              word_ebd_file='20ng_workspace.125.without_unlabel/word.emb', all_text_file='data/20ng/text_all.txt')
+    F1_Micro_list_ng.append(f1Micro)
+    F1_Macro_list_ng.append(f1Macro)   #
+
+
+
+    precision,recall,f1Macro,f1Micro,f1Weighted,accScore = SVM(train_label_file='data/20ng/label_train.25.txt',
+                                train_text_file='data/20ng/text_train.txt',
+                                test_label_file='data/20ng/label_test.txt', test_text_file='data/20ng/text_test.txt',
+                                word_ebd_file='20ng_workspace.25/word.emb', all_text_file='data/20ng/text_all.txt')
+    F1_Micro_list_ng.append(f1Micro)
+    F1_Macro_list_ng.append(f1Macro)
+
+    precision,recall,f1Macro,f1Micro,f1Weighted,accScore = SVM(train_label_file='data/20ng/label_train.25.txt',
+                                train_text_file='data/20ng/text_train.txt',
+                                test_label_file='data/20ng/label_test.txt', test_text_file='data/20ng/text_test.txt',
+                                word_ebd_file='20ng_workspace.25.without_unlabel/word.emb', all_text_file='data/20ng/text_all.txt')
+    F1_Micro_list_ng.append(f1Micro)
+    F1_Macro_list_ng.append(f1Macro)
+
+    precision,recall,f1Macro,f1Micro,f1Weighted,accScore = SVM(train_label_file='data/20ng/label_train.5.txt',
+                                train_text_file='data/20ng/text_train.txt',
+                                test_label_file='data/20ng/label_test.txt', test_text_file='data/20ng/text_test.txt',
+                                word_ebd_file='20ng_workspace.5/word.emb', all_text_file='data/20ng/text_all.txt')
+    F1_Micro_list_ng.append(f1Micro)
+    F1_Macro_list_ng.append(f1Macro)
+
+    precision,recall,f1Macro,f1Micro,f1Weighted,accScore = SVM(train_label_file='data/20ng/label_train.5.txt',
+                                train_text_file='data/20ng/text_train.txt',
+                                test_label_file='data/20ng/label_test.txt', test_text_file='data/20ng/text_test.txt',
+                                word_ebd_file='20ng_workspace.5.without_unlabel/word.emb', all_text_file='data/20ng/text_all.txt')
+    F1_Micro_list_ng.append(f1Micro)
+    F1_Macro_list_ng.append(f1Macro)
+
+    precision,recall,f1Macro,f1Micro,f1Weighted,accScore = SVM(train_label_file='data/20ng/label_train.txt', train_text_file='data/20ng/text_train.txt',
+                                test_label_file='data/20ng/label_test.txt', test_text_file='data/20ng/text_test.txt',
+                                word_ebd_file='20ng_workspace/word.emb', all_text_file='data/20ng/text_all.txt')
+    F1_Micro_list_ng.append(f1Micro)
+    F1_Macro_list_ng.append(f1Macro)
+
+    print('the ng result is', F1_Micro_list_ng, F1_Macro_list_ng)
+
+
+
 
 
 
