@@ -450,8 +450,8 @@ if __name__ == "__main__":
     F_micro = np.array(F_micro)
     F_micro = F_micro[::-1]
     F_macro = F_macro[::-1]
-    np.savetxt('20ng_embed-vis-dblp-non-ww-Fmicro.csv', F_micro, delimiter=',', fmt='%10.5f')
-    np.savetxt('20ng_embed-vis-dblp-non-ww-Fmacro.csv', F_macro, delimiter=',', fmt='%10.5f')
+    np.savetxt('LR_embed-vis-20ng-non-ww-Fmicro.csv', F_micro, delimiter=',', fmt='%10.5f')
+    np.savetxt('LR_embed-vis-20ng-non-ww-Fmacro.csv', F_macro, delimiter=',', fmt='%10.5f')
     plt.figure()
     plt.title("20ng dataset")
     #x = np.array([0.125, 0.25, 0.5, 1])
