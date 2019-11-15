@@ -19,8 +19,8 @@ var data = [
   }
 ];
 
-var width = 160;
-var height = 90;
+var width = 240;
+var height = 135;
 var margin = 40;
 var duration = 250;
 
@@ -910,9 +910,9 @@ var data5 = [
     name: "LR_embed-vis-dblp-ww-Fmicro",
     values: [
       { date: "0.12500", price: "0.68650" },
-   { date: "0.25000", price: "0.66697" },
-   { date: "0.50000", price: "0.70558" },
-   { date: "1.00000", price: "0.73304" },
+   { date: "0.25000", price: "0.71375" },
+   { date: "0.50000", price: "0.74505" },
+   { date: "1.00000", price: "0.76870" },
     ]
   }
 ];
