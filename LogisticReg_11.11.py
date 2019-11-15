@@ -4,7 +4,11 @@ from sklearn.linear_model import LogisticRegression
 import matplotlib.pyplot as plt
 import pickle
 import warnings
+from sklearn.metrics import f1_score
 #warnings.filterwarnings("ignore", category=FutureWarning)
+
+# if you use 20ng remember to us y=np,int(y)
+# remember you have to run each data set seperately
 
 def LR(train_label_file, train_text_file, test_label_file, test_text_file, word_ebd_file, all_text_file):
     # sent=utils.Sent()
@@ -24,6 +28,8 @@ def LR(train_label_file, train_text_file, test_label_file, test_text_file, word_
         x = train_set[i].emb
         train_x.append(x)
         y = train_set[i].label
+        #if you use 20ng remember to us y=np.int(y)
+        y=np.int(y)
         train_y.append(y)
     train_x = np.array(train_x)
     train_y = np.array(train_y)
@@ -34,12 +40,13 @@ def LR(train_label_file, train_text_file, test_label_file, test_text_file, word_
         x = test_set[i].emb
         test_x.append(x)
         y = test_set[i].label
+        y = np.int(y)
         test_y.append(y)
     test_x = np.array(test_x)
     test_y = np.array(test_y)
 
     # Logistic Regression
-    if (len(test_set) < 10000):
+    if (len(test_set) < 7000):
         logreg = LogisticRegression()
         logreg.fit(train_x, train_y)
         y_pred = logreg.predict(test_x)
@@ -113,7 +120,9 @@ def Fscore(y_pred, test_y):
     print("F0=", F0)
     print("F1=", F1)
     print("F score=", F)
-    return F
+    Fmacro = F
+    Fmicro = f1_score(y_pred, test_y, average='micro')
+    return Fmacro, Fmicro
 
 
 # FOR DBLP DATASET
@@ -209,115 +218,244 @@ def Fscore1(y_pred, test_y):
     F5 = (2 * prec5 * recall5) / (prec5 + recall5)
     F6 = (2 * prec6 * recall6) / (prec6 + recall6)
     F = (F1 + F2 + F3 + F4 + F5 + F6) / 6
+    Fmacro=F
+    Fmicro=f1_score(y_pred,test_y,average='micro')
+    return Fmacro,Fmicro
 
-    return F
+# FOR 20NG
+def Fscore2(y_pred, test_y):
+    # F-Measure
+
+    #obtained cluster
+    C_sum=np.zeros(20)
+    # ground-truth cluster
+    T_sum=np.zeros(20)
+
+    for i in range (C_sum.shape[0]): #0-19
+        for j in range(y_pred.shape[0]):
+            if (y_pred[j] == i ):
+                C_sum[i]+=1
+        #y_pred[i] = np.int(y_pred[i])
+
+    for i in range (C_sum.shape[0]):
+        print("C_cum_",i,"=",C_sum[i])
+
+    for i in range (T_sum.shape[0]): #0-19
+        for j in range(test_y.shape[0]):
+            if (test_y[j] == i ):
+                T_sum[i]+=1
+        #test_y[i] = np.int(test_y[i])
+    for i in range(C_sum.shape[0]):
+        print("T_cum_", i, "=", T_sum[i])
+
+    n = np.zeros((20, 20))
+
+    for i in range(y_pred.shape[0]):
+        # print("the " ,i ,"data in ", y_pred.shape[0])
+        row = np.int(y_pred[i])
+        col = np.int(test_y[i])
+        n[row][col] += 1
+    prec=np.zeros(20)
+    recall=np.zeros(20)
+    for i in range (0,C_sum.shape[0]):
+        prec[i]=n[i,i]/C_sum[i]
+    for i in range (T_sum.shape[0]):
+        recall[i]=n[i,i]/T_sum[i]
+    F=np.zeros(20)
+    for i in range (F.shape[0]):
+        F[i]=(2*prec[i]*recall[i])/(prec[i]+recall[i])
+
+    Fmacro=np.sum(F,axis=0)/ 20
+    Fmicro=f1_score(y_pred,test_y,average='micro')
+    return Fmacro,Fmicro
 
 
 if __name__ == "__main__":
     # This is the logistic regression of mr data set
 
-    F = []
 
+    F_macro = []
+    F_micro = []
+    '''
+    print("___________MR_______________")
     y_pred_all, y_test_all = LR(train_label_file='data/mr/label_train.txt', train_text_file='data/mr/text_train.txt',
                                 test_label_file='data/mr/label_test.txt', test_text_file='data/mr/text_test.txt',
                                 word_ebd_file='mr_workspace/word.emb', all_text_file='data/mr/text_all.txt')
-    Fz = Fscore(y_pred_all, y_test_all)
-    print("F score of all_label:", F)
-    F.append(Fscore(y_pred_all, y_test_all))
+    Fmacro,Fmicro = Fscore(y_pred_all, y_test_all)
+    #Fmicro=f1_score(y_pred_all,y_test_all,average='micro')
+    print("Fmacro score of all_label:", Fmacro)
+    print("Fmicro score of all_label:",Fmicro)
+
+
+    F_macro.append([1,Fmacro])
+    F_micro.append([1,Fmicro])
+
 
     y_pred_50, y_test_50 = LR(train_label_file='data/mr/label_train.5.txt', train_text_file='data/mr/text_train.txt',
                               test_label_file='data/mr/label_test.txt', test_text_file='data/mr/text_test.txt',
-                              word_ebd_file='mr_workspace.5/word.emb', all_text_file='data/mr/text_all.txt')
-    Fz = Fscore(y_pred_50, y_test_50)
-    print("F score of 50%_label:", F)
-    F.append(Fscore(y_pred_50, y_test_50))
+                              word_ebd_file='mr_workspace.5.without_unlabel/word.emb', all_text_file='data/mr/text_all.txt')
+    Fmacro,Fmicro = Fscore(y_pred_50, y_test_50)
+    #Fmicro = f1_score(y_pred_50, y_test_50, average='micro')
+    print("Fmacro score of 50%_label:", Fmacro)
+    print("Fmicro score of 50%_label:", Fmicro)
+    F_macro.append([0.5,Fmacro])
+    F_micro.append([0.5,Fmicro])
 
     y_pred_25, y_test_25 = LR(train_label_file='data/mr/label_train.25.txt', train_text_file='data/mr/text_train.txt',
                               test_label_file='data/mr/label_test.txt', test_text_file='data/mr/text_test.txt',
-                              word_ebd_file='mr_workspace.25/word.emb', all_text_file='data/mr/text_all.txt')
-    Fz = Fscore(y_pred_25, y_test_25)
-    print("F score of 25%_label:", F)
-    F.append(Fscore(y_pred_25, y_test_25))
+                              word_ebd_file='mr_workspace.25.without_unlabel/word.emb', all_text_file='data/mr/text_all.txt')
+    Fmacro,Fmicro = Fscore(y_pred_25, y_test_25)
+    #Fmicro = f1_score(y_pred_25, y_test_25, average='micro')
+    print("Fmacro score of 25%_label:", Fmacro)
+    print("Fmicro score of 25%_label:", Fmicro)
+    F_macro.append([0.25,Fmacro])
+    F_micro.append([0.25,Fmicro])
 
     y_pred_125, y_test_125 = LR(train_label_file='data/mr/label_train.125.txt',
                                 train_text_file='data/mr/text_train.txt',
                                 test_label_file='data/mr/label_test.txt', test_text_file='data/mr/text_test.txt',
-                                word_ebd_file='mr_workspace.125/word.emb', all_text_file='data/mr/text_all.txt')
-    Fz = Fscore(y_pred_125, y_test_125)
-    print("F score of 125%_label:", F)
-    F.append(Fscore(y_pred_125, y_test_125))
-    F = np.array(F)
+                                word_ebd_file='mr_workspace.125.without_unlabel/word.emb', all_text_file='data/mr/text_all.txt')
+    Fmacro,Fmicro = Fscore(y_pred_125, y_test_125)
+    #Fmicro = f1_score(y_pred_125, y_test_125, average='micro')
+    print("Fmacro score of 12.5%_label:", Fmacro)
+    print("Fmicro score of 12.5%_label:", Fmicro)
+    F_macro.append([0.125,Fmacro])
+    F_micro.append([0.125,Fmicro])
+    F_macro = np.array(F_macro)
+    F_micro=np.array(F_micro)
+    F_micro=F_micro[::-1]
+    F_macro=F_macro[::-1]
+    print(F_macro.shape)
+    print(F_micro.shape)
     plt.figure()
-    F = F[::-1]
     plt.title("mr dataset")
-    x = np.array([0.125, 0.25, 0.5, 1])
-    plt.plot(x, F)
+    #x = np.array
+    plt.plot(F_micro[:,0],F_micro[:,1])
     plt.show()
-
-    f = open("output/logisticreg-mr.csv", "w")
-    f.write("x,y\n")
-    for i in range(len(x)):
-        f.write(str(x[i]) + ',' + str(F[i]) + '\n')
-    f.close()
+    np.savetxt('LR-embed-vis-mr-non-ww-Fmicro.csv', F_micro, delimiter=',', fmt='%10.5f')
+    np.savetxt('LR_embed-vis-mr-non-ww-Fmacro.csv', F_macro, delimiter=',', fmt='%10.5f')
+    '''
 
     # This is the logistic regression of dblp dataset. The F score is really low.
 
 
-    # F1 = []
-    # print("___________DBLP_______________")
-
-    # y_pred_all, y_test_all = LR(train_label_file='data/dblp/label_train.txt',
-    #                             train_text_file='data/dblp/text_train.txt',
-    #                             test_label_file='data/dblp/label_test.txt', test_text_file='data/dblp/text_test.txt'
-    #                             , word_ebd_file='dblp_workspace/word.emb', all_text_file='data/dblp/text_all.txt')
-    # F=Fscore1(y_pred_all, y_test_all)
-    # print("F score of all_label:",F)
-    # F1.append(F)
-
-    # y_pred_50, y_test_50 = LR(train_label_file = 'data/dblp/label_train.5.txt',train_text_file = 'data/dblp/text_train.txt',
-    #                             test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
-    #                             ,word_ebd_file = 'dblp_workspace.5/word.emb',all_text_file = 'data/dblp/text_all.txt')
-
-    # F = Fscore1(y_pred_50, y_test_50)
-    # print("F score of 50%_label:", F)
-    # F1.append(Fscore1(y_pred_50, y_test_50))
+    '''
+    print("___________DBLP_______________")
 
 
+    y_pred_all, y_test_all = LR(train_label_file='data/dblp/label_train.txt',
+                                train_text_file='data/dblp/text_train.txt',
+                                test_label_file='data/dblp/label_test.txt', test_text_file='data/dblp/text_test.txt'
+                                , word_ebd_file='dblp_workspace/word.emb', all_text_file='data/dblp/text_all.txt')
+    Fmacro,Fmicro = Fscore1(y_pred_all, y_test_all)
+    print("Fmacro score of all_label:", Fmacro)
+    print("Fmicro score of all_label:",Fmicro)
+    F_macro.append([1,Fmacro])
+    F_micro.append([1,Fmicro])
 
-    # y_pred_25, y_test_25 = LR(train_label_file = 'data/dblp/label_train.25.txt',train_text_file = 'data/dblp/text_train.txt',
-    #                             test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
-    #                             ,word_ebd_file = 'dblp_workspace.25/word.emb',all_text_file = 'data/dblp/text_all.txt')
-    # F = Fscore1(y_pred_25, y_test_25)
-    # print("F score of 25%_label:", F)
-    # F1.append(Fscore1(y_pred_25, y_test_25))
+    y_pred_50, y_test_50 = LR(train_label_file = 'data/dblp/label_train.5.txt',train_text_file = 'data/dblp/text_train.txt',
+                                test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
+                                ,word_ebd_file = 'dblp_workspace.5.without_unlabel/word.emb',all_text_file = 'data/dblp/text_all.txt')
 
-    # y_pred_125, y_test_125 = LR(train_label_file = 'data/dblp/label_train.125.txt',train_text_file = 'data/dblp/text_train.txt',
-    #                             test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
-    #                             ,word_ebd_file = 'dblp_workspace.125/word.emb',all_text_file = 'data/dblp/text_all.txt')
-    # F = Fscore1(y_pred_125, y_test_125)
-    # print("F score of 125%_label:", F)
-    # F1.append(Fscore1(y_pred_125, y_test_125))
-
-    # F1 = np.array(F1)
-    # plt.figure()
-    # F1 = F1[::-1]
-    # plt.title("dblp dataset")
-    # x = np.array([0.125, 0.25, 0.5, 1])
-    # plt.plot(x, F1)
-    # plt.show()
-
-
-
-    # f = open("output/logisticreg-dblp.csv", "w")
-    # f.write("x,y\n")
-    # for i in range(len(x)):
-    #     f.write(str(x[i]) + ',' + str(F1[i]) + '\n')
-    # f.close()
+    Fmacro,Fmicro = Fscore1(y_pred_50, y_test_50)
+    #Fmicro = f1_score(y_pred_50, y_test_50, average='micro')
+    print("Fmacro score of 50%_label:", Fmacro)
+    print("Fmicro score of 50%_label:", Fmicro)
+    F_macro.append([0.5 , Fmacro])
+    F_micro.append([0.5 , Fmicro])
 
 
 
 
+    y_pred_25, y_test_25 = LR(train_label_file = 'data/dblp/label_train.25.txt',train_text_file = 'data/dblp/text_train.txt',
+                                test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
+                                ,word_ebd_file = 'dblp_workspace.25.without_unlabel/word.emb',all_text_file = 'data/dblp/text_all.txt')
+    Fmacro,Fmicro = Fscore1(y_pred_25, y_test_25)
+    #Fmicro = f1_score(y_pred_25, y_test_25, average='micro')
+    print("Fmacro score of 25%_label:", Fmacro)
+    print("Fmicro score of 25%_label:", Fmicro)
+    F_macro.append([0.25, Fmacro])
+    F_micro.append([0.25, Fmicro])
 
+    y_pred_125, y_test_125 = LR(train_label_file = 'data/dblp/label_train.125.txt',train_text_file = 'data/dblp/text_train.txt',
+                                test_label_file = 'data/dblp/label_test.txt',test_text_file = 'data/dblp/text_test.txt'
+                                ,word_ebd_file = 'dblp_workspace.125.without_unlabel/word.emb',all_text_file = 'data/dblp/text_all.txt')
+    Fmacro,Fmicro = Fscore1(y_pred_125, y_test_125)
+    #Fmicro = f1_score(y_pred_125, y_test_125, average='micro')
+    print("Fmacro score of 12.5%_label:", Fmacro)
+    print("Fmicro score of 12.5%_label:", Fmicro)
+    F_macro.append([0.125, Fmacro])
+    F_micro.append([0.125, Fmicro])
 
+    F_macro = np.array(F_macro)
+    F_micro = np.array(F_micro)
+    F_micro = F_micro[::-1]
+    F_macro = F_macro[::-1]
+    print(F_macro.shape)
+    print(F_micro.shape)
+    np.savetxt('LR_embed-vis-dblp-non-ww-Fmicro.csv', F_micro, delimiter=',', fmt='%10.5f')
+    np.savetxt('LR_embed-vis-dblp-non-ww-Fmacro.csv', F_macro, delimiter=',', fmt='%10.5f')
+    plt.figure()
+    plt.title("dblp dataset")
+    #x = np.array([0.125, 0.25, 0.5, 1])
+    plt.plot(F_macro[:,0],F_macro[:,1])
+    plt.show()
+    '''
 
+    print("___________20ng_______________")
+    y_pred_all, y_test_all = LR(train_label_file='data/20ng/label_train.txt', train_text_file='data/20ng/text_train.txt',
+                                test_label_file='data/20ng/label_test.txt', test_text_file='data/20ng/text_test.txt',
+                                word_ebd_file='20ng_workspace/word.emb', all_text_file='data/20ng/text_all.txt')
+    Fmacro, Fmicro = Fscore2(y_pred_all, y_test_all)
+    # Fmicro=f1_score(y_pred_all,y_test_all,average='micro')
+    print("Fmacro score of all_label:", Fmacro)
+    print("Fmicro score of all_label:", Fmicro)
+    F_macro.append([1,Fmacro])
+    F_micro.append([1,Fmicro])
+
+    y_pred_50, y_test_50 = LR(train_label_file='data/20ng/label_train.5.txt',
+                                train_text_file='data/20ng/text_train.txt',
+                                test_label_file='data/20ng/label_test.txt', test_text_file='data/20ng/text_test.txt',
+                                word_ebd_file='20ng_workspace.5.without_unlabel/word.emb', all_text_file='data/20ng/text_all.txt')
+    Fmacro, Fmicro = Fscore2(y_pred_50, y_test_50)
+    # Fmicro=f1_score(y_pred_all,y_test_all,average='micro')
+    print("Fmacro score of 50%_label:", Fmacro)
+    print("Fmicro score of 50%_label:", Fmicro)
+    F_macro.append([0.5,Fmacro])
+    F_micro.append([0.5,Fmicro])
+
+    y_pred_25, y_test_25 = LR(train_label_file='data/20ng/label_train.25.txt',
+                                train_text_file='data/20ng/text_train.txt',
+                                test_label_file='data/20ng/label_test.txt', test_text_file='data/20ng/text_test.txt',
+                                word_ebd_file='20ng_workspace.25.without_unlabel/word.emb', all_text_file='data/20ng/text_all.txt')
+    Fmacro, Fmicro = Fscore2(y_pred_25, y_test_25)
+    # Fmicro=f1_score(y_pred_all,y_test_all,average='micro')
+    print("Fmacro score of 25%_label:", Fmacro)
+    print("Fmicro score of 25%_label:", Fmicro)
+    F_macro.append([0.25,Fmacro])
+    F_micro.append([0.25,Fmicro])
+
+    y_pred_125, y_test_125 = LR(train_label_file='data/20ng/label_train.125.txt',
+                              train_text_file='data/20ng/text_train.txt',
+                              test_label_file='data/20ng/label_test.txt', test_text_file='data/20ng/text_test.txt',
+                              word_ebd_file='20ng_workspace.125.without_unlabel/word.emb', all_text_file='data/20ng/text_all.txt')
+    Fmacro, Fmicro = Fscore2(y_pred_125, y_test_125)
+    # Fmicro=f1_score(y_pred_all,y_test_all,average='micro')
+    print("Fmacro score of 125%_label:", Fmacro)
+    print("Fmicro score of 125%_label:", Fmicro)
+    F_macro.append([0.125,Fmacro])
+    F_micro.append([0.125,Fmicro])
+
+    F_macro = np.array(F_macro)
+    F_micro = np.array(F_micro)
+    F_micro = F_micro[::-1]
+    F_macro = F_macro[::-1]
+    np.savetxt('LR_embed-vis-20ng-non-ww-Fmicro.csv', F_micro, delimiter=',', fmt='%10.5f')
+    np.savetxt('LR_embed-vis-20ng-non-ww-Fmacro.csv', F_macro, delimiter=',', fmt='%10.5f')
+    plt.figure()
+    plt.title("20ng dataset")
+    #x = np.array([0.125, 0.25, 0.5, 1])
+
+    plt.plot(F_macro[:, 0], F_macro[:, 1])
+    plt.show()
 

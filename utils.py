@@ -11,15 +11,17 @@ class Sent(object):
         self.sent=sent
 
 
-def read_word_embeds(file='dblp_workspace/word.emb'):
+def read_word_embeds(file='dblp_workspace.5.without_unlabel/word.emb'):
     voc=[]
     with open(file,'r') as reader:
+        print(file)
         i=0
         for line in reader:
             tokens=line.strip().split()
             if i==0:
                 voc_size=int(tokens[0])
                 ebd_dim=int(tokens[1])
+                print(voc_size,ebd_dim)
                 ebd = np.zeros((voc_size,ebd_dim), dtype=np.float64)
             else:
                 voc.append(tokens[0])
@@ -30,9 +32,10 @@ def read_word_embeds(file='dblp_workspace/word.emb'):
 
 def readData(train_label_file='data/dblp/label_train.5.txt',train_text_file='data/dblp/text_train.txt',
              test_label_file='data/dblp/label_test.txt',test_text_file='data/dblp/text_test.txt',
-             word_ebd_file='dblp_workspace.5/word.emb',all_text_file='data/dblp/text_all.txt'):
+             word_ebd_file='dblp_workspace.5.without_unlabel/word.emb',all_text_file='data/dblp/text_all.txt'):
     voc,word_ebd=read_word_embeds(file=word_ebd_file)
     dic={}
+
     for i,voc in enumerate(voc):
         dic[voc]=i
     allText=[]
@@ -43,6 +46,7 @@ def readData(train_label_file='data/dblp/label_train.5.txt',train_text_file='dat
             for word in sent:
                 if word in dic:
                     sent_ebd.append(word_ebd[dic[word]])
+
             if len(sent_ebd)==0:
                 sent_ebd=[np.zeros_like(word_ebd[0],dtype=np.float64)]
             allText.append((sent,np.average(np.array(sent_ebd,dtype=np.float64),axis=0)))
