@@ -34,10 +34,28 @@ var data = [
    { date: "0.50000", price: "0.68147" },
    { date: "1.00000", price: "0.70626" },
     ]
+  },
+  {
+    name: "SVM_embed-vis-mr-non-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.65664" },
+   { date: "0.25000", price: "0.69514" },
+   { date: "0.50000", price: "0.70500" },
+   { date: "1.00000", price: "0.74444" },
+    ]
+  },
+  {
+    name: "SVM_embed-vis-mr-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.66129" },
+   { date: "0.25000", price: "0.70598" },
+   { date: "0.50000", price: "0.71309" },
+   { date: "1.00000", price: "0.74444" },
+    ]
   }
 ];
 
-var width = 240;
+var width = 170;
 var height = 135;
 var margin = 40;
 var duration = 250;
@@ -69,7 +87,7 @@ var xScale = d3.scaleLinear()
   .range([0, width-margin]);
 
 var yScale = d3.scaleLinear()
-  .domain([0.63, 0.85])
+  .domain([0.63, 0.75])
   .range([height-margin, 0]);
 
 var color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -179,7 +197,7 @@ lines.selectAll("circle-group")
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
-var yAxis = d3.axisLeft(yScale).tickValues([0.63, 0.65, 0.7, 0.75, 0.8, 0.85]).tickFormat(d3.format(",.2f"));
+var yAxis = d3.axisLeft(yScale).tickValues([0.63, 0.65, 0.7, 0.75]).tickFormat(d3.format(",.2f"));
 
 svg.append("g")
   .attr("class", "x axis")
@@ -337,8 +355,30 @@ var data2 = [
    { date: "0.50000", price: "0.71807" },
    { date: "1.00000", price: "0.73090" },
     ]
+  },
+  {
+    name: "SVM_embed-vis-dblp-non-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.65294" },
+   { date: "0.25000", price: "0.69028" },
+   { date: "0.50000", price: "0.72575" },
+   { date: "1.00000", price: "0.75302" },
+    ]
+  },
+  {
+    name: "SVM_embed-vis-dblp-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.67199" },
+   { date: "0.25000", price: "0.70285" },
+   { date: "0.50000", price: "0.72984" },
+   { date: "1.00000", price: "0.75302" },
+    ]
   }
 ];
+
+var yScale2 = d3.scaleLinear()
+  .domain([0.63, 0.75])
+  .range([height-margin, 0]);
 
 /* Format Data */
 data2.forEach(function(d) {
@@ -359,7 +399,7 @@ var svg2 = d3.select("#mult-line-a-dblp").append("svg")
 /* Add line into SVG */
 var line2 = d3.line()
   .x(d => xScale(d.date))
-  .y(d => yScale(d.price));
+  .y(d => yScale2(d.price));
 
 let lines2 = svg2.append('g')
   .attr('class', 'lines');
@@ -423,7 +463,7 @@ lines2.selectAll("circle-group")
         .attr("class", "text")
         .text(`${d.price}`)
         .attr("x", d => xScale(d.date) + 5)
-        .attr("y", d => yScale(d.price) - 10);
+        .attr("y", d => yScale2(d.price) - 10);
     })
   .on("mouseout", function(d) {
       d3.select(this)
@@ -434,7 +474,7 @@ lines2.selectAll("circle-group")
     })
   .append("circle")
   .attr("cx", d => xScale(d.date))
-  .attr("cy", d => yScale(d.price))
+  .attr("cy", d => yScale2(d.price))
   .attr("r", circleRadius)
   .style('opacity', circleOpacity)
   .on("mouseover", function(d) {
@@ -453,7 +493,7 @@ lines2.selectAll("circle-group")
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
-var yAxis = d3.axisLeft(yScale).tickValues([0.63, 0.65, 0.7, 0.75, 0.8, 0.85]).tickFormat(d3.format(",.2f"));
+var yAxis = d3.axisLeft(yScale2).tickValues([0.63, 0.65, 0.7, 0.75]).tickFormat(d3.format(",.2f"));
 
 svg2.append("g")
   .attr("class", "x axis")
@@ -550,8 +590,30 @@ var data3 = [
    { date: "0.50000", price: "0.79352" },
    { date: "1.00000", price: "0.82220" },
     ]
+  },
+  {
+    name: "SVM_embed-vis-20ng-non-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.14772" },
+   { date: "0.25000", price: "0.43270" },
+   { date: "0.50000", price: "0.64216" },
+   { date: "1.00000", price: "0.73863" },
+    ]
+  },
+  {
+    name: "SVM_embed-vis-20ng-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.12605" },
+   { date: "0.25000", price: "0.42339" },
+   { date: "0.50000", price: "0.64242" },
+   { date: "1.00000", price: "0.73863" },
+    ]
   }
 ];
+
+var yScale3 = d3.scaleLinear()
+  .domain([0.1, 0.85])
+  .range([height-margin, 0]);
 
 /* Format Data */
 data3.forEach(function(d) {
@@ -572,7 +634,7 @@ var svg3 = d3.select("#mult-line-a-20ng").append("svg")
 /* Add line into SVG */
 var line3 = d3.line()
   .x(d => xScale(d.date))
-  .y(d => yScale(d.price));
+  .y(d => yScale3(d.price));
 
 let lines3 = svg3.append('g')
   .attr('class', 'lines');
@@ -636,7 +698,7 @@ lines3.selectAll("circle-group")
         .attr("class", "text")
         .text(`${d.price}`)
         .attr("x", d => xScale(d.date) + 5)
-        .attr("y", d => yScale(d.price) - 10);
+        .attr("y", d => yScale3(d.price) - 10);
     })
   .on("mouseout", function(d) {
       d3.select(this)
@@ -647,7 +709,7 @@ lines3.selectAll("circle-group")
     })
   .append("circle")
   .attr("cx", d => xScale(d.date))
-  .attr("cy", d => yScale(d.price))
+  .attr("cy", d => yScale3(d.price))
   .attr("r", circleRadius)
   .style('opacity', circleOpacity)
   .on("mouseover", function(d) {
@@ -666,7 +728,7 @@ lines3.selectAll("circle-group")
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
-var yAxis = d3.axisLeft(yScale).tickValues([0.63, 0.65, 0.7, 0.75, 0.8, 0.85]).tickFormat(d3.format(",.2f"));
+var yAxis = d3.axisLeft(yScale3).tickValues([0.1, 0.3, 0.5, 0.7, 0.85]).tickFormat(d3.format(",.2f"));
 
 svg3.append("g")
   .attr("class", "x axis")
@@ -788,9 +850,30 @@ var data4 = [
    { date: "0.50000", price: "0.68149" },
    { date: "1.00000", price: "0.70653" },
     ]
+  },
+  {
+    name: "SVM-embed-vis-mr-non-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.65664" },
+   { date: "0.25000", price: "0.69514" },
+   { date: "0.50000", price: "0.70500" },
+   { date: "1.00000", price: "0.74444" },
+    ]
+  },
+  {
+    name: "SVM-embed-vis-mr-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.66129" },
+   { date: "0.25000", price: "0.70598" },
+   { date: "0.50000", price: "0.71309" },
+   { date: "1.00000", price: "0.74444" },
+    ]
   }
 ];
 
+var yScale4 = d3.scaleLinear()
+  .domain([0.6, 0.75])
+  .range([height-margin, 0]);
 
 /* Format Data */
 data4.forEach(function(d) {
@@ -811,7 +894,7 @@ var svg4 = d3.select("#mult-line-i-mr").append("svg")
 /* Add line into SVG */
 var line4 = d3.line()
   .x(d => xScale(d.date))
-  .y(d => yScale(d.price));
+  .y(d => yScale4(d.price));
 
 let lines4 = svg4.append('g')
   .attr('class', 'lines');
@@ -875,7 +958,7 @@ lines4.selectAll("circle-group")
         .attr("class", "text")
         .text(`${d.price}`)
         .attr("x", d => xScale(d.date) + 5)
-        .attr("y", d => yScale(d.price) - 10);
+        .attr("y", d => yScale4(d.price) - 10);
     })
   .on("mouseout", function(d) {
       d3.select(this)
@@ -886,7 +969,7 @@ lines4.selectAll("circle-group")
     })
   .append("circle")
   .attr("cx", d => xScale(d.date))
-  .attr("cy", d => yScale(d.price))
+  .attr("cy", d => yScale4(d.price))
   .attr("r", circleRadius)
   .style('opacity', circleOpacity)
   .on("mouseover", function(d) {
@@ -905,7 +988,7 @@ lines4.selectAll("circle-group")
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
-var yAxis = d3.axisLeft(yScale).tickValues([0.63, 0.65, 0.7, 0.75, 0.8, 0.85]).tickFormat(d3.format(",.2f"));
+var yAxis = d3.axisLeft(yScale4).tickValues([0.6, 0.65, 0.7, 0.75]).tickFormat(d3.format(",.2f"));
 
 svg4.append("g")
   .attr("class", "x axis")
@@ -1004,8 +1087,30 @@ var data5 = [
    { date: "0.50000", price: "0.75465" },
    { date: "1.00000", price: "0.76790" },
     ]
+  },
+  {
+    name: "SVM_embed-vis-dblp-non-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.70245" },
+   { date: "0.25000", price: "0.73405" },
+   { date: "0.50000", price: "0.76235" },
+   { date: "1.00000", price: "0.78520" },
+    ]
+  },
+  {
+    name: "SVM_embed-vis-dblp-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.72055" },
+   { date: "0.25000", price: "0.74470" },
+   { date: "0.50000", price: "0.76510" },
+   { date: "1.00000", price: "0.78520" },
+    ]
   }
 ];
+
+var yScale5 = d3.scaleLinear()
+  .domain([0.67, 0.79])
+  .range([height-margin, 0]);
 
 /* Format Data */
 data5.forEach(function(d) {
@@ -1026,7 +1131,7 @@ var svg5 = d3.select("#mult-line-i-dblp").append("svg")
 /* Add line into SVG */
 var line5 = d3.line()
   .x(d => xScale(d.date))
-  .y(d => yScale(d.price));
+  .y(d => yScale5(d.price));
 
 let lines5 = svg5.append('g')
   .attr('class', 'lines');
@@ -1090,7 +1195,7 @@ lines5.selectAll("circle-group")
         .attr("class", "text")
         .text(`${d.price}`)
         .attr("x", d => xScale(d.date) + 5)
-        .attr("y", d => yScale(d.price) - 10);
+        .attr("y", d => yScale5(d.price) - 10);
     })
   .on("mouseout", function(d) {
       d3.select(this)
@@ -1101,7 +1206,7 @@ lines5.selectAll("circle-group")
     })
   .append("circle")
   .attr("cx", d => xScale(d.date))
-  .attr("cy", d => yScale(d.price))
+  .attr("cy", d => yScale5(d.price))
   .attr("r", circleRadius)
   .style('opacity', circleOpacity)
   .on("mouseover", function(d) {
@@ -1120,7 +1225,7 @@ lines5.selectAll("circle-group")
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
-var yAxis = d3.axisLeft(yScale).tickValues([0.63, 0.65, 0.7, 0.75, 0.8, 0.85]).tickFormat(d3.format(",.2f"));
+var yAxis = d3.axisLeft(yScale5).tickValues([0.67, 0.7, 0.75, 0.79]).tickFormat(d3.format(",.2f"));
 
 svg5.append("g")
   .attr("class", "x axis")
@@ -1218,8 +1323,30 @@ var data6 = [
    { date: "0.50000", price: "0.79753" },
    { date: "1.00000", price: "0.82714" },
     ]
+  },
+  {
+    name: "SVM_embed-vis-20ng-non-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.19942" },
+   { date: "0.25000", price: "0.48898" },
+   { date: "0.50000", price: "0.66981" },
+   { date: "1.00000", price: "0.75863" },
+    ]
+  },
+  {
+    name: "SVM_embed-vis-20ng-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.18070" },
+   { date: "0.25000", price: "0.48340" },
+   { date: "0.50000", price: "0.67087" },
+   { date: "1.00000", price: "0.75863" },
+    ]
   }
 ];
+
+var yScale6 = d3.scaleLinear()
+  .domain([0.1, 0.83])
+  .range([height-margin, 0]);
 
 /* Format Data */
 data6.forEach(function(d) {
@@ -1240,7 +1367,7 @@ var svg6 = d3.select("#mult-line-i-20ng").append("svg")
 /* Add line into SVG */
 var line6 = d3.line()
   .x(d => xScale(d.date))
-  .y(d => yScale(d.price));
+  .y(d => yScale6(d.price));
 
 let lines6 = svg6.append('g')
   .attr('class', 'lines');
@@ -1304,7 +1431,7 @@ lines6.selectAll("circle-group")
         .attr("class", "text")
         .text(`${d.price}`)
         .attr("x", d => xScale(d.date) + 5)
-        .attr("y", d => yScale(d.price) - 10);
+        .attr("y", d => yScale6(d.price) - 10);
     })
   .on("mouseout", function(d) {
       d3.select(this)
@@ -1315,7 +1442,7 @@ lines6.selectAll("circle-group")
     })
   .append("circle")
   .attr("cx", d => xScale(d.date))
-  .attr("cy", d => yScale(d.price))
+  .attr("cy", d => yScale6(d.price))
   .attr("r", circleRadius)
   .style('opacity', circleOpacity)
   .on("mouseover", function(d) {
@@ -1334,7 +1461,7 @@ lines6.selectAll("circle-group")
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
-var yAxis = d3.axisLeft(yScale).tickValues([0.63, 0.65, 0.7, 0.75, 0.8, 0.85]).tickFormat(d3.format(",.2f"));
+var yAxis = d3.axisLeft(yScale6).tickValues([0.1, 0.3, 0.5, 0.7, 0.83]).tickFormat(d3.format(",.2f"));
 
 svg6.append("g")
   .attr("class", "x axis")
