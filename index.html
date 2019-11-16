@@ -79,7 +79,7 @@
         <p>
             In semi-supervised sentence classification, to leverage both annotated data and unannotated text data, we first build a heterogeneous graph whose edge consists of word-sentence, word-word, and word-label. Then we learn the representations of each vertex
             in the graph. Finally, we could use them as input of the text classification task. This framework is proposed by <a href="https://arxiv.org/abs/1508.00200">Tang et al.</a>. There are several methods we would like to try in the
-            second step. The first is to use <a href="https://arxiv.org/abs/1508.00200">PTE</a> training process. The second is to use <a href="https://arxiv.org/abs/1609.02907">Graph Convolutional Networks ( GCN )</a>. <a href="https://arxiv.org/abs/1809.05679">Yao et al.</a>            has tried GCN in the text classification task, but they did not include existing labels as vertices in the graph. We argue that label vertices are crucial, because it can introduce supervised information when training word embeddings. Because
+            second step. The first is to use <a href="https://arxiv.org/abs/1508.00200">PTE</a> training process. The second is to use <a href="https://arxiv.org/abs/1609.02907">Graph Convolutional Networks ( GCN )</a>. <a href="https://arxiv.org/abs/1809.05679">Yao et al.</a> has tried GCN in the text classification task, but they did not include existing labels as vertices in the graph. We argue that label vertices are crucial, because it can introduce supervised information when training word embeddings. Because
             of the heterogeneity, we would like to try techniques in Heterogeneous Graph Neural Network. We plan to use three datasets to test our model: <a href="http://www.cs.cornell.edu/people/pabo/movie-review-data/">one movie review dataset</a> and
             two sentiment classification datasets: <a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">Multi-Domain Sentiment Dataset (version 2.0)</a>, <a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/">Twitter Sentiment Analysis Training Corpus (Dataset)</a>.
         </p>
@@ -102,46 +102,50 @@
         <h3>
             <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Some Bipartite Graph
         </h3>
-        <p id="mult-line-a-mr-1"></p>
-        <p id="mult-line-a-mr-2"></p>
-        <p id="mult-line-a-mr-3"></p>
-        <p id="mult-line-a-dblp-1"></p>
-        <p id="mult-line-a-dblp-2"></p>
-        <p id="mult-line-a-dblp-3"></p>
-        <p id="mult-line-a-20ng-1"></p>
-        <p id="mult-line-a-20ng-2"></p>
-        <p id="mult-line-a-20ng-3"></p>
-        <p id="mult-line-i-mr-1"></p>
-        <p id="mult-line-i-mr-2"></p>
-        <p id="mult-line-i-mr-3"></p>
-        <p id="mult-line-i-dblp-1"></p>
-        <p id="mult-line-i-dblp-2"></p>
-        <p id="mult-line-i-dblp-3"></p>
-        <p id="mult-line-i-20ng-1"></p>
-        <p id="mult-line-i-20ng-2"></p>
-        <p id="mult-line-i-20ng-3"></p>
-<!--         <p>
+        <p>
             <table style="width:100%">
               <tr>
-                <th></th>
-                <th>MR</th>
-                <th>DBLP</th>
-                <th>20NG</th>
+                <th>F-MACRO</th>
+                <th>F-MICRO</th>
               </tr>
               <tr>
-                <td>F-MACRO</td>
-                <td id="mult-line-a-mr"></td>
-                <td id="mult-line-a-dblp"></td>
-                <td id="mult-line-a-20ng"></td>
+                <td id="mult-line-a-mr-1"></td>
+                <td id="mult-line-i-mr-1"></td>
               </tr>
               <tr>
-                <td>F-MICRO</td>
-                <td id="mult-line-i-mr"></td>
-                <td id="mult-line-i-dblp"></td>
-                <td id="mult-line-i-20ng"></td>
+                <td id="mult-line-a-mr-2"></td>
+                <td id="mult-line-i-mr-2"></td>
+              </tr>
+              <tr>
+                <td id="mult-line-a-mr-3"></td>
+                <td id="mult-line-i-mr-3"></td>
+              </tr>
+              <tr>
+                <td id="mult-line-a-dblp-1"></td>
+                <td id="mult-line-i-dblp-1"></td>
+              </tr>
+              <tr>
+                <td id="mult-line-a-dblp-2"></td>
+                <td id="mult-line-i-dblp-2"></td>
+              </tr>
+              <tr>
+                <td id="mult-line-a-dblp-3"></td>
+                <td id="mult-line-i-dblp-3"></td>
+              </tr>
+              <tr>
+                <td id="mult-line-a-20ng-1"></td>
+                <td id="mult-line-i-20ng-1"></td>
+              </tr>
+              <tr>
+                <td id="mult-line-a-20ng-2"></td>
+                <td id="mult-line-i-20ng-2"></td>
+              </tr>
+              <tr>
+                <td id="mult-line-a-20ng-3"></td>
+                <td id="mult-line-i-20ng-3"></td>
               </tr>
             </table>
-        </p> -->
+        </p>
         <h3>
             <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MR Data Line Chart
         </h3>
@@ -162,8 +166,7 @@
             <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scatter Plot of DBLP
         </h3>
         <p id="scatter-dblp">
-            There are six labels in the DBLP dataset. We used <code>sklearn.manifold.TSNE</code> by extracting the two main components from the dataset containing $1.25$ million texts and labels. To better illustrate the idea of the embedding, we added the functionality to choose among the labels to show. The label input accepts number inputs including number $1$ to $6$ and the graph is generated based on the input labels which by default is $123456$, i.e. including all the labels.
-
+            There are six labels in the DBLP dataset. We used <code>sklearn.manifold.TSNE</code> by extracting the two main components from the dataset containing $1.25$ million texts and labels. To better illustrate the idea of the embedding, we added the functionality to choose among the labels to show. The label input accepts number inputs including number $1$ to $6$ and the graph is generated based on the input labels which by default is $123456$, i.e. including all the labels. (Please have patience as the graph is generated real-time, thus depending on your network and processor.)<br/>
             <label for="labelValue"
                  style="display: inline-block; width: 240px; text-align: right">
                  label = <span id="labelValue-value"></span>
@@ -187,8 +190,7 @@
                     T. Mikolov, I. Sutskever, K. Chen, G. S. Corrado, and J. Dean. Distributed representations of words and phrases and their compositionality. In NIPS, pages 3111–3119, 2013.
                 </li>
                 <li>
-                    Jian Tang, Meng Qu, and Qiaozhu Mei. Pte: Predictive text embedding through large-scale heterogeneous textnetworks. InProceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and DataMining, KDD ’15, pages 1165–1174, New York,
-                    NY, USA, 2015. ACM.
+                    Jian Tang, Meng Qu, and Qiaozhu Mei. Pte: Predictive text embedding through large-scale heterogeneous textnetworks. InProceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and DataMining, KDD ’15, pages 1165–1174, New York, NY, USA, 2015. ACM.
                 </li>
                 <li>
                     【此处需要修改编号！introduction用的我先放到了1和2了】Thomas N Kipf and Max Welling. Semi-supervised classification with graph convolutional networks.arXiv preprintarXiv:1609.02907, 2016.
