@@ -55,9 +55,9 @@ var data = [
   }
 ];
 
-var width = 170;
-var height = 135;
-var margin = 40;
+var width = window.innerWidth * 0.6;
+var height = window.innerHeight * 0.6;
+var margin = 60;
 var duration = 250;
 
 var lineOpacity = "0.5";
@@ -87,7 +87,7 @@ var xScale = d3.scaleLinear()
   .range([0, width-margin]);
 
 var yScale = d3.scaleLinear()
-  .domain([0.63, 0.75])
+  .domain([0.62, 0.75])
   .range([height-margin, 0]);
 
 var color = d3.scaleOrdinal(d3.schemeCategory10);
@@ -197,7 +197,7 @@ lines.selectAll("circle-group")
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
-var yAxis = d3.axisLeft(yScale).tickValues([0.63, 0.65, 0.7, 0.75]).tickFormat(d3.format(",.2f"));
+var yAxis = d3.axisLeft(yScale).tickValues([0.62, 0.65, 0.7, 0.75]).tickFormat(d3.format(",.2f"));
 
 svg.append("g")
   .attr("class", "x axis")
@@ -872,7 +872,7 @@ var data4 = [
 ];
 
 var yScale4 = d3.scaleLinear()
-  .domain([0.6, 0.75])
+  .domain([0.62, 0.75])
   .range([height-margin, 0]);
 
 /* Format Data */
@@ -988,7 +988,7 @@ lines4.selectAll("circle-group")
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
-var yAxis = d3.axisLeft(yScale4).tickValues([0.6, 0.65, 0.7, 0.75]).tickFormat(d3.format(",.2f"));
+var yAxis = d3.axisLeft(yScale4).tickValues([0.62, 0.65, 0.7, 0.75]).tickFormat(d3.format(",.2f"));
 
 svg4.append("g")
   .attr("class", "x axis")
@@ -1345,7 +1345,7 @@ var data6 = [
 ];
 
 var yScale6 = d3.scaleLinear()
-  .domain([0.1, 0.83])
+  .domain([0.15, 0.83])
   .range([height-margin, 0]);
 
 /* Format Data */
@@ -1461,7 +1461,7 @@ lines6.selectAll("circle-group")
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
-var yAxis = d3.axisLeft(yScale6).tickValues([0.1, 0.3, 0.5, 0.7, 0.83]).tickFormat(d3.format(",.2f"));
+var yAxis = d3.axisLeft(yScale6).tickValues([0.15, 0.3, 0.5, 0.7, 0.83]).tickFormat(d3.format(",.2f"));
 
 svg6.append("g")
   .attr("class", "x axis")
