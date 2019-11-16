@@ -9,9 +9,12 @@ from utils import read_word_embeds
 from torch.utils.data import Dataset, DataLoader
 
 class TextDataset(Dataset):
-    def __init__(self, dataset, prc, test=False):
+    def __init__(self, dataset, prc='', test=False, wo_unlabel=False):
+        _extend = '.without_unlabel' if wo_unlabel else ''
         if len(prc) > 0:
             prc = '.' + prc
+        else:
+            assert(not wo_unlabel)
         # Train files
         train_label_file = 'data/%s/label_train%s.txt' % (dataset, prc)
         train_label_file = os.path.join('..', train_label_file)
@@ -23,7 +26,7 @@ class TextDataset(Dataset):
         test_text_file = 'data/%s/text_test.txt' % (dataset)
         test_text_file = os.path.join('..', test_text_file)
         # Word embedings
-        emb_file = '%s_workspace%s/word.emb' % (dataset, prc)
+        emb_file = '%s_workspace%s/word.emb' % (dataset, prc+_extend)
         emb_file = os.path.join('..', emb_file)
 
         # Unused directories
@@ -57,7 +60,7 @@ class TextDataset(Dataset):
             self.label_data -= np.min(self.label_data)
         self.num_class = np.max(self.label_data)+1
         text_len = map(lambda x:len(x), self.text_data)
-        sent_len = min(max(text_len), 100)
+        sent_len = min(max(text_len), 300)
         for v in self.text_data:
             v.resize(sent_len, refcheck=False)
         self.text_data = np.array(self.text_data)

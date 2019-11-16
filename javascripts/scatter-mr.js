@@ -87,9 +87,9 @@ data = d3.dsv(",", "output/embed-vis-mr-train.csv", function(d) {
       .call(d3.axisLeft(yScale)); // Create an axis component with d3.axisLeft
 
 
-  svg1.selectAll().data(data).enter().append("circle").attr("id", function(d, i) { return d.x + '-' + d.y}).attr("class", "dot").attr("cx", function(d, i) { return xScale(d.x); }).attr("cy", function(d, i) { return yScale(d.y) }).attr("stroke", function(d, i) { if (d.label === 0) { return "purple" } else { return "#FFC300" }}).style("fill", "white").attr("r", 1.5);
+  svg1.selectAll().data(data).enter().append("circle").attr("id", function(d, i) { return d.x + '-' + d.y}).attr("class", "dot").attr("cx", function(d, i) { return xScale(d.x); }).attr("cy", function(d, i) { return yScale(d.y) }).attr("stroke", function(d, i) { if (d.label === 0) { return "steelblue" } else { return "#FFC300" }}).style("fill", "white").attr("r", 1.5);
 
-  svg1.append("rect").attr("x", width + 20).attr("y", 0).attr("height", 12).attr("width", 24).style("fill", "purple")
+  svg1.append("rect").attr("x", width + 20).attr("y", 0).attr("height", 12).attr("width", 24).style("fill", "steelblue")
   svg1.append("text").attr("x", width + 50).attr("y", 10).text("label 0").style("font-size", 12).style("font-weight", "bold")
   svg1.append("rect").attr("x", width + 20).attr("y", 20).attr("height", 12).attr("width", 24).style("fill", "#FFC300")
   svg1.append("text").attr("x", width + 50).attr("y", 30).text("label 1").style("font-size", 12).style("font-weight", "bold")
