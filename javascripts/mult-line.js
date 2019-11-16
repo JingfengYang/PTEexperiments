@@ -16,48 +16,12 @@ var data = [
    { date: "0.50000", price: "0.69349" },
    { date: "1.00000", price: "0.71015" },
     ]
-  },
-  {
-    name: "CNN_embed-vis-mr-non-ww-Fmacro",
-    values: [
-      { date: "0.12500", price: "0.62057" },
-   { date: "0.25000", price: "0.65463" },
-   { date: "0.50000", price: "0.67236" },
-   { date: "1.00000", price: "0.70626" },
-    ]
-  },
-  {
-    name: "CNN_embed-vis-mr-ww-Fmacro",
-    values: [
-      { date: "0.12500", price: "0.64005" },
-   { date: "0.25000", price: "0.66703" },
-   { date: "0.50000", price: "0.68147" },
-   { date: "1.00000", price: "0.70626" },
-    ]
-  },
-  {
-    name: "SVM_embed-vis-mr-non-ww-Fmacro",
-    values: [
-      { date: "0.12500", price: "0.65664" },
-   { date: "0.25000", price: "0.69514" },
-   { date: "0.50000", price: "0.70500" },
-   { date: "1.00000", price: "0.74444" },
-    ]
-  },
-  {
-    name: "SVM_embed-vis-mr-ww-Fmacro",
-    values: [
-      { date: "0.12500", price: "0.66129" },
-   { date: "0.25000", price: "0.70598" },
-   { date: "0.50000", price: "0.71309" },
-   { date: "1.00000", price: "0.74444" },
-    ]
   }
 ];
 
-var width = 170;
-var height = 135;
-var margin = 40;
+var width = window.innerWidth * 0.3;
+var height = window.innerHeight * 0.3;
+var margin = 60;
 var duration = 250;
 
 var lineOpacity = "0.5";
@@ -87,13 +51,13 @@ var xScale = d3.scaleLinear()
   .range([0, width-margin]);
 
 var yScale = d3.scaleLinear()
-  .domain([0.63, 0.75])
+  .domain([0.62, 0.75])
   .range([height-margin, 0]);
 
 var color = d3.scaleOrdinal(d3.schemeCategory10);
 
 /* Add SVG */
-var svg = d3.select("#mult-line-a-mr").append("svg")
+var svg = d3.select("#mult-line-a-mr-1").append("svg")
   .attr("width", (width+margin)+"px")
   .attr("height", (height+margin)+"px")
   .append('g')
@@ -197,7 +161,7 @@ lines.selectAll("circle-group")
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
-var yAxis = d3.axisLeft(yScale).tickValues([0.63, 0.65, 0.7, 0.75]).tickFormat(d3.format(",.2f"));
+var yAxis = d3.axisLeft(yScale).tickValues([0.62, 0.65, 0.7, 0.75]).tickFormat(d3.format(",.2f"));
 
 svg.append("g")
   .attr("class", "x axis")
@@ -337,42 +301,6 @@ var data2 = [
    { date: "0.50000", price: "0.70558" },
    { date: "1.00000", price: "0.73304" },
     ]
-  },
-  {
-    name: "CNN_embed-vis-dblp-non-ww-Fmacro",
-    values: [
-      { date: "0.12500", price: "0.63242" },
-   { date: "0.25000", price: "0.67759" },
-   { date: "0.50000", price: "0.71380" },
-   { date: "1.00000", price: "0.73090" },
-    ]
-  },
-  {
-    name: "CNN_embed-vis-dblp-ww-Fmacro",
-    values: [
-      { date: "0.12500", price: "0.65863" },
-   { date: "0.25000", price: "0.69342" },
-   { date: "0.50000", price: "0.71807" },
-   { date: "1.00000", price: "0.73090" },
-    ]
-  },
-  {
-    name: "SVM_embed-vis-dblp-non-ww-Fmacro",
-    values: [
-      { date: "0.12500", price: "0.65294" },
-   { date: "0.25000", price: "0.69028" },
-   { date: "0.50000", price: "0.72575" },
-   { date: "1.00000", price: "0.75302" },
-    ]
-  },
-  {
-    name: "SVM_embed-vis-dblp-ww-Fmacro",
-    values: [
-      { date: "0.12500", price: "0.67199" },
-   { date: "0.25000", price: "0.70285" },
-   { date: "0.50000", price: "0.72984" },
-   { date: "1.00000", price: "0.75302" },
-    ]
   }
 ];
 
@@ -389,7 +317,7 @@ data2.forEach(function(d) {
 });
 
 /* Add SVG */
-var svg2 = d3.select("#mult-line-a-dblp").append("svg")
+var svg2 = d3.select("#mult-line-a-dblp-1").append("svg")
   .attr("width", (width+margin)+"px")
   .attr("height", (height+margin)+"px")
   .append('g')
@@ -572,42 +500,6 @@ var data3 = [
    { date: "0.50000", price: "0.80154" },
    { date: "1.00000", price: "0.82977" },
     ]
-  },
-  {
-    name: "CNN_embed-vis-20ng-non-ww-Fmacro",
-    values: [
-      { date: "0.12500", price: "0.64247" },
-   { date: "0.25000", price: "0.73920" },
-   { date: "0.50000", price: "0.78153" },
-   { date: "1.00000", price: "0.82220" },
-    ]
-  },
-  {
-    name: "CNN_embed-vis-20ng-ww-Fmacro",
-    values: [
-      { date: "0.12500", price: "0.67585" },
-   { date: "0.25000", price: "0.74057" },
-   { date: "0.50000", price: "0.79352" },
-   { date: "1.00000", price: "0.82220" },
-    ]
-  },
-  {
-    name: "SVM_embed-vis-20ng-non-ww-Fmacro",
-    values: [
-      { date: "0.12500", price: "0.14772" },
-   { date: "0.25000", price: "0.43270" },
-   { date: "0.50000", price: "0.64216" },
-   { date: "1.00000", price: "0.73863" },
-    ]
-  },
-  {
-    name: "SVM_embed-vis-20ng-ww-Fmacro",
-    values: [
-      { date: "0.12500", price: "0.12605" },
-   { date: "0.25000", price: "0.42339" },
-   { date: "0.50000", price: "0.64242" },
-   { date: "1.00000", price: "0.73863" },
-    ]
   }
 ];
 
@@ -624,7 +516,7 @@ data3.forEach(function(d) {
 });
 
 /* Add SVG */
-var svg3 = d3.select("#mult-line-a-20ng").append("svg")
+var svg3 = d3.select("#mult-line-a-20ng-1").append("svg")
   .attr("width", (width+margin)+"px")
   .attr("height", (height+margin)+"px")
   .append('g')
@@ -832,47 +724,11 @@ var data4 = [
    { date: "0.50000", price: "0.69358" },
    { date: "1.00000", price: "0.71047" },
     ]
-  },
-  {
-    name: "CNN-embed-vis-mr-non-ww-Fmicro",
-    values: [
-      { date: "0.12500", price: "0.62493" },
-   { date: "0.25000", price: "0.65476" },
-   { date: "0.50000", price: "0.67304" },
-   { date: "1.00000", price: "0.70653" },
-    ]
-  },
-  {
-    name: "CNN-embed-vis-mr-ww-Fmicro",
-    values: [
-      { date: "0.12500", price: "0.64041" },
-   { date: "0.25000", price: "0.66798" },
-   { date: "0.50000", price: "0.68149" },
-   { date: "1.00000", price: "0.70653" },
-    ]
-  },
-  {
-    name: "SVM-embed-vis-mr-non-ww-Fmicro",
-    values: [
-      { date: "0.12500", price: "0.65664" },
-   { date: "0.25000", price: "0.69514" },
-   { date: "0.50000", price: "0.70500" },
-   { date: "1.00000", price: "0.74444" },
-    ]
-  },
-  {
-    name: "SVM-embed-vis-mr-ww-Fmicro",
-    values: [
-      { date: "0.12500", price: "0.66129" },
-   { date: "0.25000", price: "0.70598" },
-   { date: "0.50000", price: "0.71309" },
-   { date: "1.00000", price: "0.74444" },
-    ]
   }
 ];
 
 var yScale4 = d3.scaleLinear()
-  .domain([0.6, 0.75])
+  .domain([0.62, 0.75])
   .range([height-margin, 0]);
 
 /* Format Data */
@@ -884,7 +740,7 @@ data4.forEach(function(d) {
 });
 
 /* Add SVG */
-var svg4 = d3.select("#mult-line-i-mr").append("svg")
+var svg4 = d3.select("#mult-line-i-mr-1").append("svg")
   .attr("width", (width+margin)+"px")
   .attr("height", (height+margin)+"px")
   .append('g')
@@ -988,7 +844,7 @@ lines4.selectAll("circle-group")
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
-var yAxis = d3.axisLeft(yScale4).tickValues([0.6, 0.65, 0.7, 0.75]).tickFormat(d3.format(",.2f"));
+var yAxis = d3.axisLeft(yScale4).tickValues([0.62, 0.65, 0.7, 0.75]).tickFormat(d3.format(",.2f"));
 
 svg4.append("g")
   .attr("class", "x axis")
@@ -1069,42 +925,6 @@ var data5 = [
    { date: "0.50000", price: "0.74505" },
    { date: "1.00000", price: "0.76870" },
     ]
-  },
-  {
-    name: "CNN_embed-vis-dblp-non-ww-Fmicro",
-    values: [
-      { date: "0.12500", price: "0.68245" },
-   { date: "0.25000", price: "0.71905" },
-   { date: "0.50000", price: "0.75015" },
-   { date: "1.00000", price: "0.76790" },
-    ]
-  },
-  {
-    name: "CNN_embed-vis-dblp-ww-Fmicro",
-    values: [
-      { date: "0.12500", price: "0.70420" },
-   { date: "0.25000", price: "0.73370" },
-   { date: "0.50000", price: "0.75465" },
-   { date: "1.00000", price: "0.76790" },
-    ]
-  },
-  {
-    name: "SVM_embed-vis-dblp-non-ww-Fmicro",
-    values: [
-      { date: "0.12500", price: "0.70245" },
-   { date: "0.25000", price: "0.73405" },
-   { date: "0.50000", price: "0.76235" },
-   { date: "1.00000", price: "0.78520" },
-    ]
-  },
-  {
-    name: "SVM_embed-vis-dblp-ww-Fmicro",
-    values: [
-      { date: "0.12500", price: "0.72055" },
-   { date: "0.25000", price: "0.74470" },
-   { date: "0.50000", price: "0.76510" },
-   { date: "1.00000", price: "0.78520" },
-    ]
   }
 ];
 
@@ -1121,7 +941,7 @@ data5.forEach(function(d) {
 });
 
 /* Add SVG */
-var svg5 = d3.select("#mult-line-i-dblp").append("svg")
+var svg5 = d3.select("#mult-line-i-dblp-1").append("svg")
   .attr("width", (width+margin)+"px")
   .attr("height", (height+margin)+"px")
   .append('g')
@@ -1305,47 +1125,11 @@ var data6 = [
    { date: "0.50000", price: "0.81028" },
    { date: "1.00000", price: "0.83749" },
     ]
-  },
-  {
-    name: "CNN_embed-vis-20ng-non-ww-Fmicro",
-    values: [
-      { date: "0.12500", price: "0.64790" },
-   { date: "0.25000", price: "0.74522" },
-   { date: "0.50000", price: "0.78744" },
-   { date: "1.00000", price: "0.82714" },
-    ]
-  },
-  {
-    name: "CNN_embed-vis-20ng-ww-Fmicro",
-    values: [
-      { date: "0.12500", price: "0.68070" },
-   { date: "0.25000", price: "0.74562" },
-   { date: "0.50000", price: "0.79753" },
-   { date: "1.00000", price: "0.82714" },
-    ]
-  },
-  {
-    name: "SVM_embed-vis-20ng-non-ww-Fmicro",
-    values: [
-      { date: "0.12500", price: "0.19942" },
-   { date: "0.25000", price: "0.48898" },
-   { date: "0.50000", price: "0.66981" },
-   { date: "1.00000", price: "0.75863" },
-    ]
-  },
-  {
-    name: "SVM_embed-vis-20ng-ww-Fmicro",
-    values: [
-      { date: "0.12500", price: "0.18070" },
-   { date: "0.25000", price: "0.48340" },
-   { date: "0.50000", price: "0.67087" },
-   { date: "1.00000", price: "0.75863" },
-    ]
   }
 ];
 
 var yScale6 = d3.scaleLinear()
-  .domain([0.1, 0.83])
+  .domain([0.15, 0.83])
   .range([height-margin, 0]);
 
 /* Format Data */
@@ -1357,7 +1141,7 @@ data6.forEach(function(d) {
 });
 
 /* Add SVG */
-var svg6 = d3.select("#mult-line-i-20ng").append("svg")
+var svg6 = d3.select("#mult-line-i-20ng-1").append("svg")
   .attr("width", (width+margin)+"px")
   .attr("height", (height+margin)+"px")
   .append('g')
@@ -1461,7 +1245,7 @@ lines6.selectAll("circle-group")
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
-var yAxis = d3.axisLeft(yScale6).tickValues([0.1, 0.3, 0.5, 0.7, 0.83]).tickFormat(d3.format(",.2f"));
+var yAxis = d3.axisLeft(yScale6).tickValues([0.15, 0.3, 0.5, 0.7, 0.83]).tickFormat(d3.format(",.2f"));
 
 svg6.append("g")
   .attr("class", "x axis")
@@ -1469,6 +1253,2562 @@ svg6.append("g")
   .call(xAxis);
 
 svg6.append("g")
+  .attr("class", "y axis")
+  .call(yAxis)
+  .append('text')
+  .attr("y", 15)
+  .attr("transform", "rotate(-90)")
+  .attr("fill", "#000")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var data7 = [
+  {
+    name: "CNN_embed-vis-mr-non-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.62057" },
+   { date: "0.25000", price: "0.65463" },
+   { date: "0.50000", price: "0.67236" },
+   { date: "1.00000", price: "0.70626" },
+    ]
+  },
+  {
+    name: "CNN_embed-vis-mr-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.64005" },
+   { date: "0.25000", price: "0.66703" },
+   { date: "0.50000", price: "0.68147" },
+   { date: "1.00000", price: "0.70626" },
+    ]
+  }
+];
+
+var yScale7 = d3.scaleLinear()
+  .domain([0.15, 0.83])
+  .range([height-margin, 0]);
+
+/* Format Data */
+data7.forEach(function(d) {
+  d.values.forEach(function(d) {
+    d.date = +d.date;
+    d.price = +d.price;
+  });
+});
+
+/* Add SVG */
+var svg7 = d3.select("#mult-line-a-mr-2").append("svg")
+  .attr("width", (width+margin)+"px")
+  .attr("height", (height+margin)+"px")
+  .append('g')
+  .attr("transform", `translate(${margin}, ${margin})`);
+
+
+/* Add line into SVG */
+var line7 = d3.line()
+  .x(d => xScale(d.date))
+  .y(d => yScale7(d.price));
+
+let lines7 = svg7.append('g')
+  .attr('class', 'lines');
+
+lines7.selectAll('.line-group')
+  .data(data7).enter()
+  .append('g')
+  .attr('class', 'line-group')
+  .on("mouseover", function(d, i) {
+      svg7.append("text")
+        .attr("class", "title-text")
+        .style("fill", color(i))
+        .text(d.name)
+        .attr("text-anchor", "left")
+        .attr("x", (width - margin)/2)
+        .attr("y", 5);
+    })
+  .on("mouseout", function(d) {
+      svg7.select(".title-text").remove();
+    })
+  .append('path')
+  .attr('class', 'line')
+  .attr('fill', 'none')
+  .attr('d', d => line7(d.values))
+  .style('stroke', (d, i) => color(i))
+  .style('opacity', lineOpacity)
+  .on("mouseover", function(d) {
+      d3.selectAll('.line')
+          .style('opacity', otherLinesOpacityHover);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacityOnLineHover);
+      d3.select(this)
+        .style('opacity', lineOpacityHover)
+        .style("stroke-width", lineStrokeHover)
+        .style("cursor", "pointer");
+    })
+  .on("mouseout", function(d) {
+      d3.selectAll(".line")
+          .style('opacity', lineOpacity);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacity);
+      d3.select(this)
+        .style("stroke-width", lineStroke)
+        .style("cursor", "none");
+    });
+
+
+/* Add circles in the line */
+lines7.selectAll("circle-group")
+  .data(data7).enter()
+  .append("g")
+  .style("fill", (d, i) => color(i))
+  .selectAll("circle")
+  .data(d => d.values).enter()
+  .append("g")
+  .attr("class", "circle")
+  .on("mouseover", function(d) {
+      d3.select(this)
+        .style("cursor", "pointer")
+        .append("text")
+        .attr("class", "text")
+        .text(`${d.price}`)
+        .attr("x", d => xScale(d.date) + 5)
+        .attr("y", d => yScale7(d.price) - 10);
+    })
+  .on("mouseout", function(d) {
+      d3.select(this)
+        .style("cursor", "none")
+        .transition()
+        .duration(duration)
+        .selectAll(".text").remove();
+    })
+  .append("circle")
+  .attr("cx", d => xScale(d.date))
+  .attr("cy", d => yScale7(d.price))
+  .attr("r", circleRadius)
+  .style('opacity', circleOpacity)
+  .on("mouseover", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadiusHover);
+      })
+    .on("mouseout", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadius);
+      });
+
+
+/* Add Axis into SVG */
+var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
+var yAxis = d3.axisLeft(yScale7).tickValues([0.15, 0.3, 0.5, 0.7, 0.83]).tickFormat(d3.format(",.2f"));
+
+svg7.append("g")
+  .attr("class", "x axis")
+  .attr("transform", `translate(0, ${height-margin})`)
+  .call(xAxis);
+
+svg7.append("g")
+  .attr("class", "y axis")
+  .call(yAxis)
+  .append('text')
+  .attr("y", 15)
+  .attr("transform", "rotate(-90)")
+  .attr("fill", "#000")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var data8 = [
+  {
+    name: "CNN_embed-vis-dblp-non-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.63242" },
+   { date: "0.25000", price: "0.67759" },
+   { date: "0.50000", price: "0.71380" },
+   { date: "1.00000", price: "0.73090" },
+    ]
+  },
+  {
+    name: "CNN_embed-vis-dblp-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.65863" },
+   { date: "0.25000", price: "0.69342" },
+   { date: "0.50000", price: "0.71807" },
+   { date: "1.00000", price: "0.73090" },
+    ]
+  }
+];
+
+var yScale8 = d3.scaleLinear()
+  .domain([0.15, 0.83])
+  .range([height-margin, 0]);
+
+/* Format Data */
+data8.forEach(function(d) {
+  d.values.forEach(function(d) {
+    d.date = +d.date;
+    d.price = +d.price;
+  });
+});
+
+/* Add SVG */
+var svg8 = d3.select("#mult-line-a-dblp-2").append("svg")
+  .attr("width", (width+margin)+"px")
+  .attr("height", (height+margin)+"px")
+  .append('g')
+  .attr("transform", `translate(${margin}, ${margin})`);
+
+
+/* Add line into SVG */
+var line8 = d3.line()
+  .x(d => xScale(d.date))
+  .y(d => yScale8(d.price));
+
+let lines8 = svg8.append('g')
+  .attr('class', 'lines');
+
+lines8.selectAll('.line-group')
+  .data(data8).enter()
+  .append('g')
+  .attr('class', 'line-group')
+  .on("mouseover", function(d, i) {
+      svg8.append("text")
+        .attr("class", "title-text")
+        .style("fill", color(i))
+        .text(d.name)
+        .attr("text-anchor", "left")
+        .attr("x", (width - margin)/2)
+        .attr("y", 5);
+    })
+  .on("mouseout", function(d) {
+      svg8.select(".title-text").remove();
+    })
+  .append('path')
+  .attr('class', 'line')
+  .attr('fill', 'none')
+  .attr('d', d => line8(d.values))
+  .style('stroke', (d, i) => color(i))
+  .style('opacity', lineOpacity)
+  .on("mouseover", function(d) {
+      d3.selectAll('.line')
+          .style('opacity', otherLinesOpacityHover);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacityOnLineHover);
+      d3.select(this)
+        .style('opacity', lineOpacityHover)
+        .style("stroke-width", lineStrokeHover)
+        .style("cursor", "pointer");
+    })
+  .on("mouseout", function(d) {
+      d3.selectAll(".line")
+          .style('opacity', lineOpacity);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacity);
+      d3.select(this)
+        .style("stroke-width", lineStroke)
+        .style("cursor", "none");
+    });
+
+
+/* Add circles in the line */
+lines8.selectAll("circle-group")
+  .data(data8).enter()
+  .append("g")
+  .style("fill", (d, i) => color(i))
+  .selectAll("circle")
+  .data(d => d.values).enter()
+  .append("g")
+  .attr("class", "circle")
+  .on("mouseover", function(d) {
+      d3.select(this)
+        .style("cursor", "pointer")
+        .append("text")
+        .attr("class", "text")
+        .text(`${d.price}`)
+        .attr("x", d => xScale(d.date) + 5)
+        .attr("y", d => yScale8(d.price) - 10);
+    })
+  .on("mouseout", function(d) {
+      d3.select(this)
+        .style("cursor", "none")
+        .transition()
+        .duration(duration)
+        .selectAll(".text").remove();
+    })
+  .append("circle")
+  .attr("cx", d => xScale(d.date))
+  .attr("cy", d => yScale8(d.price))
+  .attr("r", circleRadius)
+  .style('opacity', circleOpacity)
+  .on("mouseover", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadiusHover);
+      })
+    .on("mouseout", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadius);
+      });
+
+
+/* Add Axis into SVG */
+var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
+var yAxis = d3.axisLeft(yScale8).tickValues([0.15, 0.3, 0.5, 0.7, 0.83]).tickFormat(d3.format(",.2f"));
+
+svg8.append("g")
+  .attr("class", "x axis")
+  .attr("transform", `translate(0, ${height-margin})`)
+  .call(xAxis);
+
+svg8.append("g")
+  .attr("class", "y axis")
+  .call(yAxis)
+  .append('text')
+  .attr("y", 15)
+  .attr("transform", "rotate(-90)")
+  .attr("fill", "#000")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var data9 = [
+  {
+    name: "CNN_embed-vis-20ng-non-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.64247" },
+   { date: "0.25000", price: "0.73920" },
+   { date: "0.50000", price: "0.78153" },
+   { date: "1.00000", price: "0.82220" },
+    ]
+  },
+  {
+    name: "CNN_embed-vis-20ng-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.67585" },
+   { date: "0.25000", price: "0.74057" },
+   { date: "0.50000", price: "0.79352" },
+   { date: "1.00000", price: "0.82220" },
+    ]
+  }
+];
+
+var yScale9 = d3.scaleLinear()
+  .domain([0.15, 0.83])
+  .range([height-margin, 0]);
+
+/* Format Data */
+data9.forEach(function(d) {
+  d.values.forEach(function(d) {
+    d.date = +d.date;
+    d.price = +d.price;
+  });
+});
+
+/* Add SVG */
+var svg9 = d3.select("#mult-line-a-20ng-2").append("svg")
+  .attr("width", (width+margin)+"px")
+  .attr("height", (height+margin)+"px")
+  .append('g')
+  .attr("transform", `translate(${margin}, ${margin})`);
+
+
+/* Add line into SVG */
+var line9 = d3.line()
+  .x(d => xScale(d.date))
+  .y(d => yScale9(d.price));
+
+let lines9 = svg9.append('g')
+  .attr('class', 'lines');
+
+lines9.selectAll('.line-group')
+  .data(data9).enter()
+  .append('g')
+  .attr('class', 'line-group')
+  .on("mouseover", function(d, i) {
+      svg9.append("text")
+        .attr("class", "title-text")
+        .style("fill", color(i))
+        .text(d.name)
+        .attr("text-anchor", "left")
+        .attr("x", (width - margin)/2)
+        .attr("y", 5);
+    })
+  .on("mouseout", function(d) {
+      svg9.select(".title-text").remove();
+    })
+  .append('path')
+  .attr('class', 'line')
+  .attr('fill', 'none')
+  .attr('d', d => line9(d.values))
+  .style('stroke', (d, i) => color(i))
+  .style('opacity', lineOpacity)
+  .on("mouseover", function(d) {
+      d3.selectAll('.line')
+          .style('opacity', otherLinesOpacityHover);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacityOnLineHover);
+      d3.select(this)
+        .style('opacity', lineOpacityHover)
+        .style("stroke-width", lineStrokeHover)
+        .style("cursor", "pointer");
+    })
+  .on("mouseout", function(d) {
+      d3.selectAll(".line")
+          .style('opacity', lineOpacity);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacity);
+      d3.select(this)
+        .style("stroke-width", lineStroke)
+        .style("cursor", "none");
+    });
+
+
+/* Add circles in the line */
+lines9.selectAll("circle-group")
+  .data(data9).enter()
+  .append("g")
+  .style("fill", (d, i) => color(i))
+  .selectAll("circle")
+  .data(d => d.values).enter()
+  .append("g")
+  .attr("class", "circle")
+  .on("mouseover", function(d) {
+      d3.select(this)
+        .style("cursor", "pointer")
+        .append("text")
+        .attr("class", "text")
+        .text(`${d.price}`)
+        .attr("x", d => xScale(d.date) + 5)
+        .attr("y", d => yScale9(d.price) - 10);
+    })
+  .on("mouseout", function(d) {
+      d3.select(this)
+        .style("cursor", "none")
+        .transition()
+        .duration(duration)
+        .selectAll(".text").remove();
+    })
+  .append("circle")
+  .attr("cx", d => xScale(d.date))
+  .attr("cy", d => yScale9(d.price))
+  .attr("r", circleRadius)
+  .style('opacity', circleOpacity)
+  .on("mouseover", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadiusHover);
+      })
+    .on("mouseout", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadius);
+      });
+
+
+/* Add Axis into SVG */
+var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
+var yAxis = d3.axisLeft(yScale9).tickValues([0.15, 0.3, 0.5, 0.7, 0.83]).tickFormat(d3.format(",.2f"));
+
+svg9.append("g")
+  .attr("class", "x axis")
+  .attr("transform", `translate(0, ${height-margin})`)
+  .call(xAxis);
+
+svg9.append("g")
+  .attr("class", "y axis")
+  .call(yAxis)
+  .append('text')
+  .attr("y", 15)
+  .attr("transform", "rotate(-90)")
+  .attr("fill", "#000")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var data10 = [
+  {
+    name: "CNN-embed-vis-mr-non-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.62493" },
+   { date: "0.25000", price: "0.65476" },
+   { date: "0.50000", price: "0.67304" },
+   { date: "1.00000", price: "0.70653" },
+    ]
+  },
+  {
+    name: "CNN-embed-vis-mr-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.64041" },
+   { date: "0.25000", price: "0.66798" },
+   { date: "0.50000", price: "0.68149" },
+   { date: "1.00000", price: "0.70653" },
+    ]
+  }
+];
+
+var yScale10 = d3.scaleLinear()
+  .domain([0.15, 0.83])
+  .range([height-margin, 0]);
+
+/* Format Data */
+data10.forEach(function(d) {
+  d.values.forEach(function(d) {
+    d.date = +d.date;
+    d.price = +d.price;
+  });
+});
+
+/* Add SVG */
+var svg10 = d3.select("#mult-line-i-mr-2").append("svg")
+  .attr("width", (width+margin)+"px")
+  .attr("height", (height+margin)+"px")
+  .append('g')
+  .attr("transform", `translate(${margin}, ${margin})`);
+
+
+/* Add line into SVG */
+var line10 = d3.line()
+  .x(d => xScale(d.date))
+  .y(d => yScale10(d.price));
+
+let lines10 = svg10.append('g')
+  .attr('class', 'lines');
+
+lines10.selectAll('.line-group')
+  .data(data10).enter()
+  .append('g')
+  .attr('class', 'line-group')
+  .on("mouseover", function(d, i) {
+      svg10.append("text")
+        .attr("class", "title-text")
+        .style("fill", color(i))
+        .text(d.name)
+        .attr("text-anchor", "left")
+        .attr("x", (width - margin)/2)
+        .attr("y", 5);
+    })
+  .on("mouseout", function(d) {
+      svg10.select(".title-text").remove();
+    })
+  .append('path')
+  .attr('class', 'line')
+  .attr('fill', 'none')
+  .attr('d', d => line10(d.values))
+  .style('stroke', (d, i) => color(i))
+  .style('opacity', lineOpacity)
+  .on("mouseover", function(d) {
+      d3.selectAll('.line')
+          .style('opacity', otherLinesOpacityHover);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacityOnLineHover);
+      d3.select(this)
+        .style('opacity', lineOpacityHover)
+        .style("stroke-width", lineStrokeHover)
+        .style("cursor", "pointer");
+    })
+  .on("mouseout", function(d) {
+      d3.selectAll(".line")
+          .style('opacity', lineOpacity);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacity);
+      d3.select(this)
+        .style("stroke-width", lineStroke)
+        .style("cursor", "none");
+    });
+
+
+/* Add circles in the line */
+lines10.selectAll("circle-group")
+  .data(data10).enter()
+  .append("g")
+  .style("fill", (d, i) => color(i))
+  .selectAll("circle")
+  .data(d => d.values).enter()
+  .append("g")
+  .attr("class", "circle")
+  .on("mouseover", function(d) {
+      d3.select(this)
+        .style("cursor", "pointer")
+        .append("text")
+        .attr("class", "text")
+        .text(`${d.price}`)
+        .attr("x", d => xScale(d.date) + 5)
+        .attr("y", d => yScale10(d.price) - 10);
+    })
+  .on("mouseout", function(d) {
+      d3.select(this)
+        .style("cursor", "none")
+        .transition()
+        .duration(duration)
+        .selectAll(".text").remove();
+    })
+  .append("circle")
+  .attr("cx", d => xScale(d.date))
+  .attr("cy", d => yScale10(d.price))
+  .attr("r", circleRadius)
+  .style('opacity', circleOpacity)
+  .on("mouseover", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadiusHover);
+      })
+    .on("mouseout", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadius);
+      });
+
+
+/* Add Axis into SVG */
+var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
+var yAxis = d3.axisLeft(yScale10).tickValues([0.15, 0.3, 0.5, 0.7, 0.83]).tickFormat(d3.format(",.2f"));
+
+svg10.append("g")
+  .attr("class", "x axis")
+  .attr("transform", `translate(0, ${height-margin})`)
+  .call(xAxis);
+
+svg10.append("g")
+  .attr("class", "y axis")
+  .call(yAxis)
+  .append('text')
+  .attr("y", 15)
+  .attr("transform", "rotate(-90)")
+  .attr("fill", "#000")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var data11 = [
+  {
+    name: "CNN_embed-vis-dblp-non-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.68245" },
+   { date: "0.25000", price: "0.71905" },
+   { date: "0.50000", price: "0.75015" },
+   { date: "1.00000", price: "0.76790" },
+    ]
+  },
+  {
+    name: "CNN_embed-vis-dblp-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.70420" },
+   { date: "0.25000", price: "0.73370" },
+   { date: "0.50000", price: "0.75465" },
+   { date: "1.00000", price: "0.76790" },
+    ]
+  }
+];
+
+var yScale11 = d3.scaleLinear()
+  .domain([0.15, 0.83])
+  .range([height-margin, 0]);
+
+/* Format Data */
+data11.forEach(function(d) {
+  d.values.forEach(function(d) {
+    d.date = +d.date;
+    d.price = +d.price;
+  });
+});
+
+/* Add SVG */
+var svg11 = d3.select("#mult-line-i-dblp-2").append("svg")
+  .attr("width", (width+margin)+"px")
+  .attr("height", (height+margin)+"px")
+  .append('g')
+  .attr("transform", `translate(${margin}, ${margin})`);
+
+
+/* Add line into SVG */
+var line11 = d3.line()
+  .x(d => xScale(d.date))
+  .y(d => yScale11(d.price));
+
+let lines11 = svg11.append('g')
+  .attr('class', 'lines');
+
+lines11.selectAll('.line-group')
+  .data(data11).enter()
+  .append('g')
+  .attr('class', 'line-group')
+  .on("mouseover", function(d, i) {
+      svg11.append("text")
+        .attr("class", "title-text")
+        .style("fill", color(i))
+        .text(d.name)
+        .attr("text-anchor", "left")
+        .attr("x", (width - margin)/2)
+        .attr("y", 5);
+    })
+  .on("mouseout", function(d) {
+      svg11.select(".title-text").remove();
+    })
+  .append('path')
+  .attr('class', 'line')
+  .attr('fill', 'none')
+  .attr('d', d => line11(d.values))
+  .style('stroke', (d, i) => color(i))
+  .style('opacity', lineOpacity)
+  .on("mouseover", function(d) {
+      d3.selectAll('.line')
+          .style('opacity', otherLinesOpacityHover);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacityOnLineHover);
+      d3.select(this)
+        .style('opacity', lineOpacityHover)
+        .style("stroke-width", lineStrokeHover)
+        .style("cursor", "pointer");
+    })
+  .on("mouseout", function(d) {
+      d3.selectAll(".line")
+          .style('opacity', lineOpacity);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacity);
+      d3.select(this)
+        .style("stroke-width", lineStroke)
+        .style("cursor", "none");
+    });
+
+
+/* Add circles in the line */
+lines11.selectAll("circle-group")
+  .data(data11).enter()
+  .append("g")
+  .style("fill", (d, i) => color(i))
+  .selectAll("circle")
+  .data(d => d.values).enter()
+  .append("g")
+  .attr("class", "circle")
+  .on("mouseover", function(d) {
+      d3.select(this)
+        .style("cursor", "pointer")
+        .append("text")
+        .attr("class", "text")
+        .text(`${d.price}`)
+        .attr("x", d => xScale(d.date) + 5)
+        .attr("y", d => yScale11(d.price) - 10);
+    })
+  .on("mouseout", function(d) {
+      d3.select(this)
+        .style("cursor", "none")
+        .transition()
+        .duration(duration)
+        .selectAll(".text").remove();
+    })
+  .append("circle")
+  .attr("cx", d => xScale(d.date))
+  .attr("cy", d => yScale11(d.price))
+  .attr("r", circleRadius)
+  .style('opacity', circleOpacity)
+  .on("mouseover", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadiusHover);
+      })
+    .on("mouseout", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadius);
+      });
+
+
+/* Add Axis into SVG */
+var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
+var yAxis = d3.axisLeft(yScale11).tickValues([0.15, 0.3, 0.5, 0.7, 0.83]).tickFormat(d3.format(",.2f"));
+
+svg11.append("g")
+  .attr("class", "x axis")
+  .attr("transform", `translate(0, ${height-margin})`)
+  .call(xAxis);
+
+svg11.append("g")
+  .attr("class", "y axis")
+  .call(yAxis)
+  .append('text')
+  .attr("y", 15)
+  .attr("transform", "rotate(-90)")
+  .attr("fill", "#000")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var data12 = [
+  {
+    name: "CNN_embed-vis-20ng-non-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.64790" },
+   { date: "0.25000", price: "0.74522" },
+   { date: "0.50000", price: "0.78744" },
+   { date: "1.00000", price: "0.82714" },
+    ]
+  },
+  {
+    name: "CNN_embed-vis-20ng-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.68070" },
+   { date: "0.25000", price: "0.74562" },
+   { date: "0.50000", price: "0.79753" },
+   { date: "1.00000", price: "0.82714" },
+    ]
+  }
+];
+
+var yScale12 = d3.scaleLinear()
+  .domain([0.15, 0.83])
+  .range([height-margin, 0]);
+
+/* Format Data */
+data12.forEach(function(d) {
+  d.values.forEach(function(d) {
+    d.date = +d.date;
+    d.price = +d.price;
+  });
+});
+
+/* Add SVG */
+var svg12 = d3.select("#mult-line-i-20ng-2").append("svg")
+  .attr("width", (width+margin)+"px")
+  .attr("height", (height+margin)+"px")
+  .append('g')
+  .attr("transform", `translate(${margin}, ${margin})`);
+
+
+/* Add line into SVG */
+var line12 = d3.line()
+  .x(d => xScale(d.date))
+  .y(d => yScale12(d.price));
+
+let lines12 = svg12.append('g')
+  .attr('class', 'lines');
+
+lines12.selectAll('.line-group')
+  .data(data12).enter()
+  .append('g')
+  .attr('class', 'line-group')
+  .on("mouseover", function(d, i) {
+      svg12.append("text")
+        .attr("class", "title-text")
+        .style("fill", color(i))
+        .text(d.name)
+        .attr("text-anchor", "left")
+        .attr("x", (width - margin)/2)
+        .attr("y", 5);
+    })
+  .on("mouseout", function(d) {
+      svg12.select(".title-text").remove();
+    })
+  .append('path')
+  .attr('class', 'line')
+  .attr('fill', 'none')
+  .attr('d', d => line12(d.values))
+  .style('stroke', (d, i) => color(i))
+  .style('opacity', lineOpacity)
+  .on("mouseover", function(d) {
+      d3.selectAll('.line')
+          .style('opacity', otherLinesOpacityHover);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacityOnLineHover);
+      d3.select(this)
+        .style('opacity', lineOpacityHover)
+        .style("stroke-width", lineStrokeHover)
+        .style("cursor", "pointer");
+    })
+  .on("mouseout", function(d) {
+      d3.selectAll(".line")
+          .style('opacity', lineOpacity);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacity);
+      d3.select(this)
+        .style("stroke-width", lineStroke)
+        .style("cursor", "none");
+    });
+
+
+/* Add circles in the line */
+lines12.selectAll("circle-group")
+  .data(data12).enter()
+  .append("g")
+  .style("fill", (d, i) => color(i))
+  .selectAll("circle")
+  .data(d => d.values).enter()
+  .append("g")
+  .attr("class", "circle")
+  .on("mouseover", function(d) {
+      d3.select(this)
+        .style("cursor", "pointer")
+        .append("text")
+        .attr("class", "text")
+        .text(`${d.price}`)
+        .attr("x", d => xScale(d.date) + 5)
+        .attr("y", d => yScale12(d.price) - 10);
+    })
+  .on("mouseout", function(d) {
+      d3.select(this)
+        .style("cursor", "none")
+        .transition()
+        .duration(duration)
+        .selectAll(".text").remove();
+    })
+  .append("circle")
+  .attr("cx", d => xScale(d.date))
+  .attr("cy", d => yScale12(d.price))
+  .attr("r", circleRadius)
+  .style('opacity', circleOpacity)
+  .on("mouseover", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadiusHover);
+      })
+    .on("mouseout", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadius);
+      });
+
+
+/* Add Axis into SVG */
+var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
+var yAxis = d3.axisLeft(yScale12).tickValues([0.15, 0.3, 0.5, 0.7, 0.83]).tickFormat(d3.format(",.2f"));
+
+svg12.append("g")
+  .attr("class", "x axis")
+  .attr("transform", `translate(0, ${height-margin})`)
+  .call(xAxis);
+
+svg12.append("g")
+  .attr("class", "y axis")
+  .call(yAxis)
+  .append('text')
+  .attr("y", 15)
+  .attr("transform", "rotate(-90)")
+  .attr("fill", "#000")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var data13 = [
+  {
+    name: "SVM_embed-vis-mr-non-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.65664" },
+   { date: "0.25000", price: "0.69514" },
+   { date: "0.50000", price: "0.70500" },
+   { date: "1.00000", price: "0.74444" },
+    ]
+  },
+  {
+    name: "SVM_embed-vis-mr-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.66129" },
+   { date: "0.25000", price: "0.70598" },
+   { date: "0.50000", price: "0.71309" },
+   { date: "1.00000", price: "0.74444" },
+    ]
+  }
+];
+
+var yScale13 = d3.scaleLinear()
+  .domain([0.15, 0.83])
+  .range([height-margin, 0]);
+
+/* Format Data */
+data13.forEach(function(d) {
+  d.values.forEach(function(d) {
+    d.date = +d.date;
+    d.price = +d.price;
+  });
+});
+
+/* Add SVG */
+var svg13 = d3.select("#mult-line-a-mr-3").append("svg")
+  .attr("width", (width+margin)+"px")
+  .attr("height", (height+margin)+"px")
+  .append('g')
+  .attr("transform", `translate(${margin}, ${margin})`);
+
+
+/* Add line into SVG */
+var line13 = d3.line()
+  .x(d => xScale(d.date))
+  .y(d => yScale13(d.price));
+
+let lines13 = svg13.append('g')
+  .attr('class', 'lines');
+
+lines13.selectAll('.line-group')
+  .data(data13).enter()
+  .append('g')
+  .attr('class', 'line-group')
+  .on("mouseover", function(d, i) {
+      svg13.append("text")
+        .attr("class", "title-text")
+        .style("fill", color(i))
+        .text(d.name)
+        .attr("text-anchor", "left")
+        .attr("x", (width - margin)/2)
+        .attr("y", 5);
+    })
+  .on("mouseout", function(d) {
+      svg13.select(".title-text").remove();
+    })
+  .append('path')
+  .attr('class', 'line')
+  .attr('fill', 'none')
+  .attr('d', d => line13(d.values))
+  .style('stroke', (d, i) => color(i))
+  .style('opacity', lineOpacity)
+  .on("mouseover", function(d) {
+      d3.selectAll('.line')
+          .style('opacity', otherLinesOpacityHover);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacityOnLineHover);
+      d3.select(this)
+        .style('opacity', lineOpacityHover)
+        .style("stroke-width", lineStrokeHover)
+        .style("cursor", "pointer");
+    })
+  .on("mouseout", function(d) {
+      d3.selectAll(".line")
+          .style('opacity', lineOpacity);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacity);
+      d3.select(this)
+        .style("stroke-width", lineStroke)
+        .style("cursor", "none");
+    });
+
+
+/* Add circles in the line */
+lines13.selectAll("circle-group")
+  .data(data13).enter()
+  .append("g")
+  .style("fill", (d, i) => color(i))
+  .selectAll("circle")
+  .data(d => d.values).enter()
+  .append("g")
+  .attr("class", "circle")
+  .on("mouseover", function(d) {
+      d3.select(this)
+        .style("cursor", "pointer")
+        .append("text")
+        .attr("class", "text")
+        .text(`${d.price}`)
+        .attr("x", d => xScale(d.date) + 5)
+        .attr("y", d => yScale13(d.price) - 10);
+    })
+  .on("mouseout", function(d) {
+      d3.select(this)
+        .style("cursor", "none")
+        .transition()
+        .duration(duration)
+        .selectAll(".text").remove();
+    })
+  .append("circle")
+  .attr("cx", d => xScale(d.date))
+  .attr("cy", d => yScale13(d.price))
+  .attr("r", circleRadius)
+  .style('opacity', circleOpacity)
+  .on("mouseover", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadiusHover);
+      })
+    .on("mouseout", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadius);
+      });
+
+
+/* Add Axis into SVG */
+var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
+var yAxis = d3.axisLeft(yScale13).tickValues([0.15, 0.3, 0.5, 0.7, 0.83]).tickFormat(d3.format(",.2f"));
+
+svg13.append("g")
+  .attr("class", "x axis")
+  .attr("transform", `translate(0, ${height-margin})`)
+  .call(xAxis);
+
+svg13.append("g")
+  .attr("class", "y axis")
+  .call(yAxis)
+  .append('text')
+  .attr("y", 15)
+  .attr("transform", "rotate(-90)")
+  .attr("fill", "#000")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var data14 = [
+  {
+    name: "SVM_embed-vis-dblp-non-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.65294" },
+   { date: "0.25000", price: "0.69028" },
+   { date: "0.50000", price: "0.72575" },
+   { date: "1.00000", price: "0.75302" },
+    ]
+  },
+  {
+    name: "SVM_embed-vis-dblp-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.67199" },
+   { date: "0.25000", price: "0.70285" },
+   { date: "0.50000", price: "0.72984" },
+   { date: "1.00000", price: "0.75302" },
+    ]
+  }
+];
+
+var yScale14 = d3.scaleLinear()
+  .domain([0.15, 0.83])
+  .range([height-margin, 0]);
+
+/* Format Data */
+data14.forEach(function(d) {
+  d.values.forEach(function(d) {
+    d.date = +d.date;
+    d.price = +d.price;
+  });
+});
+
+/* Add SVG */
+var svg14 = d3.select("#mult-line-a-dblp-3").append("svg")
+  .attr("width", (width+margin)+"px")
+  .attr("height", (height+margin)+"px")
+  .append('g')
+  .attr("transform", `translate(${margin}, ${margin})`);
+
+
+/* Add line into SVG */
+var line14 = d3.line()
+  .x(d => xScale(d.date))
+  .y(d => yScale14(d.price));
+
+let lines14 = svg14.append('g')
+  .attr('class', 'lines');
+
+lines14.selectAll('.line-group')
+  .data(data14).enter()
+  .append('g')
+  .attr('class', 'line-group')
+  .on("mouseover", function(d, i) {
+      svg14.append("text")
+        .attr("class", "title-text")
+        .style("fill", color(i))
+        .text(d.name)
+        .attr("text-anchor", "left")
+        .attr("x", (width - margin)/2)
+        .attr("y", 5);
+    })
+  .on("mouseout", function(d) {
+      svg14.select(".title-text").remove();
+    })
+  .append('path')
+  .attr('class', 'line')
+  .attr('fill', 'none')
+  .attr('d', d => line14(d.values))
+  .style('stroke', (d, i) => color(i))
+  .style('opacity', lineOpacity)
+  .on("mouseover", function(d) {
+      d3.selectAll('.line')
+          .style('opacity', otherLinesOpacityHover);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacityOnLineHover);
+      d3.select(this)
+        .style('opacity', lineOpacityHover)
+        .style("stroke-width", lineStrokeHover)
+        .style("cursor", "pointer");
+    })
+  .on("mouseout", function(d) {
+      d3.selectAll(".line")
+          .style('opacity', lineOpacity);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacity);
+      d3.select(this)
+        .style("stroke-width", lineStroke)
+        .style("cursor", "none");
+    });
+
+
+/* Add circles in the line */
+lines14.selectAll("circle-group")
+  .data(data14).enter()
+  .append("g")
+  .style("fill", (d, i) => color(i))
+  .selectAll("circle")
+  .data(d => d.values).enter()
+  .append("g")
+  .attr("class", "circle")
+  .on("mouseover", function(d) {
+      d3.select(this)
+        .style("cursor", "pointer")
+        .append("text")
+        .attr("class", "text")
+        .text(`${d.price}`)
+        .attr("x", d => xScale(d.date) + 5)
+        .attr("y", d => yScale14(d.price) - 10);
+    })
+  .on("mouseout", function(d) {
+      d3.select(this)
+        .style("cursor", "none")
+        .transition()
+        .duration(duration)
+        .selectAll(".text").remove();
+    })
+  .append("circle")
+  .attr("cx", d => xScale(d.date))
+  .attr("cy", d => yScale14(d.price))
+  .attr("r", circleRadius)
+  .style('opacity', circleOpacity)
+  .on("mouseover", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadiusHover);
+      })
+    .on("mouseout", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadius);
+      });
+
+
+/* Add Axis into SVG */
+var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
+var yAxis = d3.axisLeft(yScale14).tickValues([0.15, 0.3, 0.5, 0.7, 0.83]).tickFormat(d3.format(",.2f"));
+
+svg14.append("g")
+  .attr("class", "x axis")
+  .attr("transform", `translate(0, ${height-margin})`)
+  .call(xAxis);
+
+svg14.append("g")
+  .attr("class", "y axis")
+  .call(yAxis)
+  .append('text')
+  .attr("y", 15)
+  .attr("transform", "rotate(-90)")
+  .attr("fill", "#000")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var data15 = [
+  {
+    name: "SVM_embed-vis-20ng-non-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.14772" },
+   { date: "0.25000", price: "0.43270" },
+   { date: "0.50000", price: "0.64216" },
+   { date: "1.00000", price: "0.73863" },
+    ]
+  },
+  {
+    name: "SVM_embed-vis-20ng-ww-Fmacro",
+    values: [
+      { date: "0.12500", price: "0.12605" },
+   { date: "0.25000", price: "0.42339" },
+   { date: "0.50000", price: "0.64242" },
+   { date: "1.00000", price: "0.73863" },
+    ]
+  }
+];
+
+var yScale15 = d3.scaleLinear()
+  .domain([0.15, 0.83])
+  .range([height-margin, 0]);
+
+/* Format Data */
+data15.forEach(function(d) {
+  d.values.forEach(function(d) {
+    d.date = +d.date;
+    d.price = +d.price;
+  });
+});
+
+/* Add SVG */
+var svg15 = d3.select("#mult-line-a-20ng-3").append("svg")
+  .attr("width", (width+margin)+"px")
+  .attr("height", (height+margin)+"px")
+  .append('g')
+  .attr("transform", `translate(${margin}, ${margin})`);
+
+
+/* Add line into SVG */
+var line15 = d3.line()
+  .x(d => xScale(d.date))
+  .y(d => yScale15(d.price));
+
+let lines15 = svg15.append('g')
+  .attr('class', 'lines');
+
+lines15.selectAll('.line-group')
+  .data(data15).enter()
+  .append('g')
+  .attr('class', 'line-group')
+  .on("mouseover", function(d, i) {
+      svg15.append("text")
+        .attr("class", "title-text")
+        .style("fill", color(i))
+        .text(d.name)
+        .attr("text-anchor", "left")
+        .attr("x", (width - margin)/2)
+        .attr("y", 5);
+    })
+  .on("mouseout", function(d) {
+      svg15.select(".title-text").remove();
+    })
+  .append('path')
+  .attr('class', 'line')
+  .attr('fill', 'none')
+  .attr('d', d => line15(d.values))
+  .style('stroke', (d, i) => color(i))
+  .style('opacity', lineOpacity)
+  .on("mouseover", function(d) {
+      d3.selectAll('.line')
+          .style('opacity', otherLinesOpacityHover);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacityOnLineHover);
+      d3.select(this)
+        .style('opacity', lineOpacityHover)
+        .style("stroke-width", lineStrokeHover)
+        .style("cursor", "pointer");
+    })
+  .on("mouseout", function(d) {
+      d3.selectAll(".line")
+          .style('opacity', lineOpacity);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacity);
+      d3.select(this)
+        .style("stroke-width", lineStroke)
+        .style("cursor", "none");
+    });
+
+
+/* Add circles in the line */
+lines15.selectAll("circle-group")
+  .data(data15).enter()
+  .append("g")
+  .style("fill", (d, i) => color(i))
+  .selectAll("circle")
+  .data(d => d.values).enter()
+  .append("g")
+  .attr("class", "circle")
+  .on("mouseover", function(d) {
+      d3.select(this)
+        .style("cursor", "pointer")
+        .append("text")
+        .attr("class", "text")
+        .text(`${d.price}`)
+        .attr("x", d => xScale(d.date) + 5)
+        .attr("y", d => yScale15(d.price) - 10);
+    })
+  .on("mouseout", function(d) {
+      d3.select(this)
+        .style("cursor", "none")
+        .transition()
+        .duration(duration)
+        .selectAll(".text").remove();
+    })
+  .append("circle")
+  .attr("cx", d => xScale(d.date))
+  .attr("cy", d => yScale15(d.price))
+  .attr("r", circleRadius)
+  .style('opacity', circleOpacity)
+  .on("mouseover", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadiusHover);
+      })
+    .on("mouseout", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadius);
+      });
+
+
+/* Add Axis into SVG */
+var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
+var yAxis = d3.axisLeft(yScale15).tickValues([0.15, 0.3, 0.5, 0.7, 0.83]).tickFormat(d3.format(",.2f"));
+
+svg15.append("g")
+  .attr("class", "x axis")
+  .attr("transform", `translate(0, ${height-margin})`)
+  .call(xAxis);
+
+svg15.append("g")
+  .attr("class", "y axis")
+  .call(yAxis)
+  .append('text')
+  .attr("y", 15)
+  .attr("transform", "rotate(-90)")
+  .attr("fill", "#000")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var data16 = [
+  {
+    name: "SVM-embed-vis-mr-non-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.65664" },
+   { date: "0.25000", price: "0.69514" },
+   { date: "0.50000", price: "0.70500" },
+   { date: "1.00000", price: "0.74444" },
+    ]
+  },
+  {
+    name: "SVM-embed-vis-mr-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.66129" },
+   { date: "0.25000", price: "0.70598" },
+   { date: "0.50000", price: "0.71309" },
+   { date: "1.00000", price: "0.74444" },
+    ]
+  }
+];
+
+var yScale16 = d3.scaleLinear()
+  .domain([0.15, 0.83])
+  .range([height-margin, 0]);
+
+/* Format Data */
+data16.forEach(function(d) {
+  d.values.forEach(function(d) {
+    d.date = +d.date;
+    d.price = +d.price;
+  });
+});
+
+/* Add SVG */
+var svg16 = d3.select("#mult-line-i-mr-3").append("svg")
+  .attr("width", (width+margin)+"px")
+  .attr("height", (height+margin)+"px")
+  .append('g')
+  .attr("transform", `translate(${margin}, ${margin})`);
+
+
+/* Add line into SVG */
+var line16 = d3.line()
+  .x(d => xScale(d.date))
+  .y(d => yScale16(d.price));
+
+let lines16 = svg16.append('g')
+  .attr('class', 'lines');
+
+lines16.selectAll('.line-group')
+  .data(data16).enter()
+  .append('g')
+  .attr('class', 'line-group')
+  .on("mouseover", function(d, i) {
+      svg16.append("text")
+        .attr("class", "title-text")
+        .style("fill", color(i))
+        .text(d.name)
+        .attr("text-anchor", "left")
+        .attr("x", (width - margin)/2)
+        .attr("y", 5);
+    })
+  .on("mouseout", function(d) {
+      svg16.select(".title-text").remove();
+    })
+  .append('path')
+  .attr('class', 'line')
+  .attr('fill', 'none')
+  .attr('d', d => line16(d.values))
+  .style('stroke', (d, i) => color(i))
+  .style('opacity', lineOpacity)
+  .on("mouseover", function(d) {
+      d3.selectAll('.line')
+          .style('opacity', otherLinesOpacityHover);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacityOnLineHover);
+      d3.select(this)
+        .style('opacity', lineOpacityHover)
+        .style("stroke-width", lineStrokeHover)
+        .style("cursor", "pointer");
+    })
+  .on("mouseout", function(d) {
+      d3.selectAll(".line")
+          .style('opacity', lineOpacity);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacity);
+      d3.select(this)
+        .style("stroke-width", lineStroke)
+        .style("cursor", "none");
+    });
+
+
+/* Add circles in the line */
+lines16.selectAll("circle-group")
+  .data(data16).enter()
+  .append("g")
+  .style("fill", (d, i) => color(i))
+  .selectAll("circle")
+  .data(d => d.values).enter()
+  .append("g")
+  .attr("class", "circle")
+  .on("mouseover", function(d) {
+      d3.select(this)
+        .style("cursor", "pointer")
+        .append("text")
+        .attr("class", "text")
+        .text(`${d.price}`)
+        .attr("x", d => xScale(d.date) + 5)
+        .attr("y", d => yScale16(d.price) - 10);
+    })
+  .on("mouseout", function(d) {
+      d3.select(this)
+        .style("cursor", "none")
+        .transition()
+        .duration(duration)
+        .selectAll(".text").remove();
+    })
+  .append("circle")
+  .attr("cx", d => xScale(d.date))
+  .attr("cy", d => yScale16(d.price))
+  .attr("r", circleRadius)
+  .style('opacity', circleOpacity)
+  .on("mouseover", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadiusHover);
+      })
+    .on("mouseout", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadius);
+      });
+
+
+/* Add Axis into SVG */
+var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
+var yAxis = d3.axisLeft(yScale16).tickValues([0.15, 0.3, 0.5, 0.7, 0.83]).tickFormat(d3.format(",.2f"));
+
+svg16.append("g")
+  .attr("class", "x axis")
+  .attr("transform", `translate(0, ${height-margin})`)
+  .call(xAxis);
+
+svg16.append("g")
+  .attr("class", "y axis")
+  .call(yAxis)
+  .append('text')
+  .attr("y", 15)
+  .attr("transform", "rotate(-90)")
+  .attr("fill", "#000")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var data17 = [
+  {
+    name: "SVM_embed-vis-dblp-non-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.70245" },
+   { date: "0.25000", price: "0.73405" },
+   { date: "0.50000", price: "0.76235" },
+   { date: "1.00000", price: "0.78520" },
+    ]
+  },
+  {
+    name: "SVM_embed-vis-dblp-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.72055" },
+   { date: "0.25000", price: "0.74470" },
+   { date: "0.50000", price: "0.76510" },
+   { date: "1.00000", price: "0.78520" },
+    ]
+  }
+];
+
+var yScale17 = d3.scaleLinear()
+  .domain([0.15, 0.83])
+  .range([height-margin, 0]);
+
+/* Format Data */
+data17.forEach(function(d) {
+  d.values.forEach(function(d) {
+    d.date = +d.date;
+    d.price = +d.price;
+  });
+});
+
+/* Add SVG */
+var svg17 = d3.select("#mult-line-i-dblp-3").append("svg")
+  .attr("width", (width+margin)+"px")
+  .attr("height", (height+margin)+"px")
+  .append('g')
+  .attr("transform", `translate(${margin}, ${margin})`);
+
+
+/* Add line into SVG */
+var line17 = d3.line()
+  .x(d => xScale(d.date))
+  .y(d => yScale17(d.price));
+
+let lines17 = svg17.append('g')
+  .attr('class', 'lines');
+
+lines17.selectAll('.line-group')
+  .data(data17).enter()
+  .append('g')
+  .attr('class', 'line-group')
+  .on("mouseover", function(d, i) {
+      svg17.append("text")
+        .attr("class", "title-text")
+        .style("fill", color(i))
+        .text(d.name)
+        .attr("text-anchor", "left")
+        .attr("x", (width - margin)/2)
+        .attr("y", 5);
+    })
+  .on("mouseout", function(d) {
+      svg17.select(".title-text").remove();
+    })
+  .append('path')
+  .attr('class', 'line')
+  .attr('fill', 'none')
+  .attr('d', d => line17(d.values))
+  .style('stroke', (d, i) => color(i))
+  .style('opacity', lineOpacity)
+  .on("mouseover", function(d) {
+      d3.selectAll('.line')
+          .style('opacity', otherLinesOpacityHover);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacityOnLineHover);
+      d3.select(this)
+        .style('opacity', lineOpacityHover)
+        .style("stroke-width", lineStrokeHover)
+        .style("cursor", "pointer");
+    })
+  .on("mouseout", function(d) {
+      d3.selectAll(".line")
+          .style('opacity', lineOpacity);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacity);
+      d3.select(this)
+        .style("stroke-width", lineStroke)
+        .style("cursor", "none");
+    });
+
+
+/* Add circles in the line */
+lines17.selectAll("circle-group")
+  .data(data17).enter()
+  .append("g")
+  .style("fill", (d, i) => color(i))
+  .selectAll("circle")
+  .data(d => d.values).enter()
+  .append("g")
+  .attr("class", "circle")
+  .on("mouseover", function(d) {
+      d3.select(this)
+        .style("cursor", "pointer")
+        .append("text")
+        .attr("class", "text")
+        .text(`${d.price}`)
+        .attr("x", d => xScale(d.date) + 5)
+        .attr("y", d => yScale17(d.price) - 10);
+    })
+  .on("mouseout", function(d) {
+      d3.select(this)
+        .style("cursor", "none")
+        .transition()
+        .duration(duration)
+        .selectAll(".text").remove();
+    })
+  .append("circle")
+  .attr("cx", d => xScale(d.date))
+  .attr("cy", d => yScale17(d.price))
+  .attr("r", circleRadius)
+  .style('opacity', circleOpacity)
+  .on("mouseover", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadiusHover);
+      })
+    .on("mouseout", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadius);
+      });
+
+
+/* Add Axis into SVG */
+var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
+var yAxis = d3.axisLeft(yScale17).tickValues([0.15, 0.3, 0.5, 0.7, 0.83]).tickFormat(d3.format(",.2f"));
+
+svg17.append("g")
+  .attr("class", "x axis")
+  .attr("transform", `translate(0, ${height-margin})`)
+  .call(xAxis);
+
+svg17.append("g")
+  .attr("class", "y axis")
+  .call(yAxis)
+  .append('text')
+  .attr("y", 15)
+  .attr("transform", "rotate(-90)")
+  .attr("fill", "#000")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var data18 = [
+  {
+    name: "SVM_embed-vis-20ng-non-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.19942" },
+   { date: "0.25000", price: "0.48898" },
+   { date: "0.50000", price: "0.66981" },
+   { date: "1.00000", price: "0.75863" },
+    ]
+  },
+  {
+    name: "SVM_embed-vis-20ng-ww-Fmicro",
+    values: [
+      { date: "0.12500", price: "0.18070" },
+   { date: "0.25000", price: "0.48340" },
+   { date: "0.50000", price: "0.67087" },
+   { date: "1.00000", price: "0.75863" },
+    ]
+  }
+];
+
+var yScale18 = d3.scaleLinear()
+  .domain([0.15, 0.83])
+  .range([height-margin, 0]);
+
+/* Format Data */
+data18.forEach(function(d) {
+  d.values.forEach(function(d) {
+    d.date = +d.date;
+    d.price = +d.price;
+  });
+});
+
+/* Add SVG */
+var svg18 = d3.select("#mult-line-i-20ng-3").append("svg")
+  .attr("width", (width+margin)+"px")
+  .attr("height", (height+margin)+"px")
+  .append('g')
+  .attr("transform", `translate(${margin}, ${margin})`);
+
+
+/* Add line into SVG */
+var line18 = d3.line()
+  .x(d => xScale(d.date))
+  .y(d => yScale18(d.price));
+
+let lines18 = svg18.append('g')
+  .attr('class', 'lines');
+
+lines18.selectAll('.line-group')
+  .data(data18).enter()
+  .append('g')
+  .attr('class', 'line-group')
+  .on("mouseover", function(d, i) {
+      svg18.append("text")
+        .attr("class", "title-text")
+        .style("fill", color(i))
+        .text(d.name)
+        .attr("text-anchor", "left")
+        .attr("x", (width - margin)/2)
+        .attr("y", 5);
+    })
+  .on("mouseout", function(d) {
+      svg18.select(".title-text").remove();
+    })
+  .append('path')
+  .attr('class', 'line')
+  .attr('fill', 'none')
+  .attr('d', d => line18(d.values))
+  .style('stroke', (d, i) => color(i))
+  .style('opacity', lineOpacity)
+  .on("mouseover", function(d) {
+      d3.selectAll('.line')
+          .style('opacity', otherLinesOpacityHover);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacityOnLineHover);
+      d3.select(this)
+        .style('opacity', lineOpacityHover)
+        .style("stroke-width", lineStrokeHover)
+        .style("cursor", "pointer");
+    })
+  .on("mouseout", function(d) {
+      d3.selectAll(".line")
+          .style('opacity', lineOpacity);
+      d3.selectAll('.circle')
+          .style('opacity', circleOpacity);
+      d3.select(this)
+        .style("stroke-width", lineStroke)
+        .style("cursor", "none");
+    });
+
+
+/* Add circles in the line */
+lines18.selectAll("circle-group")
+  .data(data18).enter()
+  .append("g")
+  .style("fill", (d, i) => color(i))
+  .selectAll("circle")
+  .data(d => d.values).enter()
+  .append("g")
+  .attr("class", "circle")
+  .on("mouseover", function(d) {
+      d3.select(this)
+        .style("cursor", "pointer")
+        .append("text")
+        .attr("class", "text")
+        .text(`${d.price}`)
+        .attr("x", d => xScale(d.date) + 5)
+        .attr("y", d => yScale18(d.price) - 10);
+    })
+  .on("mouseout", function(d) {
+      d3.select(this)
+        .style("cursor", "none")
+        .transition()
+        .duration(duration)
+        .selectAll(".text").remove();
+    })
+  .append("circle")
+  .attr("cx", d => xScale(d.date))
+  .attr("cy", d => yScale18(d.price))
+  .attr("r", circleRadius)
+  .style('opacity', circleOpacity)
+  .on("mouseover", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadiusHover);
+      })
+    .on("mouseout", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(duration)
+          .attr("r", circleRadius);
+      });
+
+
+/* Add Axis into SVG */
+var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
+var yAxis = d3.axisLeft(yScale18).tickValues([0.15, 0.3, 0.5, 0.7, 0.83]).tickFormat(d3.format(",.2f"));
+
+svg18.append("g")
+  .attr("class", "x axis")
+  .attr("transform", `translate(0, ${height-margin})`)
+  .call(xAxis);
+
+svg18.append("g")
   .attr("class", "y axis")
   .call(yAxis)
   .append('text')
