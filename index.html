@@ -162,9 +162,7 @@
             <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scatter Plot of DBLP
         </h3>
         <p id="scatter-dblp">
-            It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of
-            hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its
-            noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.
+            There are six labels in the DBLP dataset. We used <code>sklearn.manifold.TSNE</code> by extracting the two main components from the dataset containing $1.25$ million texts and labels. To better illustrate the idea of the embedding, we added the functionality to choose among the labels to show. The label input accepts number inputs including number $1$ to $6$ and the graph is generated based on the input labels which by default is $123456$, i.e. including all the labels.
 
             <label for="labelValue"
                  style="display: inline-block; width: 240px; text-align: right">
