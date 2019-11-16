@@ -1,0 +1,4 @@
+F1 micro: 0.7688
+F1 macro: 0.7595
+
+# we only test the condition where the whole label is used, that is, the label ratio = 1.0
