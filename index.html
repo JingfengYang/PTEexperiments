@@ -76,10 +76,12 @@
             <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods
         </h2>
         <p>
-            In semi-supervised sentence classification, to leverage both annotated data and unannotated text data, we first build a heterogeneous graph whose edge consists of word-sentence, word-word, and word-label. Then we learn the representations of each vertex
-            in the graph. Finally, we could use them as input of the text classification task. This framework is proposed by <a href="https://arxiv.org/abs/1508.00200">Tang et al.</a>. There are several methods we would like to try in the
-            second step. The first is to use <a href="https://arxiv.org/abs/1508.00200">PTE</a> training process. The second is to use <a href="https://arxiv.org/abs/1609.02907">Graph Convolutional Networks ( GCN )</a>. <a href="https://arxiv.org/abs/1809.05679">Yao et al.</a> has tried GCN in the text classification task, but they did not include existing labels as vertices in the graph. We argue that label vertices are crucial, because it can introduce supervised information when training word embeddings. Because
-            of the heterogeneity, we would like to try techniques in Heterogeneous Graph Neural Network. We plan to use three datasets to test our model: <a href="http://www.cs.cornell.edu/people/pabo/movie-review-data/">one movie review dataset</a> and
+            In semi-supervised sentence classification, to leverage both annotated data and unannotated text data, there are three steps in our method. We first build a heterogeneous graph whose edge consists of word-sentence, word-word, and word-label. Then we learn the embeddings of each vertex in the graph. Finally, we could use them as input of the text classification task. This framework is proposed by <a href="https://arxiv.org/abs/1508.00200">Tang et al.</a>. 
+            The advantage of using this framework are two-fold. The first advantage is that this  heterogeneous graph have both labels and words as its vertices. Thus, it can leverage the supervision information of the labels when learning word embeddings, which is more promising than self-supervised way to learning word embeddings like [1] . Another advantage is that we can incorporate as much unlabeled data in the graph, and the supervision information can flow to unlabeled words through label-word edges and word-word edges.
+            In the first step,
+            In the second graph,
+            In the third graph.
+            We plan to use three datasets to test our model: <a href="http://www.cs.cornell.edu/people/pabo/movie-review-data/">one movie review dataset</a> and
             two sentiment classification datasets: <a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">Multi-Domain Sentiment Dataset (version 2.0)</a>, <a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/">Twitter Sentiment Analysis Training Corpus (Dataset)</a>.
         </p>
         <h2>
@@ -134,10 +136,10 @@
         <p id="mr-line">
             <ol>
                 <li>Different classification results:<br/>
-                As we can see in the result, SVM mainly beats LR and CNN in the metric of F1 micro/macro socres under this text classification task. The reason may be that SVM can better caputure the embedding space features and make a good prediction results.
+                As we can see in the result, SVM mainly beats LR and CNN in the metric of F1 micro/macro scores under this text classification task. The reason may be that SVM can better caputure the embedding space features and make a good prediction results.
                 </li>
                 <li>Different label ratio results:<br/>
-                The result shows that with the percentage of the labeled data increasing (i.e., 0.125, 0.25, 0.5, 1), the F1 score increases accordingly. It is easy to interprate this finding since with more labeled data, we can learn a more precise model from the objective function. More labeled data indicates a bigger feature space that can be learnted.
+                The result shows that with the percentage of the labeled data increasing (i.e., 0.125, 0.25, 0.5, 1), the F1 score increases accordingly. It is easy to interpret this finding since with more labeled data, we can learn a more precise model from the objective function. More labeled data indicates a bigger feature space that can be learned.
                 </li>
                 <li>Different supervised learning setting: Semi-supervised advantage:<br/>
                 In the experiment, we also test the built graph under two kinds of dataset: (1) graph with only labeled data (2) graph with labeled and unlabeled data. As is shown in the result, the added unlabeled data can improve the F1 score. This is because when the unlabeled data is added in the graph construction process, a better word embedding is generated, leading to a higher F1 score of labeled+unlabel data than that of labeled data.
