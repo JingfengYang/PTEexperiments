@@ -10,6 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <script type="text/javascript" , src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
     <script type="text/javascript" , src="https://d3js.org/d3.v5.min.js"></script>
     <script type="text/javascript" , src="https://d3js.org/d3-dsv.v1.min.js"></script>
@@ -86,7 +87,7 @@
         </h4>
         <p>
             In the first step,  we build word-word network, word-document network and word-label network.  
-            Word-word co-occurrence network, denoted as $G_{ww}=(\mathcal{V},E_{ww})$, captures the word co-occurrence information in local contexts of the unlabeled data. $\mathcal{V}$ is a vocabulary of words and $E_{ww}$ is the set of edges between words. The weight $w_{ij}$ of the edge between word $v_i$ and $v_j$ is defined as the number of times that the two words co-occur in the context windows of a given window size. 
+            Word-word co-occurrence network, denoted as $G_{ww}=(\mathcal{V},E_{ww})$, captures the word co-occurrence information in local contexts of the unlabeled data. $\mathcal{V}$ is a vocabulary of words and $E_{ww}$ is the set of edges between words. The weight $w_{ij}$ of the edge between word $v_i$ and $v_j$ is defined as the number of times that the two words co-occur in the context windows of a given window size.
             Word-document etwork, denoted as $G_{wd}=(\mathcal{V} \cup \mathcal{D},E_{wd})$, is a bipartite network where $\mathcal{D}$ is a set of documents and $\mathcal{V}$ is a set of words. $E_{wd}$ is the set of edges between words and documents. The weight $w_{ij}$ between word $v_i$ and document $d_j$ is simply defined as the number of times $v_i$ appears in document $d_j$.
             Word-label network, denoted as $G_{wl}=(\mathcal{V} \cup \mathcal{L},E_{wl})$, is a bipartite network that captures category-level word co-occurrences. $\mathcal{L}$ is a set of class labels and $\mathcal{V}$ a set of words. $E_{wl}$ is a set of edges between words and classes. The weight $w_{ij}$ of the edge between word $v_i$ and class $c_j$ is defined as: $w_{ij}=\sum_{(d:l_d=j)} n_{di}$, where $n_{di}$ is the term frequency of word $v_i$ in document $d$, and $l_d$ is the class label of document $d$.
 
@@ -111,7 +112,7 @@
             where $d(\cdot,\cdot)$ is the KL-divergence between two distributions, $\lambda_j$ is the importance of vertex $v_j$ in the network, which can be set as the degree $deg_j=\sum_i w_{ij}$, and the empirical distribution can be defined as $\hat{p}(v_i|v_j)=\frac{w_{ij}}{deg_j}$. Omitting some constants, the objective function can be calculated as:
 
             $$O=-\sum_{(i,j)\in E} w_{ij}\log p(v_j|v_i)$$
-            
+
             To learn the embeddings of our heterogeneous text network, we minimize the following objective function:
 
             $$O_{pte}= O_{ww}+O_{wd}+O_{wl}$$
@@ -130,24 +131,24 @@
         <h4>
                 <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Classification Methods
         </h4>
-       
+
 
         <p>
                 In the third step, we use three kinds of  classification algorithms to test the performance of our embeddings. For each algorithm, we use the embeddings trained with unlabled sentences and witout unlabeled sentences. We guess that the embeddings trained with unlabled sentences performs better, which show the effectiveness of PTE as a semi-supervised framework.
-            
-                We first use SVM and logistic regression as the classification algorithm. The input is the document embedding. Where a piece of text $d=w_1w_2\cdots,w_n$ iscomputed as  
+
+                We first use SVM and logistic regression as the classification algorithm. The input is the document embedding. Where a piece of text $d=w_1w_2\cdots,w_n$ iscomputed as
                 $$\vec{d}=\frac{1}{n}\sum_{i=1}^n \vec{u}_i,$$
                 where $\vec{u}_i$ is the embedding of word $w_i$.
-                
+
                 In fact, the average of the word embeddings is the solution to minimizing the following objective function:
-                
+
                $$O=\sum_{i=1}^{n} l(\vec{u}_i, \vec{d})$$
-                where the loss function $l(\cdot,\cdot)$ between the word embedding $\vec{u}_i$ and text embedding $\vec{d}$ is specified as the Euclidean distance. 
-    
+                where the loss function $l(\cdot,\cdot)$ between the word embedding $\vec{u}_i$ and text embedding $\vec{d}$ is specified as the Euclidean distance.
+
                 Then we use CNN as the classfier, where the input are word embeddings.
-    
-        </p>    
-        
+
+        </p>
+
         <h4>
                 <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Text Classification Datasets
         </h4>
@@ -270,13 +271,13 @@
             <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scatter Plot of MR
         </h2>
         <p id="scatter-mr">
-            There are two labels in the MR dataset. We used <code>sklearn.manifold.TSNE</code> by extracting the two main components from the dataset containing $0.6$ million texts and labels, thus better illustrating the idea of the embedding.
+            There are two labels in the MR dataset. We used <code class="prettyprint">sklearn.manifold.TSNE</code> by extracting the two main components from the dataset containing $0.6$ million texts and labels, thus better illustrating the idea of the embedding.
         </p>
         <h2>
             <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scatter Plot of DBLP
         </h2>
         <p id="scatter-dblp">
-            There are six labels in the DBLP dataset. We used <code>sklearn.manifold.TSNE</code> by extracting the two main components from the dataset containing $1.25$ million texts and labels. To better illustrate the idea of the embedding, we added the functionality to choose among the labels to show. The label input accepts number inputs including number $1$ to $6$ and the graph is generated based on the input labels which by default is $123456$, i.e. including all the labels. (Please have patience as the graph is generated real-time, thus depending on your network and processor.)<br/>
+            There are six labels in the DBLP dataset. We used <code class="prettyprint">sklearn.manifold.TSNE</code> by extracting the two main components from the dataset containing $1.25$ million texts and labels. To better illustrate the idea of the embedding, we added the functionality to choose among the labels to show. The label input accepts number inputs including number $1$ to $6$ and the graph is generated based on the input labels which by default is $123456$, i.e. including all the labels. (Please have patience as the graph is generated real-time, thus depending on your network and processor.)<br/>
             <label for="labelValue"
                  style="display: inline-block; width: 240px; text-align: right">
                  label = <span id="labelValue-value"></span>
