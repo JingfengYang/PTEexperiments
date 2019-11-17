@@ -141,10 +141,10 @@
         <p id="mr-line">
             <ol>
                 <li>Different classification results:<br/>
-                As we can see in the result, SVM mainly beats LR and CNN in the metric of F1 micro/macro socres under this text classification task. The reason may be that SVM can better caputure the embedding space features and make a good prediction results.
+                As we can see in the result, SVM mainly beats LR and CNN in the metric of F1 micro/macro scores under this text classification task. The reason may be that SVM can better caputure the embedding space features and make a good prediction results.
                 </li>
                 <li>Different label ratio results:<br/>
-                The result shows that with the percentage of the labeled data increasing (i.e., 0.125, 0.25, 0.5, 1), the F1 score increases accordingly. It is easy to interprate this finding since with more labeled data, we can learn a more precise model from the objective function. More labeled data indicates a bigger feature space that can be learnted.
+                The result shows that with the percentage of the labeled data increasing (i.e., 0.125, 0.25, 0.5, 1), the F1 score increases accordingly. It is easy to interpret this finding since with more labeled data, we can learn a more precise model from the objective function. More labeled data indicates a bigger feature space that can be learned.
                 </li>
                 <li>Different supervised learning setting: Semi-supervised advantage:<br/>
                 In the experiment, we also test the built graph under two kinds of dataset: (1) graph with only labeled data (2) graph with labeled and unlabeled data. As is shown in the result, the added unlabeled data can improve the F1 score. This is because when the unlabeled data is added in the graph construction process, a better word embedding is generated, leading to a higher F1 score of labeled+unlabel data than that of labeled data.
