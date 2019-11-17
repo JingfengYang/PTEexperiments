@@ -160,7 +160,7 @@ lines.selectAll("circle-group")
 
     svg.append("text")
       .attr("x", (width / 2))
-      .attr("y", - margin.top - 5)
+      .attr("y", 0)
       .attr("text-anchor", "middle")
       .style("font-size", "12px")
       .text("LR-MR");
@@ -427,7 +427,7 @@ lines2.selectAll("circle-group")
 
     svg2.append("text")
       .attr("x", (width / 2))
-      .attr("y", - margin.top - 5)
+      .attr("y", 0)
       .attr("text-anchor", "middle")
       .style("font-size", "12px")
       .text("LR-DBLP");
@@ -633,7 +633,7 @@ lines3.selectAll("circle-group")
 
     svg3.append("text")
       .attr("x", (width / 2))
-      .attr("y", - margin.top - 5)
+      .attr("y", 0)
       .attr("text-anchor", "middle")
       .style("font-size", "12px")
       .text("LR-20NG");
@@ -863,7 +863,7 @@ lines4.selectAll("circle-group")
 
     svg4.append("text")
       .attr("x", (width / 2))
-      .attr("y", - margin.top - 5)
+      .attr("y", 0)
       .attr("text-anchor", "middle")
       .style("font-size", "12px")
       .text("LR-MR");
@@ -1070,7 +1070,7 @@ lines5.selectAll("circle-group")
 
     svg5.append("text")
       .attr("x", (width / 2))
-      .attr("y", - margin.top - 5)
+      .attr("y", 0)
       .attr("text-anchor", "middle")
       .style("font-size", "12px")
       .text("LR-DBLP");
@@ -1277,7 +1277,7 @@ lines6.selectAll("circle-group")
 
     svg6.append("text")
       .attr("x", (width / 2))
-      .attr("y", - margin.top - 5)
+      .attr("y", 0)
       .attr("text-anchor", "middle")
       .style("font-size", "12px")
       .text("LR-20NG");
@@ -1361,7 +1361,7 @@ svg6.append("g")
 
 var data7 = [
   {
-    name: "CNN-mr-non-ww-Fmacro",
+    name: "non-ww",
     values: [
       { date: "0.12500", price: "0.62057" },
    { date: "0.25000", price: "0.65463" },
@@ -1370,7 +1370,7 @@ var data7 = [
     ]
   },
   {
-    name: "CNN-mr-ww-Fmacro",
+    name: "ww",
     values: [
       { date: "0.12500", price: "0.64005" },
    { date: "0.25000", price: "0.66703" },
@@ -1494,6 +1494,12 @@ lines7.selectAll("circle-group")
           .attr("r", circleRadius);
       });
 
+    svg7.append("text")
+      .attr("x", (width / 2))
+      .attr("y", 0)
+      .attr("text-anchor", "middle")
+      .style("font-size", "12px")
+      .text("CNN-MR");
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
@@ -1574,7 +1580,7 @@ svg7.append("g")
 
 var data8 = [
   {
-    name: "CNN-dblp-non-ww-Fmacro",
+    name: "non-ww",
     values: [
       { date: "0.12500", price: "0.63242" },
    { date: "0.25000", price: "0.67759" },
@@ -1583,7 +1589,7 @@ var data8 = [
     ]
   },
   {
-    name: "CNN-dblp-ww-Fmacro",
+    name: "ww",
     values: [
       { date: "0.12500", price: "0.65863" },
    { date: "0.25000", price: "0.69342" },
@@ -1707,6 +1713,12 @@ lines8.selectAll("circle-group")
           .attr("r", circleRadius);
       });
 
+    svg8.append("text")
+      .attr("x", (width / 2))
+      .attr("y", 0)
+      .attr("text-anchor", "middle")
+      .style("font-size", "12px")
+      .text("CNN-DBLP");
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
@@ -1787,7 +1799,7 @@ svg8.append("g")
 
 var data9 = [
   {
-    name: "CNN-20ng-non-ww-Fmacro",
+    name: "non-ww",
     values: [
       { date: "0.12500", price: "0.64247" },
    { date: "0.25000", price: "0.73920" },
@@ -1796,7 +1808,7 @@ var data9 = [
     ]
   },
   {
-    name: "CNN-20ng-ww-Fmacro",
+    name: "ww",
     values: [
       { date: "0.12500", price: "0.67585" },
    { date: "0.25000", price: "0.74057" },
@@ -1920,6 +1932,12 @@ lines9.selectAll("circle-group")
           .attr("r", circleRadius);
       });
 
+    svg9.append("text")
+      .attr("x", (width / 2))
+      .attr("y", 0)
+      .attr("text-anchor", "middle")
+      .style("font-size", "12px")
+      .text("CNN-20NG");
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
@@ -2000,7 +2018,7 @@ svg9.append("g")
 
 var data10 = [
   {
-    name: "CNN-embed-vis-mr-non-ww-Fmicro",
+    name: "non-ww",
     values: [
       { date: "0.12500", price: "0.62493" },
    { date: "0.25000", price: "0.65476" },
@@ -2009,7 +2027,7 @@ var data10 = [
     ]
   },
   {
-    name: "CNN-embed-vis-mr-ww-Fmicro",
+    name: "ww",
     values: [
       { date: "0.12500", price: "0.64041" },
    { date: "0.25000", price: "0.66798" },
@@ -2133,6 +2151,12 @@ lines10.selectAll("circle-group")
           .attr("r", circleRadius);
       });
 
+    svg10.append("text")
+      .attr("x", (width / 2))
+      .attr("y", 0)
+      .attr("text-anchor", "middle")
+      .style("font-size", "12px")
+      .text("CNN-MR");
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
@@ -2213,7 +2237,7 @@ svg10.append("g")
 
 var data11 = [
   {
-    name: "CNN-dblp-non-ww-Fmicro",
+    name: "non-ww",
     values: [
       { date: "0.12500", price: "0.68245" },
    { date: "0.25000", price: "0.71905" },
@@ -2222,7 +2246,7 @@ var data11 = [
     ]
   },
   {
-    name: "CNN-dblp-ww-Fmicro",
+    name: "ww",
     values: [
       { date: "0.12500", price: "0.70420" },
    { date: "0.25000", price: "0.73370" },
@@ -2346,6 +2370,12 @@ lines11.selectAll("circle-group")
           .attr("r", circleRadius);
       });
 
+    svg11.append("text")
+      .attr("x", (width / 2))
+      .attr("y", 0)
+      .attr("text-anchor", "middle")
+      .style("font-size", "12px")
+      .text("CNN-DBLP");
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
@@ -2426,7 +2456,7 @@ svg11.append("g")
 
 var data12 = [
   {
-    name: "CNN-20ng-non-ww-Fmicro",
+    name: "non-ww",
     values: [
       { date: "0.12500", price: "0.64790" },
    { date: "0.25000", price: "0.74522" },
@@ -2435,7 +2465,7 @@ var data12 = [
     ]
   },
   {
-    name: "CNN-20ng-ww-Fmicro",
+    name: "ww",
     values: [
       { date: "0.12500", price: "0.68070" },
    { date: "0.25000", price: "0.74562" },
@@ -2559,6 +2589,12 @@ lines12.selectAll("circle-group")
           .attr("r", circleRadius);
       });
 
+    svg12.append("text")
+      .attr("x", (width / 2))
+      .attr("y", 0)
+      .attr("text-anchor", "middle")
+      .style("font-size", "12px")
+      .text("CNN-20NG");
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
@@ -2639,7 +2675,7 @@ svg12.append("g")
 
 var data13 = [
   {
-    name: "SVM-mr-non-ww-Fmacro",
+    name: "non-ww",
     values: [
       { date: "0.12500", price: "0.65664" },
    { date: "0.25000", price: "0.69514" },
@@ -2648,7 +2684,7 @@ var data13 = [
     ]
   },
   {
-    name: "SVM-mr-ww-Fmacro",
+    name: "ww",
     values: [
       { date: "0.12500", price: "0.66129" },
    { date: "0.25000", price: "0.70598" },
@@ -2772,6 +2808,12 @@ lines13.selectAll("circle-group")
           .attr("r", circleRadius);
       });
 
+    svg13.append("text")
+      .attr("x", (width / 2))
+      .attr("y", 0)
+      .attr("text-anchor", "middle")
+      .style("font-size", "12px")
+      .text("SVM-MR");
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
@@ -2852,7 +2894,7 @@ svg13.append("g")
 
 var data14 = [
   {
-    name: "SVM-dblp-non-ww-Fmacro",
+    name: "non-ww",
     values: [
       { date: "0.12500", price: "0.65294" },
    { date: "0.25000", price: "0.69028" },
@@ -2861,7 +2903,7 @@ var data14 = [
     ]
   },
   {
-    name: "SVM-dblp-ww-Fmacro",
+    name: "ww",
     values: [
       { date: "0.12500", price: "0.67199" },
    { date: "0.25000", price: "0.70285" },
@@ -2985,6 +3027,12 @@ lines14.selectAll("circle-group")
           .attr("r", circleRadius);
       });
 
+    svg14.append("text")
+      .attr("x", (width / 2))
+      .attr("y", 0)
+      .attr("text-anchor", "middle")
+      .style("font-size", "12px")
+      .text("SVM-DBLP");
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
@@ -3065,7 +3113,7 @@ svg14.append("g")
 
 var data15 = [
   {
-    name: "SVM-20ng-non-ww-Fmacro",
+    name: "non-ww",
     values: [
       { date: "0.12500", price: "0.14772" },
    { date: "0.25000", price: "0.43270" },
@@ -3074,7 +3122,7 @@ var data15 = [
     ]
   },
   {
-    name: "SVM-20ng-ww-Fmacro",
+    name: "ww",
     values: [
       { date: "0.12500", price: "0.12605" },
    { date: "0.25000", price: "0.42339" },
@@ -3198,6 +3246,12 @@ lines15.selectAll("circle-group")
           .attr("r", circleRadius);
       });
 
+    svg15.append("text")
+      .attr("x", (width / 2))
+      .attr("y", 0)
+      .attr("text-anchor", "middle")
+      .style("font-size", "12px")
+      .text("SVM-20NG");
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
@@ -3278,7 +3332,7 @@ svg15.append("g")
 
 var data16 = [
   {
-    name: "SVM-embed-vis-mr-non-ww-Fmicro",
+    name: "non-ww",
     values: [
       { date: "0.12500", price: "0.65664" },
    { date: "0.25000", price: "0.69514" },
@@ -3287,7 +3341,7 @@ var data16 = [
     ]
   },
   {
-    name: "SVM-embed-vis-mr-ww-Fmicro",
+    name: "ww",
     values: [
       { date: "0.12500", price: "0.66129" },
    { date: "0.25000", price: "0.70598" },
@@ -3411,6 +3465,12 @@ lines16.selectAll("circle-group")
           .attr("r", circleRadius);
       });
 
+    svg16.append("text")
+      .attr("x", (width / 2))
+      .attr("y", 0)
+      .attr("text-anchor", "middle")
+      .style("font-size", "12px")
+      .text("SVM-MR");
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
@@ -3491,7 +3551,7 @@ svg16.append("g")
 
 var data17 = [
   {
-    name: "SVM-dblp-non-ww-Fmicro",
+    name: "non-ww",
     values: [
       { date: "0.12500", price: "0.70245" },
    { date: "0.25000", price: "0.73405" },
@@ -3500,7 +3560,7 @@ var data17 = [
     ]
   },
   {
-    name: "SVM-dblp-ww-Fmicro",
+    name: "ww",
     values: [
       { date: "0.12500", price: "0.72055" },
    { date: "0.25000", price: "0.74470" },
@@ -3624,6 +3684,12 @@ lines17.selectAll("circle-group")
           .attr("r", circleRadius);
       });
 
+    svg17.append("text")
+      .attr("x", (width / 2))
+      .attr("y", 0)
+      .attr("text-anchor", "middle")
+      .style("font-size", "12px")
+      .text("SVM-DBLP");
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
@@ -3704,7 +3770,7 @@ svg17.append("g")
 
 var data18 = [
   {
-    name: "SVM-20ng-non-ww-Fmicro",
+    name: "non-ww",
     values: [
       { date: "0.12500", price: "0.19942" },
    { date: "0.25000", price: "0.48898" },
@@ -3713,7 +3779,7 @@ var data18 = [
     ]
   },
   {
-    name: "SVM-20ng-ww-Fmicro",
+    name: "ww",
     values: [
       { date: "0.12500", price: "0.18070" },
    { date: "0.25000", price: "0.48340" },
@@ -3837,6 +3903,12 @@ lines18.selectAll("circle-group")
           .attr("r", circleRadius);
       });
 
+    svg18.append("text")
+      .attr("x", (width / 2))
+      .attr("y", 0)
+      .attr("text-anchor", "middle")
+      .style("font-size", "12px")
+      .text("SVM-20NG");
 
 /* Add Axis into SVG */
 var xAxis = d3.axisBottom(xScale).tickValues([0.125,0.25,0.5,1]).tickFormat(d3.format(",.3f"));
