@@ -86,32 +86,35 @@
         <h3>
             <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Results
         </h3>
-        <p id="word-label">
-            We will be able to determine the approach with the best performance using the three datasets and the contribution of labeled and unlabeled data in semi-supervised learning to the final result, as well as the efficiency and the parameter used. Finally, we also present document visualizations to vividly illustrate our result.
+            <h4>
+                <a class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Results for DBLP dataset
+            </h4>
+            <p id="word-label">
+                We will be able to determine the approach with the best performance using the three datasets and the contribution of labeled and unlabeled data in semi-supervised learning to the final result, as well as the efficiency and the parameter used. Finally, we also present document visualizations to vividly illustrate our result.
 
-            As seen in the following graph, we have separated the nodes into two classifications: text and label. There are six labels in the embedding, connecting the texts using yellow-ish lines. Among the $1.25$ million texts, we picked around $100$ texts to show what we have done, the link between which are colored steelblue.
-		
-	    1. Different classification results:
-	    As we can see in the result, SVM mainly beats LR and CNN in the metric of F1 micro/macro socres under this text classification task. The reason may be that SVM can better caputure the embedding space features and make a good prediction results.
-
-	    2. Different label ratio results:
-	    The result shows that with the percentage of the labeled data increasing (i.e., 0.125, 0.25, 0.5, 1), the F1 score increases accordingly. It is easy to interprate this finding since with more labeled data, we can learn a more precise model from the objective function. More labeled data indicates a bigger feature space that can be learnted.
-
-	    3. Different supervised learning setting: Semi-supervised advantage:
-	   In the experiment, we also test the buuilt graph under two kinds of dataset: (1) graph with only labeled data (2) graph with labeled and unlabeled data. As is shown in the result, the added unlabeled data can improve the F1 score. This is because when the unlabeled data is added in the graph construction process, a better word embedding is generated, leading to a higher F1 score of labeled+unlabel data than that of labeled data.
-        </p>
+                As seen in the following graph, we have separated the nodes into two classifications: text and label. There are six labels in the embedding, connecting the texts using yellow-ish lines. Among the $1.25$ million texts, we picked around $100$ texts to show what we have done, the link between which are colored steelblue.
+            </p>
+            <h4>
+                <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Results for MR dataset
+            </h4>
+            <p id="word-label-mr">
+                There are $600$ thousand words and only two labels in the MR dataset. We are able to pick $100$ of them to make a clear relationship out of them. Similar to DBLP dataset, we used yellow line to draw the word-label relationship and line in steelblue to draw the word-word relationship line.
+            </p>
         <h3>
-            <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Results
+            <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Line charts comparison of Linear Regression, CNN and Support Vector Machine
         </h3>
-        <p id="word-label-mr">
-            It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of
-            hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its
-            noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.
-        </p>
-        <h3>
-            <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Some Bipartite Graph
-        </h3>
-        <p>
+        <p id="mr-line">
+            <ol>
+                <li>Different classification results:<br/>
+                As we can see in the result, SVM mainly beats LR and CNN in the metric of F1 micro/macro socres under this text classification task. The reason may be that SVM can better caputure the embedding space features and make a good prediction results.
+                </li>
+                <li>Different label ratio results:<br/>
+                The result shows that with the percentage of the labeled data increasing (i.e., 0.125, 0.25, 0.5, 1), the F1 score increases accordingly. It is easy to interprate this finding since with more labeled data, we can learn a more precise model from the objective function. More labeled data indicates a bigger feature space that can be learnted.
+                </li>
+                <li>Different supervised learning setting: Semi-supervised advantage:<br/>
+                In the experiment, we also test the buuilt graph under two kinds of dataset: (1) graph with only labeled data (2) graph with labeled and unlabeled data. As is shown in the result, the added unlabeled data can improve the F1 score. This is because when the unlabeled data is added in the graph construction process, a better word embedding is generated, leading to a higher F1 score of labeled+unlabel data than that of labeled data.
+                </li>
+            </ol>
             <table style="width:100%">
               <tr>
                 <th>F-MACRO</th>
@@ -156,18 +159,10 @@
             </table>
         </p>
         <h3>
-            <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MR Data Line Chart
-        </h3>
-        <p id="mr-line">
-            It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of
-            hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its
-            noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.
-        </p>
-        <h3>
             <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scatter Plot of MR
         </h3>
         <p id="scatter-mr">
-            There are two labels in the MR dataset.
+            There are two labels in the MR dataset. We used <code>sklearn.manifold.TSNE</code> by extracting the two main components from the dataset containing $0.6$ million texts and labels, thus better illustrating the idea of the embedding.
         </p>
         <h3>
             <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scatter Plot of DBLP
