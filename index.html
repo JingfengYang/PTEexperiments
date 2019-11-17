@@ -21,14 +21,13 @@
     <script type="text/javascript" , src="javascripts/d3-tip.min.js"></script>
     <script type="text/x-mathjax-config">
 	    MathJax.Hub.Config({
-	      tex2jax: {
-	        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-	        inlineMath: [['$','$']]
-	      }
+    	    tex2jax: {
+    	        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    	        inlineMath: [['$','$']]
+    	    }
 	    });
-	  </script>
-	  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-
+	</script>
+	<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 </head>
 
 <body>
@@ -39,12 +38,12 @@
     </section>
 
     <section class="main-content">
-        <h3>
+        <h2>
             <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction
-        </h3>
-        <h4>
+        </h2>
+        <h3>
             <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Motivation
-        </h4>
+        </h3>
         <p>
             The text contains numerous effective and meaningful information for people. How to learn the meaning of words is a critical prerequisite for many machine learning tasks. Traditionally, people represent words independently to each other and represent each
             document as a "bag of words". However, the sparsity, polysemy, and synonymy of words and documents are commonly ignored during training.
@@ -62,9 +61,9 @@
         <p>
             To sum up, text embedding methods are more efficient while deep learning neural networks are more predictive. How about using both supervised and unsupervised labels at the same time?
         </p>
-        <h4>
+        <h3>
             <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Project scope
-        </h4>
+        </h3>
         <p>
             In this project, we deploy Predictive Text Embedding (PTE), a semi-supervised representation learning method for text data to fill the gap between supervised and unsupervised labels. By learning from limited labeled examples and a large number of unlabelled
             examples, we obtain an effective low dimensional representation, which is the information between words and words, words and labels and words and documents.
@@ -73,9 +72,9 @@
             We build two kinds of training data: one has a network encodes different levels of co-occurrence information between words and words while other does not. Then, we conduct experiments with sentiment data sets MR, short document data sets DBLP and long
             document data sets 20NG. Experimental results show that the data which has the word and word information outperform the data without this embedding information in various text classification tasks.
         </p>
-        <h3>
+        <h2>
             <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods
-        </h3>
+        </h2>
         <p>
             In semi-supervised sentence classification, to leverage both annotated data and unannotated text data, we first build a heterogeneous graph whose edge consists of word-sentence, word-word, and word-label. Then we learn the representations of each vertex
             in the graph. Finally, we could use them as input of the text classification task. This framework is proposed by <a href="https://arxiv.org/abs/1508.00200">Tang et al.</a>. There are several methods we would like to try in the
@@ -83,25 +82,25 @@
             of the heterogeneity, we would like to try techniques in Heterogeneous Graph Neural Network. We plan to use three datasets to test our model: <a href="http://www.cs.cornell.edu/people/pabo/movie-review-data/">one movie review dataset</a> and
             two sentiment classification datasets: <a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">Multi-Domain Sentiment Dataset (version 2.0)</a>, <a href="http://thinknook.com/twitter-sentiment-analysis-training-corpus-dataset-2012-09-22/">Twitter Sentiment Analysis Training Corpus (Dataset)</a>.
         </p>
-        <h3>
+        <h2>
             <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Results
-        </h3>
-            <h4>
+        </h2>
+            <h3>
                 <a class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Results for DBLP dataset
-            </h4>
+            </h3>
             <p id="word-label">
                 We will be able to determine the approach with the best performance using the three datasets and the contribution of labeled and unlabeled data in semi-supervised learning to the final result, as well as the efficiency and the parameter used. Finally, we also present document visualizations to vividly illustrate our result.
 
                 As seen in the following graph, we have separated the nodes into two classifications: text and label. There are six labels in the embedding, connecting the texts using yellow-ish lines. Among the $1.25$ million texts, we picked around $100$ texts to show what we have done, the link between which are colored steelblue.
             </p>
-            <h4>
+            <h3>
                 <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Results for MR dataset
-            </h4>
+            </h3>
             <p id="word-label-mr">
                 There are $600$ thousand words and only two labels in the MR dataset. We are able to pick $100$ of them to make a clear relationship out of them. Similar to DBLP dataset, we used yellow line to draw the word-label relationship and line in steelblue to draw the word-word relationship line.
             </p>
-        <h3 id="graph-convolutional-network-trial">Graph Convolutional Network Trial</h3>
-            <h4 id="procedure">Procedure</h4>
+        <h2 id="graph-convolutional-network-trial">Graph Convolutional Network Trial</h2>
+            <h3 id="procedure">Procedure</h3>
             <ul>
                 <li>
                     Remove stop word: we remove the stop words and low-frequency words (conducted in the PTE preprocessing).
@@ -113,29 +112,25 @@
                     Learn graph convolutional network: once a graph is built, we use the classical GCN learning method, where we only have two layers.
                 </li>
             </ul>
-            <h4 id="evaluation">Evaluation</h4>
+            <h3 id="evaluation">Evaluation</h3>
             <p>
                 We compare PTE and GCN wby MR dataset with label ratio equal to 1. As we can see, GCN has a relatively higher F1 score. The reason is that GCN usually learns a better graph-structure representation than the embedding vector by PTE.
                 <table>
-                <thead>
-                <tr>
-                <th></th>
-                <th style="text-align:center">PTE</th>
-                <th style="text-align:right">GCN</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                <td>F1-micro/F1-macro</td>
-                <td style="text-align:center">0.65</td>
-                <td style="text-align:right">0.68</td>
-                </tr>
-                </tbody>
+                    <tr>
+                        <th></th>
+                        <th style="text-align:center">PTE</th>
+                        <th style="text-align:center">GCN</th>
+                    </tr>
+                    <tr>
+                        <td>F1-micro/F1-macro</td>
+                        <td style="text-align:center">0.65</td>
+                        <td style="text-align:center">0.68</td>
+                    </tr>
                 </table>
             </p>
-        <h3>
+        <h2>
             <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Line charts comparison of Linear Regression, CNN and Support Vector Machine
-        </h3>
+        </h2>
         <p id="mr-line">
             <ol>
                 <li>Different classification results:<br/>
@@ -191,15 +186,15 @@
               </tr>
             </table>
         </p>
-        <h3>
+        <h2>
             <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scatter Plot of MR
-        </h3>
+        </h2>
         <p id="scatter-mr">
             There are two labels in the MR dataset. We used <code>sklearn.manifold.TSNE</code> by extracting the two main components from the dataset containing $0.6$ million texts and labels, thus better illustrating the idea of the embedding.
         </p>
-        <h3>
+        <h2>
             <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scatter Plot of DBLP
-        </h3>
+        </h2>
         <p id="scatter-dblp">
             There are six labels in the DBLP dataset. We used <code>sklearn.manifold.TSNE</code> by extracting the two main components from the dataset containing $1.25$ million texts and labels. To better illustrate the idea of the embedding, we added the functionality to choose among the labels to show. The label input accepts number inputs including number $1$ to $6$ and the graph is generated based on the input labels which by default is $123456$, i.e. including all the labels. (Please have patience as the graph is generated real-time, thus depending on your network and processor.)<br/>
             <label for="labelValue"
@@ -208,17 +203,17 @@
             </label>
             <input type="text" value="123456" id="labelValue">
         </p>
-        <h3>
+        <h2>
             <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Discussion
-        </h3>
+        </h2>
         <p>
             PTE relates the unlabeled training data directly to the specific task, outperforming methods that train word/semantic embedding separately. Thus, we expect that utilizing recent advancements in graph-based neural network structure and traning method like
             proposed in <a href="https://arxiv.org/abs/1609.02907">Semi-Supervised Classification with Graph Convolutional Networks</a> can further enhance PTE method. We also expect that techniques in Heterogeneous Graph Neural Network like
             attention mechanism will improve our performance in this project because of our heterogeneous construction of graph and the nature of text analysis task.
         </p>
-        <h3>
+        <h2>
             <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References
-        </h3>
+        </h2>
         <p>
             <ol>
                 <li>
