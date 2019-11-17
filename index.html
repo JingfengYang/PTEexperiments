@@ -100,7 +100,7 @@
             noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only.
         </p>
         <h3>
-            <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Some Bipartite Graph
+            <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Classification Result Analysis
         </h3>
 	<p>
            <ol>
@@ -118,14 +118,14 @@
            </ol>
         </p>
 	
-	<h1 id="graph-convolutional-network-trial">Graph Convolutional Network Trial</h1>
-<h2 id="procedure">Procedure</h2>
+	<h2 id="graph-convolutional-network-trial">Graph Convolutional Network Trial</h2>
+<h3 id="procedure">Procedure</h3>
 <ul>
 <li>Remove stop word: we remove the stop words and low-frequency words (conducted in the PTE preprocessing).</li>
 <li>Build graph: we build graphs by the network construction results in PTE model because in the PTE graph construction processing, we have three graphs: (1) word-word network (2) word-document network (3) word-label network; we can use the first two graphs to build a new graph where each node can be a word/document and an edge indicates the co-currence. To normalize it, we use TF-IDF instead. (For computing convenience, we directly use the text data.)</li>
 <li>Learn graph convolutional network: once a graph is built, we use the classical GCN learning method, where we only have two layers. </li>
 </ul>
-<h2 id="evaluation">Evaluation</h2>
+<h3 id="evaluation">Evaluation</h3>
 <p>We compare PTE and GCN wby MR dataset with label ratio equal to 1. As we can see, GCN has a relatively higher F1 score. The reason is that GCN usually learns a better graph-structure representation than the embedding vector by PTE. </p>
 <table>
 <thead>
@@ -141,6 +141,9 @@
 <td style="text-align:center">0.65</td>
 <td style="text-align:right">0.68</td>
 </tr>
+</tbody>
+</table>
+
 </tbody>
 </table>
 
