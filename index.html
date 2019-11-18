@@ -176,7 +176,7 @@ end</pre> -->
             </li>
             <li>
                 Build graph: we build graphs by the network construction results in PTE model because in the PTE graph construction processing, we have three graphs: (1) word-word network (2) word-document network (3) word-label network; we can use the first two graphs
-                to build a new graph where each node can be a word/document and an edge indicates the co-currence. To normalize it, we use TF-IDF instead. (For computing convenience, we directly use the text data.)
+                to build a new graph where each node can be a word/document and an edge indicates the co-currence (As shown in the above graph, the first two graphs are conveted into one graph, the third label graph is just used to set the node label). To normalize it, we use TF-IDF instead. (For computing convenience, we directly use the text data.)
             </li>
             <li>
                 Learn graph convolutional network: once a graph is built, we use the classical GCN learning method, where we only have two layers.
