@@ -285,11 +285,12 @@ end</pre> -->
         </h3>
         <ul>
             <li>
-                PTE relates the unlabeled training data directly to the specific task, outperforming methods with pure supervised learning and those train word/semantic embedding separately. Our experiments support the result, and also show that the less labeled data
-                we have, the more improvement we will obtain over pure supervised learning. In conclusion, we show in our experiments that PTE is well suited for task-specific feature extraction.
+                PTE relates the unlabeled training data directly to the specific task, making it outperform methods with pure supervised learning and those training word/semantic embedding separately. Our experiments also show that the more unlabeled data
+                we add, the more improvement we will obtain over pure supervised learning. In conclusion, PTE is well suited for task-specific feature extraction.
             </li>
             <li>
-                Since PTE is a graph-based algorithm, utilizing GCN can further enhance the graph structure proposed in PTE. Our tests in GCN with methods proposed in <a href="https://arxiv.org/abs/1609.02907">Semi-Supervised Classification with Graph Convolutional Networks</a>                show that this method outperforms PTE.
+                Since PTE is a graph-based algorithm, utilizing GCN can further enhance the performance. Our tests in GCN with methods proposed in <a href="https://arxiv.org/abs/1609.02907">Semi-Supervised Classification with Graph Convolutional Networks</a>                
+		show that GCN is better, probably because it takes advantage of both graph structure proposed in PTE and the representation power of neural network.
             </li>
         </ul>
         <h3>
@@ -297,12 +298,12 @@ end</pre> -->
         </h3>
         <ul>
             <li>
-                In the MR dataset, the semantic embeddings blend together even though there are only two classifications in dataset. We suspect this is because that some of key words like "but", "nevertheless" can change the sentiment of the text rapidly. Because of
+                In the MR dataset, a large portion of the embeddings blend together even though there are only two classifications in MR. We suspect that this is because some of key words like "but", "nevertheless" can change the sentiment of the text rapidly. Because of
                 this nature of sentiment analysis task, we expect that attension mechanism will further improve our performance.</il>
                 <li>
-                    Since we have different kinds of node in the graph we built: word, document, classification, we expect that techniques in Heterogeneous Graph Neural Network will improve our performance. </li>
+                    Since we have different kinds of node in the graph: word, document, label, we can modify current methods based on heterogeneity of our graph. </li>
                 <li>
-                    GCN is a more generic and powerful framework for graph-based algorithm which has benn shown in our experiments. It is promising to deploy more advanced GCN training algorithm developed more recently. </li>
+                    GCN is a more generic and powerful framework for graph-based algorithm which has benn shown in our experiments. It is promising to deploy more advanced GCN training algorithm appeared more recently. </li>
         </ul>
         <h2>
             <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contribution
